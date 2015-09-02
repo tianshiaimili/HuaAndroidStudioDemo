@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--用于惦记背景色变化 中时的浅绿色-->
+    <color name="green_circle">#e8fce7</color>
+
+    <!-- 圈子列表选中时的浅绿色 -->
+    <color name="green_menu_text">#09bb07</color>
+
+</resources>
