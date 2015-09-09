@@ -55,7 +55,7 @@ afterEvaluate {
             dx.additionalParameters = []
         }
         dx.additionalParameters += '--multi-dex'
-//        dx.additionalParameters += '--main-dex-list=main_dex.txt'
-//        dx.additionalParameters += '--minimal-main-dex'
+//        dx.additionalParameters += '--main_at_test-dex-list=main_dex.txt'
+//        dx.additionalParameters += '--minimal-main_at_test-dex'
     }
 }
