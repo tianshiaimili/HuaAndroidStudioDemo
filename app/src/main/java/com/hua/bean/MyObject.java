@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.webkit.WebView;
 
 import com.hua.R;
+import com.hua.activity.test.HTMLActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
