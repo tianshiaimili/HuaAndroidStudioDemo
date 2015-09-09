@@ -43,6 +43,7 @@ dependencies {
     compile "org.androidannotations:androidannotations-api:$AAVersion"
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'com.nineoldandroids:library:2.4.0'
 
 }
 

@@ -19,6 +19,7 @@ import com.hua.activity.test.PersonFragmentNew_;
 import com.hua.activity.test.PostsActvity_;
 import com.hua.activity.test.SpannableActivity;
 import com.hua.activity.test.WebViewPlayer_;
+import com.hua.activity.test.XuanFuActivity;
 import com.hua.utils.LogUtils;
 
 import org.androidannotations.annotations.AfterInject;
@@ -219,6 +220,14 @@ public class MainActivity extends Activity {
 	void test13(){
 
 		Intent intent = new Intent(this,AT_Activity.class);
+		startActivity(intent);
+
+	}
+
+	@Click
+	void test14(){
+
+		Intent intent = new Intent(this,XuanFuActivity.class);
 		startActivity(intent);
 
 	}

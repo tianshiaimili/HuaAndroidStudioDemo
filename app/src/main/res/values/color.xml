@@ -6,5 +6,6 @@
 
     <!-- 圈子列表选中时的浅绿色 -->
     <color name="green_menu_text">#09bb07</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
 
 </resources>

@@ -92,6 +92,9 @@
         <activity android:name="com.hua.activity.test.HTMLActivity"></activity>
         <activity android:name="com.hua.activity.test.PersonFragmentNew_"></activity>
         <activity android:name="com.hua.activity.test.SpannableActivity"></activity>
+        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.test.XuanFuActivity"/>
+
+
 
         <!--是test中的activity-->
 

@@ -10,7 +10,7 @@
 
     <!-- 选择兴趣 -->
     <string name="interest_tip">点击选择兴趣，找到志同道合的好友</string>
-
+    <string name="actionbar_title">ParallaxHeaderViewPager</string>
     <string-array name="interest_option">
         <item>烘焙</item>
         <item>旅游</item>
