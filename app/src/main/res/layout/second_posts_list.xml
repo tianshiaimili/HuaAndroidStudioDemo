@@ -10,7 +10,7 @@
         android:background="#FFFFFF"
         android:orientation="vertical" >
 
-        <com.example.annotationdemo.view.RefleshListView
+        <com.hua.view.RefleshListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -21,7 +21,7 @@
             android:fastScrollEnabled="false"
             android:listSelector="@android:color/transparent"
             android:scrollbars="none" >
-        </com.example.annotationdemo.view.RefleshListView>
+        </com.hua.view.RefleshListView>
     </LinearLayout>
 
 </RelativeLayout>

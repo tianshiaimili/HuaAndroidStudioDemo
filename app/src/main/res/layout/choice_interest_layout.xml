@@ -52,7 +52,7 @@
         android:textColor="#4CAF50"
         android:textSize="18dp" />
 
-    <com.example.annotationdemo.view.CustomGridView
+    <com.hua.view.CustomGridView
         android:id="@+id/gridview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -63,6 +63,6 @@
         android:paddingLeft="5dip"
         android:paddingRight="5dip"
         android:verticalSpacing="30dp" >
-    </com.example.annotationdemo.view.CustomGridView>
+    </com.hua.view.CustomGridView>
 
 </LinearLayout>

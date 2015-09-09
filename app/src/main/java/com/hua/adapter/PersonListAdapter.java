@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 
 import com.hua.bean.Person;
 import com.hua.view.PersonItemView;
+import com.hua.view.PersonItemView_;
 
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.EBean;

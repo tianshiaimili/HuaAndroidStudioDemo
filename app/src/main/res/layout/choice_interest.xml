@@ -57,7 +57,7 @@
         android:textColor="#666666"
         android:textSize="18sp" />
 
-    <com.example.annotationdemo.view.MMFlowLayout
+    <com.hua.view.MMFlowLayout
         android:id="@+id/flowlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

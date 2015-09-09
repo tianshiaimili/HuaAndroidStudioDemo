@@ -8,6 +8,7 @@ import com.hua.adapter.CreamNewAdapter;
 import com.hua.adapter.PostsGalleryAdapter;
 import com.hua.bean.RecommendMessageBean;
 import com.hua.view.FreaturePostsCreamHeaderView;
+import com.hua.view.FreaturePostsCreamHeaderView_;
 import com.hua.view.RefleshListView;
 
 import org.androidannotations.annotations.AfterInject;

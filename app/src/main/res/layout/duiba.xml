@@ -52,7 +52,7 @@
         android:layout_height="match_parent">
 
 
-        <com.example.annotationdemo.view.KitkatCompatWebview
+        <com.hua.view.KitkatCompatWebview
             android:id="@+id/duiba_wv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
