@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical" >
+
+    <com.example.annotationdemo.view.RefleshListView
+        android:id="@+id/listView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="70dp"
+         >
+    </com.example.annotationdemo.view.RefleshListView>
+
+    <!--
+         <ListView
+        android:id="@+id/listView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+    </ListView>
+    -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+         android:background="@android:color/transparent"
+        android:orientation="horizontal"
+         >
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+         android:background="@android:color/transparent"
+        android:orientation="horizontal"
+        android:padding="20dp" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/concern_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/concern" />
+
+            <TextView
+                android:id="@+id/sendMessage_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/concern_iv"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:text="私信"
+                android:textColor="#09bb07"
+                android:textSize="19sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/message_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/message" />
+
+            <TextView
+                android:id="@+id/follow_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/message_iv"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:text="关注"
+                android:textColor="#09bb07"
+                android:textSize="19sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

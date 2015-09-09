@@ -25,10 +25,8 @@ public class LogUtils {
 				String methodName = elements[3].getMethodName();
 				
 				int lineNumber = elements[3].getLineNumber();
-//				Log.e(className + "." + methodName + "():" + lineNumber,
-//						message);
-				
-				Log.e(TAG,"["+className + ":"+methodName +" _ "+ lineNumber+"�??]:"+
+
+				Log.e(TAG,"["+className + ":"+methodName +" _ "+ lineNumber+"]:"+
 						message);
 			}
 		}
@@ -46,9 +44,7 @@ public class LogUtils {
 						.lastIndexOf(".") + 1);
 				String methodName = elements[3].getMethodName();
 				int lineNumber = elements[3].getLineNumber();
-//				Log.e(className + "." + methodName + "():" + lineNumber,
-//						message);
-				Log.e(tag,"["+className + ":"+methodName +" _ "+ lineNumber+"�??]:"+
+				Log.e(tag,"["+className + ":"+methodName +" _ "+ lineNumber+"]:"+
 						message);
 			}
 		}
@@ -66,10 +62,7 @@ public class LogUtils {
 						.lastIndexOf(".") + 1);
 				String methodName = elements[3].getMethodName();
 				int lineNumber = elements[3].getLineNumber();
-//				Log.d("TAG",className + "." + methodName + "():" + lineNumber+"�??"+
-//						message);
-				
-				Log.d(TAG,"["+className + ":"+methodName +" _ "+ lineNumber+"�??]:"+
+				Log.d(TAG,"["+className + ":"+methodName +" _ "+ lineNumber+"]:"+
 						message);
 			}
 		}
@@ -88,10 +81,8 @@ public class LogUtils {
 						.lastIndexOf(".") + 1);
 				String methodName = elements[3].getMethodName();
 				int lineNumber = elements[3].getLineNumber();
-//				Log.d("TAG",className + "." + methodName + "():" + lineNumber+"�??"+
-//						message);
-				
-				Log.d(tag,"["+className + ":"+methodName +" _ "+ lineNumber+"�??]:"+
+
+				Log.d(tag,"["+className + ":"+methodName +" _ "+ lineNumber+"]:"+
 						message);
 			}
 		}
@@ -109,9 +100,7 @@ public class LogUtils {
 						.lastIndexOf(".") + 1);
 				String methodName = elements[3].getMethodName();
 				int lineNumber = elements[3].getLineNumber();
-//				Log.i(className + "." + methodName + "():" + lineNumber,
-//						message);
-				Log.i(TAG,"["+className + ":"+methodName +" _ "+ lineNumber+"�??]:"+
+				Log.i(TAG,"["+className + ":"+methodName +" _ "+ lineNumber+"]:"+
 						message);
 			}
 		}
@@ -130,9 +119,7 @@ public class LogUtils {
 						.lastIndexOf(".") + 1);
 				String methodName = elements[3].getMethodName();
 				int lineNumber = elements[3].getLineNumber();
-//				Log.i(className + "." + methodName + "():" + lineNumber,
-//						message);
-				Log.i(tag,"["+className + ":"+methodName +" _ "+ lineNumber+"�??]:"+
+				Log.i(tag,"["+className + ":"+methodName +" _ "+ lineNumber+"]:"+
 						message);
 			}
 		}
@@ -151,9 +138,7 @@ public class LogUtils {
 						.lastIndexOf(".") + 1);
 				String methodName = elements[3].getMethodName();
 				int lineNumber = elements[3].getLineNumber();
-//				Log.w(className + "." + methodName + "():" + lineNumber,
-//						message);
-				Log.w(TAG,"["+className + ":"+methodName +" _ "+ lineNumber+"�??]:"+
+				Log.w(TAG,"["+className + ":"+methodName +" _ "+ lineNumber+"]:"+
 						message);
 			}
 		}
@@ -173,7 +158,7 @@ public class LogUtils {
 				String methodName = elements[3].getMethodName();
 				int lineNumber = elements[3].getLineNumber();
 				
-				Log.w(tag,"["+className + ":"+methodName +" _ "+ lineNumber+"�??]:"+
+				Log.w(tag,"["+className + ":"+methodName +" _ "+ lineNumber+"]:"+
 						message);
 			}
 		}
@@ -193,7 +178,7 @@ public class LogUtils {
 				String methodName = elements[3].getMethodName();
 				int lineNumber = elements[3].getLineNumber();
 				
-				Log.v(TAG,"["+className + ":"+methodName +" _ "+ lineNumber+"�??]:"+
+				Log.v(TAG,"["+className + ":"+methodName +" _ "+ lineNumber+"]:"+
 						message);
 				
 			}
@@ -214,7 +199,7 @@ public class LogUtils {
 				String methodName = elements[3].getMethodName();
 				int lineNumber = elements[3].getLineNumber();
 
-				Log.v(tag,"["+className + ":"+methodName +" _ "+ lineNumber+"�??]:"+
+				Log.v(tag,"["+className + ":"+methodName +" _ "+ lineNumber+"]:"+
 						message);
 				
 			}

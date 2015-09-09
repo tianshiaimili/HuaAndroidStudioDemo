@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/choice_interest"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/top_bg" >
+
+        <ImageView
+            android:id="@+id/cancel_tv"
+            style="@style/style2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/cancel_icon"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/title_tv"
+            style="@style/style2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="选择兴趣" />
+
+        <ImageView
+            android:id="@+id/sure_tv"
+            style="@style/style2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/confirm_icon"
+            android:scaleType="fitXY" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/interest_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dip"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/interest_icon"
+        android:drawablePadding="10dp"
+        android:text="@string/interest_tip"
+        android:textColor="@color/gray1"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dip"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/interest_icon"
+        android:drawablePadding="10dp"
+        android:text="@string/interest_tip"
+        android:textColor="@color/gray1"
+        android:textSize="18sp" />
+
+    <com.example.annotationdemo.view.RefleshListView
+        android:id="@+id/listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="20dp"
+        android:cacheColorHint="@null"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none" />
+
+
+
+    <!--
+    <cn.mama.view.CustomGridView
+        android:id="@+id/gridview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="@dimen/menu_item_padding"
+        android:background="@color/white"
+        android:horizontalSpacing="20dp"
+        android:numColumns="2"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:verticalSpacing="20dp"></cn.mama.view.CustomGridView>
+    -->
+
+</LinearLayout>

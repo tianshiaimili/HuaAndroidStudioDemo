@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/title_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="15dp"
+        android:visibility="gone"
+         >
+
+        <TextView
+            android:id="@+id/adapter_item_title"
+            style="@style/adapter_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/details_information"
+            android:layout_gravity="center_vertical"
+            android:drawablePadding="10dp"
+            android:text="实用信息" />
+
+        <TextView
+            android:id="@+id/adapter_item_sub_title"
+            style="@style/adapter_title_sub_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/adapter_item_title"
+            android:layout_marginLeft="10dp"
+            android:singleLine="true"
+            android:layout_gravity="center_vertical"
+            android:ellipsize="end"
+            android:text="吐血推荐.." />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/adapter_item_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_recommend"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/adapter_item_sub_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="实用信息"
+            android:lineSpacingExtra="5dp"
+            android:textColor="#666666"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</LinearLayout>

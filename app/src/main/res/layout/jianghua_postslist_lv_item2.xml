@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical"
+    android:paddingBottom="8dp" >
+
+    <LinearLayout
+        android:id="@+id/title_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:visibility="gone"
+         >
+
+        <TextView
+            android:id="@+id/adapter_item_title"
+            style="@style/adapter_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:drawableLeft="@drawable/details_information"
+            android:drawablePadding="10dp"
+            android:text="实用信息" />
+
+        <TextView
+            android:id="@+id/adapter_item_sub_title"
+            style="@style/adapter_title_sub_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:text="实用信息" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/title_layout"
+        android:paddingBottom="11dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="11dp"
+            android:gravity="center_vertical" >
+
+            <com.example.annotationdemo.view.ScaleImageView
+                android:id="@+id/avatar_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg01" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/avatar_img"
+                android:layout_alignTop="@+id/avatar_img"
+                android:layout_marginLeft="6dp"
+                android:layout_toRightOf="@+id/avatar_img"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/author"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="小甘撸" />
+
+                    <ImageView
+                        android:id="@+id/info"
+                        android:layout_width="50dp"
+                        android:layout_height="17dp"
+                        android:layout_marginLeft="3dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/bb_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="宝宝一岁"
+                    android:textColor="@color/gray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/avatar_img"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/avatar_img"
+                android:layout_marginRight="15dip"
+                android:gravity="center_vertical|right"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/count"
+                    style="@style/title2Font"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/review"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="0"
+                    android:textColor="@color/gray" />
+
+                <TextView
+                    android:id="@+id/time"
+                    style="@style/title2Font"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="2秒"
+                    android:textColor="@color/gray"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="10dp"
+            >
+
+            <ImageView
+                android:id="@+id/title_ico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:src="@drawable/details_information" />
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/titleFont1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:lineSpacingExtra="3dp"
+                android:text="求助问题吗" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:lineSpacingExtra="3dp"
+            android:maxLines="2"
+            android:text="kkkkkdasdkasjdaksjdkj"
+            android:textColor="@color/gray"
+            android:textSize="14sp" />
+
+        <com.example.annotationdemo.view.CustomGridView
+            android:id="@+id/gridView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:horizontalSpacing="8dp"
+            android:numColumns="3" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_is_hot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true" />
+
+</RelativeLayout>
