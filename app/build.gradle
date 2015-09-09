@@ -59,3 +59,14 @@ afterEvaluate {
 //        dx.additionalParameters += '--minimal-main_at_test-dex'
     }
 }
+
+
+/**
+ * AA◊¢Ω‚Apt≈‰÷√
+ */
+apt {
+    arguments {
+        androidManifestFile variant.outputs[0].processResources.manifestFile
+        resourcePackageName 'com.hua.activity'
+    }
+}

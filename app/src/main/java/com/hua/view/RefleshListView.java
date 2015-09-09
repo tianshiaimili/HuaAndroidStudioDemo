@@ -1,8 +1,5 @@
 package com.hua.view;
 
-import java.lang.reflect.Constructor;
-import java.util.Date;
-
 import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
@@ -21,8 +18,12 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.annotationdemo.R;
-import com.example.annotationdemo.net.utils.HttpConnManager;
+import com.hua.R;
+import com.hua.http.HttpConnManager;
+
+import java.lang.reflect.Constructor;
+import java.util.Date;
+
 
 public class RefleshListView extends ListView implements OnScrollListener {
 

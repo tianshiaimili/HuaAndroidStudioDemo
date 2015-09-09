@@ -1,16 +1,15 @@
 package com.hua.view;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.example.annotationdemo.utils.LogUtils;
+import com.hua.utils.LogUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 
  */
@@ -181,7 +180,7 @@ public class MMFlowLayout2 extends RelativeLayout{
     public int getStartCoordinate(List<View> lineViews){
     	int left = 0;
     	int screenWidth = getWidth();
-    	LogUtils.i("screenWidth--"+screenWidth);
+    	LogUtils.i("screenWidth--" + screenWidth);
     	
         for(int k = 0;k < lineViews.size();k++){
         	View child2 = lineViews.get(k);

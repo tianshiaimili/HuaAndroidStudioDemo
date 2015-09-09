@@ -1,9 +1,5 @@
 package com.hua.adapter;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeSet;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +8,13 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.annotationdemo.R;
-import com.example.annotationdemo.bean.RecommendMessageBean;
-import com.example.annotationdemo.view.CustomGridView;
+import com.hua.R;
+import com.hua.bean.RecommendMessageBean;
+import com.hua.view.CustomGridView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeSet;
 
 public class CreamNewAdapter extends BaseAdapter {
 

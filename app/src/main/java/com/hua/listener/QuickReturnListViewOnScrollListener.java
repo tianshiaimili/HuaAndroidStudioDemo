@@ -1,13 +1,14 @@
 package com.hua.listener;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.animation.ObjectAnimator;
 import android.view.View;
 import android.widget.AbsListView;
 
-import com.example.annotationdemo.utils.QuickReturnUtils;
+import com.hua.utils.QuickReturnUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by etiennelawlor on 7/10/14.

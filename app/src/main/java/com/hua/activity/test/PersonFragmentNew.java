@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.widget.Gallery;
 
 import com.hua.R;
+import com.hua.adapter.CreamNewAdapter;
+import com.hua.adapter.PostsGalleryAdapter;
 import com.hua.bean.RecommendMessageBean;
 import com.hua.view.FreaturePostsCreamHeaderView;
 import com.hua.view.RefleshListView;

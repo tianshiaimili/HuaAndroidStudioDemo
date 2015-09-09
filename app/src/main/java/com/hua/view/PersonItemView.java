@@ -1,14 +1,15 @@
 package com.hua.view;
 
-import org.androidannotations.annotations.EViewGroup;
-import org.androidannotations.annotations.ViewById;
-
 import android.content.Context;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.annotationdemo.R;
-import com.example.annotationdemo.bean.Person;
+import com.hua.R;
+import com.hua.bean.Person;
+
+import org.androidannotations.annotations.EViewGroup;
+import org.androidannotations.annotations.ViewById;
+
 
 /**
  * Created by test on 2015/7/2.

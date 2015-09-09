@@ -1,7 +1,5 @@
 package com.hua.adapter;
 
-import java.util.List;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +9,11 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.annotationdemo.R;
-import com.example.annotationdemo.bean.PostsRecommendBean;
-import com.example.annotationdemo.bean.RecommendMessageBean;
+import com.hua.R;
+import com.hua.bean.RecommendMessageBean;
+
+import java.util.List;
+
 
 public class PostsGridViewAdapter extends BaseAdapter{
 

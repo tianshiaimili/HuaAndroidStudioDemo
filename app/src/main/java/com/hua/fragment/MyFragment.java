@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hua.R;
 import com.hua.utils.LogUtils;
 
 import org.androidannotations.annotations.AfterInject;

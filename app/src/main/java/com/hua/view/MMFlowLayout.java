@@ -1,17 +1,13 @@
 package com.hua.view;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.R.integer;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.MeasureSpec;
-import android.widget.LinearLayout;
 
-import com.example.annotationdemo.utils.LogUtils;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 
  */

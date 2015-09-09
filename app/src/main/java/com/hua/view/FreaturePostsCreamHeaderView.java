@@ -1,8 +1,5 @@
 package com.hua.view;
 
-import org.androidannotations.annotations.EViewGroup;
-import org.androidannotations.annotations.ViewById;
-
 import android.content.Context;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,15 +7,19 @@ import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.TextView;
 
-import com.example.annotationdemo.R;
-import com.example.annotationdemo.interfaces.AdapterItemView;
+import com.hua.R;
+import com.hua.interfaces.AdapterItemView;
+
+import org.androidannotations.annotations.EViewGroup;
+import org.androidannotations.annotations.ViewById;
+
 
 /**
  * Created by sundh  on 2015/7/14.
  * 圈子 头部视图
  */
 @EViewGroup(R.layout.feature_posts_header)
-public class FreaturePostsCreamHeaderView extends AdapterItemView{
+public class FreaturePostsCreamHeaderView extends AdapterItemView {
 
     @ViewById
     TextView local_titles;

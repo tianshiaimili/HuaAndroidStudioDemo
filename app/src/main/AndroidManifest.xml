@@ -2,9 +2,51 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hua" >
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- 访问电话的权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 访问网络的权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- 访问网络状态的权限 -->
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 访问WIFI网络状态的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 改变WIFI网络状态的权限 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 读写存储卡的权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RIDE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- 相机权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.autofocus" />
+    <uses-feature android:name="android.hardware.flash" />
+    <!-- 闪光灯控制 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <!-- Push service 运行需要的权限 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- for log. -->
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -24,6 +66,31 @@
         <activity android:name=".activity.at_demo.UserChiceActivity"></activity>
         <activity android:name=".activity.at_demo.TextViewLinkActivity"></activity>
         <activity android:name=".activity.at_demo.TestActivity"></activity>
+
+
+        <!--下面是test中的activity-->
+        <activity android:name="com.hua.activity.test.ActivityWithExtra_" >
+        </activity>
+        <activity android:name="com.hua.activity.test.PersonFragment_" >
+        </activity>
+        <activity android:name="com.hua.activity.test.ChoiceInterest_" >
+        </activity>
+        <activity
+            android:name="com.hua.activity.test.WebViewPlayer_"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateUnspecified" >
+        </activity>
+
+        <activity android:name="com.hua.activity.test.MultipleItemsList"></activity>
+        <activity android:name="com.hua.activity.test.CreamDetail_"></activity>
+        <activity android:name="com.hua.activity.test.testactivity.PostsActvity_"/>
+        <activity android:name="com.hua.activity.test.CreditActivity_"></activity>
+        <activity android:name="com.hua.activity.test.HTMLActivity"></activity>
+        <activity android:name="com.hua.activity.test.PersonFragmentNew_"></activity>
+        <!--是test中的activity-->
+
 
     </application>
 

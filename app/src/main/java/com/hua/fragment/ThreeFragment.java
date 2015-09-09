@@ -1,18 +1,18 @@
 package com.hua.fragment;
 
-import org.androidannotations.annotations.AfterInject;
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.FragmentArg;
-
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.annotationdemo.R;
-import com.example.annotationdemo.utils.LogUtils;
+import com.hua.R;
+import com.hua.utils.LogUtils;
+
+import org.androidannotations.annotations.AfterInject;
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.FragmentArg;
 
 
 @EFragment(R.layout.threefragment_main)

@@ -1,10 +1,11 @@
 package com.hua.view;
 
-import com.example.annotationdemo.R;
 
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+
+import com.hua.R;
 
 public class CustomsDialog extends Dialog{
 
