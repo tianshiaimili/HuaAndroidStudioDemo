@@ -47,7 +47,7 @@ public class ImageLoadUtil {
     }
 
     public static void loadImageWithUrl(Context context, ImageView imageView, String url, int drawableId, int errorId, boolean asBitmap, BitmapTransformation bitmapTransformation) {
-        try{
+        try {
             DrawableTypeRequest request = Glide.with(context).load(url);
             if (asBitmap) {
                 request.asBitmap().animate(AnimationUtil.getDefaultAnimation()).placeholder(drawableId).error(errorId).into(imageView);
@@ -59,9 +59,9 @@ public class ImageLoadUtil {
                     request.placeholder(drawableId).error(errorId).into(imageView);
                 }
             }
-        }catch (IllegalStateException e){
+        } catch (IllegalStateException e) {
             e.printStackTrace();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -77,7 +77,7 @@ public class ImageLoadUtil {
     }
 
     public static void loadImageWithWidth(Context context, ImageView imageView, String url, int width) {
-        if(width<=0){
+        if (width <= 0) {
             DisplayMetrics dm = new DisplayMetrics();
             dm = context.getApplicationContext().getResources().getDisplayMetrics();
             int screenWidth = dm.widthPixels;
@@ -85,6 +85,7 @@ public class ImageLoadUtil {
         }
         Glide.with(context).load(url).placeholder(R.drawable.de_pic).error(R.drawable.pic_error).override(width, width).into(imageView);
     }
+
     public static void loadImageWithWidthAndHeight(Context context, ImageView imageView, String url, int width, int height) {
         Glide.with(context).load(url).placeholder(R.drawable.de_pic).error(R.drawable.pic_error).override(width, height).into(imageView);
     }
@@ -116,4 +117,6 @@ public class ImageLoadUtil {
 //            .considerExifParams(true)
 //            .imageScaleType(ImageScaleType.EXACTLY)
 //            .build();
+//}
+
 }
