@@ -44,6 +44,7 @@ dependencies {
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.github.bumptech.glide:glide:3.6.1'
 
 }
 
@@ -63,7 +64,7 @@ afterEvaluate {
 
 
 /**
- * AA×¢½âAptÅäÖÃ
+ * AA×¢ï¿½ï¿½Aptï¿½ï¿½ï¿½ï¿½
  */
 apt {
     arguments {
