@@ -2,10 +2,154 @@
 <resources>
 
     <!--用于惦记背景色变化 中时的浅绿色-->
+    <!--大姨妈种星期日的字体颜色-->
+    <color name="cirmson">#fff7506d</color>
+
+    <!-- 有点类似朱红的 -->
+    <color name="pink">#ff7171</color>
+
+    <!--错误内容提醒字体颜色-->
+    <color name="darkred">#761D0A</color>
+
+    <!--底部小红点-->
+    <color name="tip_red">#f43631</color>
+
+    <!--加载进度框中的蓝色-->
+    <color name="holo_blue_light">#ff33b5e5</color>
+
+    <!--登录种的注册新用户蓝色字体-->
+    <color name="blue">#7ab8c7</color>
+
+
+    <color name="blue_light">#21b3cd</color>
+
+    <!--浅蓝色。主要用于赞或评论字体颜色-->
+    <color name="bule1">#88abd1</color>
+
+    <color name="transparent">#00000000</color>
+
+
+    <!--主要字体颜色。帖子详情种的字体颜色-->
+    <color name="gray">#999999</color>
+
+
+    <!-- 帖子列表用户名字体颜色 -->
+    <color name="gray1">#666666</color>
+    <!-- 颜色较深的灰色 -->
+    <color name="gray2">#888888</color>
+
+    <!-- 颜色较浅的灰色 -->
+    <color name="gray4">#DEDEDE</color>
+    <!-- 颜色更浅的灰色 -->
+    <color name="gray3">#c9c9c9</color>
+    <!-- 颜色更浅的灰色 -->
+    <color name="gray5">#b4b4b4</color>
+    <!-- 同城版块今日数字体颜色 也是灰色 -->
+    <color name="gray6">#aaaaaa</color>
+    <!-- 颜色较浅的灰色 -->
+    <color name="gray7">#eaeaea</color>
+    <!-- 颜色较浅的灰色 -->
+    <color name="darkgray">#333333</color>
+    <!-- 颜色较浅的灰色 -->
+    <color name="gray8">#F7F7F7</color>
+    <!-- 深灰色颜色 -->
+    <color name="gray9">#8e8e8e</color>
+
+    <!-- 灰色颜色用于活动详情种的字体颜色， -->
+    <color name="gray10">#777777</color>
+    <color name="gray11">#f9f9f9</color>
+
+    <color name="gray_menu_text">#727a7e</color>
+
+    <color name="white">#ffFFFFFF</color>
+    <!-- 纯白白色 -->
+    <color name="white2">#F5F5F5</color>
+    <!-- 白色字体 -->
+    <color name="white4">#EEEEEE</color>
+    <!-- 白色。比较浅 -->
+    <color name="white5">#fffffd</color>
+    <!-- 白色。比较浅  切换栏未选中字体颜色 -->
+
+    <!-- 白色。比较浅用于快乐育儿那边背景 -->
+    <color name="white6">#F0EEEA</color>
+    <!-- 白色。比较浅  切换栏未选中字体颜色 -->
+
+    <color name="green">#57a424</color>
+    <!-- 绿色  圈子Item标题绿色颜色 -->
+    <color name="green1">#75886B</color>
+    <!-- 绿色 很浅的绿色 活动详情背景颜色 -->
+    <color name="green3">#338315</color>
+    <!-- 绿色  接近深草绿色 切换栏选中字体颜色 -->
+    <color name="green4">#57c21e</color>
+
+    <color name="green5">#3b8613</color>
+    <!-- 绿色 tab颜色  活跃榜字体颜色 -->
+    <color name="green6">#3AC431</color>
+
+    <!-- 绿色 接近标题颜色  关注字体颜色 -->
+    <color name="green_line">#64cd0f</color>
+
+    <!--用于惦记背景色变化 中时的浅绿色-->
     <color name="green_circle">#e8fce7</color>
 
     <!-- 圈子列表选中时的浅绿色 -->
     <color name="green_menu_text">#09bb07</color>
+
+    <!-- iphone时间控件上文字的浅绿色 -->
+    <color name="wheel_text_green">#51ba1b</color>
+
+    <color name="black">#030303</color>
+    <!-- 黑色字体 -->
+    <color name="black1">#444444</color>
+    <!-- 黑色字体 较浅 -->
+    <color name="black2">#555555</color>
+    <!-- 黑色字体 较深 -->
+    <color name="black3">#222222</color>
+    <!-- 黑色字体 -->
+    <color name="black4">#52596b</color>
+    <!-- 黑色字体 颜色偏黑紫色 -->
+    <color name="black5">#47566D</color>
+    <!-- 黑色字体 颜色更偏黑紫色 -->
+    <color name="black6">#4c5467</color>
+    <!-- 黑色字体 颜色更偏黑紫色 底部栏分享字体颜色 -->
+
+    <color name="black7">#333333</color>
+
+    <!--快乐育儿种的字体-->
+    <color name="black8">#3e3e3e</color>
+
+    <color name="red">#e74a4a</color>
+    <!-- 红色字体 非卖不可价格色 -->
+
+    <color name="umeng_fb_color_btn_pressed">#1495F7</color>
+    <color name="umeng_fb_color_btn_normal">#333333</color>
+    <!-- app viewpager -->
     <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="tab_text_color_night">#abb0c5</color>
+
+    <color name="part_top_bg">#fff6b3</color>
+
+
+
+    <color name="default_image_progress_color">#d7d7d7</color>
+    <color name="image_pregress_mask_color">#10000000</color>
+
+
+    <!-- 5.1版本收藏和分享放在右上角的更多 -->
+    <color name="dialog_divider">#E0E0E0</color>
+    <color name="dialog_listitem_press">#ffd0dce4</color>
+    <color name="dialog_backgroud_full">#6d000000</color>
+    <color name="text_color">#434343</color>
+
+
+    <color name="dynamic_child_bg">#f4f6f6</color>
+
+    <color name="friend_bg">#f2f1ee</color>
+    <color name="friend_home_head_text">#d6000000</color>
+
+    <color name="local_title_bac">#fafafa</color>
+
+
+
 
 </resources>

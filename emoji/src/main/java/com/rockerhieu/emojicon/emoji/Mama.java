@@ -4,10 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import cn.mama.emoji.R;
-
-/**
- * Created by hejinxi on 15/7/30.
- */
 public class Mama {
 
         public static final Map<String, Integer> mamaEmojiMap;

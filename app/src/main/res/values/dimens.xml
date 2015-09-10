@@ -3,10 +3,83 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="footer_height">70dp</dimen>
     <dimen name="header_height">298dp</dimen>
     <dimen name="min_header_height">250dp</dimen>
     <dimen name="header_logo_size">100dp</dimen>
+
+    <dimen name="menu_item_padding">10dp</dimen>
+    <dimen name="menu_header_padding_top">8dp</dimen>
+    <dimen name="menu_header_line">3dp</dimen>
+    <dimen name="menu_icon_side">40dp</dimen>
+    <dimen name="face_height">24dp</dimen>
+    <dimen name="img_height">40dp</dimen>
+    <dimen name="wheel_text_size">18dp</dimen>
+    <dimen name="wheel_item_height">15dp</dimen>
+    <dimen name="have_margin_left">7dp</dimen>
+    <dimen name="message_img_height">25dp</dimen>
+    <dimen name="message_face_padding_top">10dp</dimen>
+    <dimen name="dp_1">1dp</dimen>
+    <dimen name="level_height">27dp</dimen>
+    <dimen name="level_width">40dp</dimen>
+    <dimen name="group_height">17dp</dimen>
+    <dimen name="group_width">50dp</dimen>
+    <dimen name="scrore_Size">23dp</dimen>
+    <dimen name="imageWidth1">120dp</dimen>
+    <dimen name="imageHight1">80dp</dimen>
+    <dimen name="radio_label_right">12dp</dimen>
+    <dimen name="square_hight">40dp</dimen>
+    <dimen name="w_cut1">25dp</dimen>
+    <dimen name="w_cut2">20dp</dimen>
+    <dimen name="w_cut3">35dp</dimen>
+    <dimen name="w_cut4">150dp</dimen>
+    <dimen name="w_cut4_userinfo">160dp</dimen>
+    <dimen name="w_cut5">80dp</dimen>
+    <dimen name="w_cut6">44dp</dimen>
+    <integer name="dot_left">1</integer>
+    <!--  动画效果
+  -->
+    <dimen name="mmhome_block_inner_edge">16dp</dimen>
+    <dimen name="mmhome_block_outter_edge">10dp</dimen>
+
+    <dimen name="titlebar_height">48dp</dimen>
+    <dimen name="page_edge">48dp</dimen>
+
+    <!-- 图片加载进度文字尺寸 -->
+    <dimen name="image_progress_textsize">13sp</dimen>
+
+
+    <dimen name="message_dot">9dp</dimen>
+
+    <dimen name="icon_shopping_width">40dp</dimen>
+    <dimen name="icon_shopping_hight">29dp</dimen>
+
+    <dimen name="mine_margin_top">15dp</dimen>
+    <!--环信-->
+    <dimen name="height_top_bar">46dp</dimen>
+    <dimen name="padding_search_bar">5dp</dimen>
+    <dimen name="height_row_weixin">59dp</dimen>
+    <dimen name="size_avatar">50dp</dimen>
+    <dimen name="margin_chat_activity">5dp</dimen>
+    <dimen name="field_textsize">14sp</dimen>
+    <dimen name="field_margin_right">5dp</dimen>
+    <dimen name="call_button_padding_vertical">10dp</dimen>
+    <dimen name="call_button_padding_left">25dp</dimen>
+    <dimen name="call_button_padding_right">25dp</dimen>
+    <dimen name="sidebar_text_size">10dp</dimen>
+    <dimen name="image_thumbnail_size">100dp</dimen>
+    <dimen name="image_thumbnail_spacing">1dp</dimen>
+
+    <!--个人用户资料显示页-->
+    <dimen name="parallax_scoll_listView">30dp</dimen>
+
+    <!--兴趣选择的dimen-->
+    <dimen name="interest_recom_title_size">19sp</dimen>
+
+    <!--userinfo page 底部的layout-->
+    <dimen name="footer_height">70sp</dimen>
+
+    <!--兴趣选择页的margin-->
+    <dimen name="interest_item_margin">15sp</dimen>
 
 
 </resources>

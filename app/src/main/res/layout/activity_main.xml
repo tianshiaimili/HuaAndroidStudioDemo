@@ -97,6 +97,13 @@
                 android:layout_height="wrap_content"
                 android:text= "滑动悬浮"/>
 
+            <Button
+                android:id="@+id/test15"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text= "emojico表情"/>
+
+
         </LinearLayout>
     </ScrollView>
 

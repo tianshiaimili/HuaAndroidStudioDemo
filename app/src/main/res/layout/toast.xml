@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content"
+    android:background="@drawable/my_border_shape"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_marginLeft="5dip"
+    android:layout_marginRight="5dip">
+    <TextView 
+        android:layout_width="wrap_content" 
+        android:id="@+id/TextViewInfo"
+         android:gravity="center"
+        android:layout_height="wrap_content" 
+        android:text="这是一个自定义背景颜色的提示框"
+        android:textColor="#FFF"></TextView>
+</LinearLayout>

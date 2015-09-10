@@ -48,6 +48,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
+        android:name="com.hua.activity.MMApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -93,6 +94,9 @@
         <activity android:name="com.hua.activity.test.PersonFragmentNew_"></activity>
         <activity android:name="com.hua.activity.test.SpannableActivity"></activity>
         <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.test.XuanFuActivity"/>
+        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.test.TestEmojicoEdit_"/>
+        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.test.TestEmojicoTextView_"/>
+
 
 
 

@@ -18,8 +18,10 @@ import com.hua.activity.test.MultipleItemsList;
 import com.hua.activity.test.PersonFragmentNew_;
 import com.hua.activity.test.PostsActvity_;
 import com.hua.activity.test.SpannableActivity;
+import com.hua.activity.test.TestEmojicoTextView_;
 import com.hua.activity.test.WebViewPlayer_;
 import com.hua.activity.test.XuanFuActivity;
+import com.hua.utils.ActivityManager;
 import com.hua.utils.LogUtils;
 
 import org.androidannotations.annotations.AfterInject;
@@ -229,6 +231,13 @@ public class MainActivity extends Activity {
 
 		Intent intent = new Intent(this,XuanFuActivity.class);
 		startActivity(intent);
+
+	}
+
+	@Click
+	void test15(){
+		Intent intent = new Intent(this,TestEmojicoTextView_.class);
+		ActivityManager.getManager().goTo(MainActivity.this,intent);
 
 	}
 

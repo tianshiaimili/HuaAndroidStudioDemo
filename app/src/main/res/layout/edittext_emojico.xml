@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:emojicon="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:id="@+id/root_layout">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="45dp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/btn_back_selector" />
+
+        <TextView
+            android:id="@+id/tv_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="5dip"
+            android:singleLine="true"
+            android:text="回复"
+            android:textColor="@color/black2"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/publish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:text="发表"
+            android:textColor="@color/green_menu_text"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/write_line" />
+
+        <com.hua.view.EmEditText
+            android:id="@+id/et_write_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="3dip"
+            emojicon:emojiconSize="@dimen/emoji_size"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="回复内容"
+            android:maxLength="800"
+            android:padding="3dip"
+            android:textColor="@color/black1"
+            android:textCursorDrawable="@null" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/write_menubg">
+
+        <TextView
+            android:id="@+id/tv_sum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:text="0/800"
+            android:textColor="@color/gray1"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:id="@+id/body"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="right"
+            android:paddingRight="20dip">
+
+            <ImageView
+                android:id="@+id/iv_talk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/talk_seletor" />
+
+            <ImageView
+                android:id="@+id/iv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="25dip"
+                android:contentDescription="照相"
+                android:background="@drawable/write_carm" />
+
+            <ImageView
+                android:id="@+id/iv_face"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="25dip"
+                android:background="@drawable/write_face_bg" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/combine_face_view"/>
+
+</LinearLayout>

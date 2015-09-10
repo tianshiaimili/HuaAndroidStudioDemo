@@ -93,5 +93,5 @@
         <item>@drawable/red_box_normal</item>
         <item>@drawable/red_box_press</item>
     </string-array>
-
+    <string name="network_no_connect">网络不给力,请检查您的网络设置</string>
 </resources>
