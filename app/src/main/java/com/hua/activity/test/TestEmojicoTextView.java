@@ -1,6 +1,8 @@
 package com.hua.activity.test;
 
+import android.content.Context;
 import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -11,6 +13,7 @@ import com.hua.R;
 import com.hua.bean.DraftBean;
 import com.hua.utils.ActivityManager;
 import com.hua.view.RefleshListView;
+import com.rockerhieu.emojicon.EmojiconTextView;
 
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
@@ -56,7 +59,7 @@ public class TestEmojicoTextView extends  BaseActivity{
     void doAfterOncreat(){
     listview.setLoadMoreable(true);
 
-    adapter = new MAdapter(beans);
+    adapter = new MAdapter(this,beans);
         listview.setAdapter(adapter);
 
     }
@@ -99,9 +102,11 @@ public class TestEmojicoTextView extends  BaseActivity{
     class MAdapter extends BaseAdapter{
 
         List<DraftBean> mList;
+        Context mContext;
 
-        public MAdapter(List<DraftBean> list){
+        public MAdapter(Context context,List<DraftBean> list){
             mList = list;
+            mContext = context;
         }
 
         @Override
@@ -122,9 +127,10 @@ public class TestEmojicoTextView extends  BaseActivity{
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-
-
-            return null;
+            View view = LayoutInflater.from(mContext).inflate(R.layout.emojico_item,null);
+            EmojiconTextView con = (EmojiconTextView) view.findViewById(R.id.message);
+            con.setText(beans.get(position).getContent());
+            return view;
         }
     }
 
