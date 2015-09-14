@@ -22,7 +22,6 @@ import java.util.UUID;
 
 /**
  * 
- * @author Hejx
  *图片操作类 ，提供压缩，修正图片角度
  */
 public class PhotoUtil {
@@ -340,23 +339,23 @@ public static final String DIR = Environment.getExternalStorageDirectory()
 	}
 	
 	public static void startHeadZoom(Activity context,Uri uri,float w2hValue) {
-		Intent intent = new Intent(context, HeadImage.class);
-		intent.setDataAndType(uri, "image/jpeg");
-        intent.putExtra("w2hValue",w2hValue);
-		context.startActivityForResult(intent, Clip_PIC);
+//		Intent intent = new Intent(context, HeadImage.class);
+//		intent.setDataAndType(uri, "image/jpeg");
+//        intent.putExtra("w2hValue",w2hValue);
+//		context.startActivityForResult(intent, Clip_PIC);
 	}
 
     public static void startHeadZoom(Activity context,Uri uri) {
-        Intent intent = new Intent(context, HeadImage.class);
-        intent.setDataAndType(uri, "image/jpeg");
-        intent.putExtra("w2hValue",1);
-        context.startActivityForResult(intent, Clip_PIC);
+//        Intent intent = new Intent(context, HeadImage.class);
+//        intent.setDataAndType(uri, "image/jpeg");
+//        intent.putExtra("w2hValue",1);
+//        context.startActivityForResult(intent, Clip_PIC);
     }
 	
 	public static void startPhotoZoom(Activity context,Uri uri){
-		Intent intent = new Intent(context, ImageRotate.class);
-		intent.setDataAndType(uri, "image/jpeg");
-		context.startActivityForResult(intent,Clip_PIC);
+//		Intent intent = new Intent(context, ImageRotate.class);
+//		intent.setDataAndType(uri, "image/jpeg");
+//		context.startActivityForResult(intent,Clip_PIC);
 	}
 
     //转化压缩后的文件 拿到绝对路径
