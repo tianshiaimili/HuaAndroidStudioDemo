@@ -1,9 +1,5 @@
 package com.hua.utils;
 
-import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -14,12 +10,16 @@ import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import cn.mama.bean.DraftBean;
+
+import com.hua.bean.DraftBean;
+
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * 草稿操作类
- * @author 何金喜
- *
  */
 public class DraftsUtil {
 
@@ -34,7 +34,6 @@ public class DraftsUtil {
 	 * 
 	 * @param context
 	 * @param type 1为圈子。0为同城
-	 * @param Typecontent
 	 */
 	public static void isSaveDialog(final Activity context,final String type,final DraftBean bean) {
 		if(!isOpen){
@@ -69,9 +68,7 @@ public class DraftsUtil {
 	 
 	/**
 	 * 保存内容
-	 * @param context
 	 * @param key   1为圈子。0为同城
-	 * @param Typecontent
 	 */
 	public static void  onSave(String key,DraftBean bean){
 		if(!isOpen){
@@ -88,7 +85,6 @@ public class DraftsUtil {
 	/**
 	 * 将内容中的图片获取
 	 * @param context
-	 * @param key
 	 * @param ed
 	 * @return
 	 */

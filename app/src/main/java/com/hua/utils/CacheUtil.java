@@ -12,7 +12,6 @@ import java.io.File;
 
 /**
  * 缓存操作类
- * @author hejinxi
  *
  */
 public class CacheUtil {

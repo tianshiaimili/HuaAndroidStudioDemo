@@ -15,6 +15,10 @@
  */
 package com.hua.utils;
 
+import android.content.Context;
+
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
@@ -35,10 +39,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-
-import org.json.JSONObject;
-
-import android.content.Context;
 
 /**
  * @author Michael Yang（www.yangfuhai.com）

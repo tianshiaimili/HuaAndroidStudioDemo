@@ -1,9 +1,9 @@
 package com.hua.utils;
 
-import java.io.Serializable;
-
 import android.content.Context;
 import android.util.Log;
+
+import java.io.Serializable;
 
 /**
  * 缓存操作工具类
