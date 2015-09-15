@@ -33,10 +33,7 @@ import org.androidannotations.annotations.ViewById;
 
 import java.util.Date;
 
-
-
-
-
+/***test合拼*/
 @EActivity(R.layout.activity_main)
 public class MainActivity extends Activity {
 
