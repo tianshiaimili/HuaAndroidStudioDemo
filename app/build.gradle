@@ -46,6 +46,8 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.github.bumptech.glide:glide:3.6.1'
     compile files('libs/MunionSDK-2.5.jar')
+    compile files('libs/open_sdk.jar')
+    compile files('libs/volley.jar')
 }
 
 

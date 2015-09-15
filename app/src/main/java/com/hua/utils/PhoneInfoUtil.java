@@ -6,10 +6,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
-import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
-import java.lang.reflect.Method;
+import com.hua.http.HttpConnManager;
+
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -17,8 +17,7 @@ import java.util.Map;
 /**
  * 手机基本信息
  * 
- * @author linyg
- * 
+ *
  */
 public class PhoneInfoUtil {
 	private TelephonyManager telephonyManager;
@@ -174,44 +173,44 @@ public class PhoneInfoUtil {
 	 *
 	 * @return
 	 */
-//	public String getDeviceId() {
-//        if(!StringUtil.isNull(deviceId)){
-//            return deviceId;
-//        }
-//        StringBuffer sbDeviceMeta = new StringBuffer();
-//        String imei = getIMEI(context);
-//        if (imei != null) {
-//            sbDeviceMeta.append(imei.trim());
-//        }
-//
-//        String mac =HttpConnManager.getLocalMacAddress(context);
-//        if (mac != null) {
-//            sbDeviceMeta.append(mac.trim());
-//        }
-//
-////		String bluetoothMac = getBluetoothMac(ctx);
-////		if (bluetoothMac != null) {
-////			sbDeviceMeta.append(bluetoothMac.trim());
-////		}
-//
-//        deviceId = MD5.Md5(sbDeviceMeta.toString());
-//        byte[] bytes = deviceId.getBytes();
-//        int sum1 = 0, sum2 = 0;
-//        for (int i = 0; i < bytes.length; i++) {
-//            if (i % 2 == 0) {
-//                sum1 += bytes[i];
-//            } else {
-//                sum2 += bytes[i];
-//            }
-//        }
-//
-//        final char[] codes = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-//        int checkSum1 = sum1 % codes.length;
-//        int checkSum2 = sum2 % codes.length;
-//        deviceId = deviceId + codes[checkSum1] + codes[checkSum2];
-//
-//        return deviceId;
-//	}
+	public String getDeviceId() {
+        if(!StringUtil.isNull(deviceId)){
+            return deviceId;
+        }
+        StringBuffer sbDeviceMeta = new StringBuffer();
+        String imei = getIMEI(context);
+        if (imei != null) {
+            sbDeviceMeta.append(imei.trim());
+        }
+
+        String mac = HttpConnManager.getLocalMacAddress(context);
+        if (mac != null) {
+            sbDeviceMeta.append(mac.trim());
+        }
+
+//		String bluetoothMac = getBluetoothMac(ctx);
+//		if (bluetoothMac != null) {
+//			sbDeviceMeta.append(bluetoothMac.trim());
+//		}
+
+        deviceId = MD5.Md5(sbDeviceMeta.toString());
+        byte[] bytes = deviceId.getBytes();
+        int sum1 = 0, sum2 = 0;
+        for (int i = 0; i < bytes.length; i++) {
+            if (i % 2 == 0) {
+                sum1 += bytes[i];
+            } else {
+                sum2 += bytes[i];
+            }
+        }
+
+        final char[] codes = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        int checkSum1 = sum1 % codes.length;
+        int checkSum2 = sum2 % codes.length;
+        deviceId = deviceId + codes[checkSum1] + codes[checkSum2];
+
+        return deviceId;
+	}
 //
 //	/**
 //	 * 获取设备唯一码

@@ -187,7 +187,7 @@ public class ChoiceInterest3  extends Activity  {
 //        HashMap<String, String> params = new HashMap<String, String>();
 //        params.put("uid", uid);
 //        String url = RequestHelper.buildCommonToken(UrlPath.MASTER_LIST, params);
-//        MmRequest request = new MmRequest(url, new MmResponseListener<String>(
+//        MmRequest request = new MmRequest(url, new ResponseListener<String>(
 //                this){
 //            @Override
 //            protected void onPtSucc(String url, String result) {

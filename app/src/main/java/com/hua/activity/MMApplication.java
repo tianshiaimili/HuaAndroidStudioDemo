@@ -17,6 +17,7 @@ public class MMApplication extends Application {
 
     private static MMApplication mAppContext;
     private String platform_id;
+    public static long TimeErrand = 0;
 
     @Override
     public void onCreate() {

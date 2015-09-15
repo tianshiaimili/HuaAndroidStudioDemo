@@ -13,9 +13,6 @@ import android.view.inputmethod.InputMethodManager;
  * @Title SystemUtil
  * @Package cn.mama.util
  * @Description 获取系统的一些东东
- * @author hejinxi
- * @date 2013-9-12 
- * @version V1.0
  */
 
 public class SystemUtil {

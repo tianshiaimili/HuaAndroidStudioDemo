@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="10dip"
+              android:layout_marginRight="10dip"
+              android:background="@drawable/operation_tip_shape"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/title_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:gravity="left|center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:id="@+id/dialog_title_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:text="温馨提示"
+            android:textColor="@color/holo_blue_light"
+            android:textSize="20sp"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.5dip"
+            android:layout_marginTop="10dp"
+            android:background="@color/holo_blue_light"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/message_dilog_txt"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:paddingBottom="20dip"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="15dip"
+            android:text="..."
+            android:textColor="@color/gray"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2.0px"
+        android:background="#aacccccc"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:background="#ffa8abad"/>
+
+    <LinearLayout
+        android:id="@+id/botton_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="48dip"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/dilog_cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1.0"
+            android:background="@drawable/square_bg_selector"
+            android:text="取消"
+            android:textColor="@color/holo_blue_light"
+            android:textSize="18sp"/>
+
+        <View
+            android:layout_width="2.0px"
+            android:layout_height="fill_parent"
+            android:background="#aacccccc"/>
+
+        <Button
+            android:id="@+id/dilog_sure"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1.0"
+            android:background="@drawable/square_bg_selector"
+            android:text="确定"
+            android:textColor="@color/holo_blue_light"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+</LinearLayout>

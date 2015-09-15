@@ -116,7 +116,7 @@ public class ActivityManager {
 //        params.put("deviceuid", PhoneInfoUtil.getInstance(activity).getDeviceId());
 //        params.put("sign", Encrypt2.genToken(params,Encrypt2.Algorithm2, Encrypt2.KEY_MM_AI_PASSPORT));
 //        String url = StringUtil.makedburlstr(UrlPath.AISHOPPING_GETCODE, params);
-//        MmNewRequest request = new MmNewRequest(url,String.class,new MmResponseListener<String>(activity){
+//        NewRequest request = new NewRequest(url,String.class,new ResponseListener<String>(activity){
 //            @Override
 //            protected void onPtSucc(String url, String json) {
 //                try {

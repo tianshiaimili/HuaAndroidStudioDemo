@@ -1,12 +1,14 @@
 package com.hua.utils;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+
+import com.hua.activity.MMApplication;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class PreferenceUtils {
 
@@ -390,24 +392,24 @@ public class PreferenceUtils {
 	 * @param
 	 * @return
 	 */
-//	public static String getNowTime(Context context) {
-//		long time = 0;
-//		if (context != null) {
-//			if (MMApplication.TimeErrand == 0) {
-//				SharedPreferences sp = context.getSharedPreferences(
-//						defalutShareFileName, Context.MODE_WORLD_READABLE);
-//				time = sp.getLong(TIMEERRAND, 0);
-//				MMApplication.TimeErrand = time;
-//			} else {
-//				time = MMApplication.TimeErrand;
-//			}
-//		}
-//		if (0 == time) {
-//			return String.valueOf(new Date().getTime() / 1000);
-//		} else {
-//			return String.valueOf(new Date().getTime() / 1000 - time);
-//		}
-//	}
+	public static String getNowTime(Context context) {
+		long time = 0;
+		if (context != null) {
+			if (MMApplication.TimeErrand == 0) {
+				SharedPreferences sp = context.getSharedPreferences(
+						defalutShareFileName, Context.MODE_WORLD_READABLE);
+				time = sp.getLong(TIMEERRAND, 0);
+				MMApplication.TimeErrand = time;
+			} else {
+				time = MMApplication.TimeErrand;
+			}
+		}
+		if (0 == time) {
+			return String.valueOf(new Date().getTime() / 1000);
+		} else {
+			return String.valueOf(new Date().getTime() / 1000 - time);
+		}
+	}
 
 	/**
 	 * 保存服务器时间差
