@@ -1,9 +1,11 @@
 package com.hua.bean;
 
 
+import com.alimama.mobile.sdk.config.MMPromoter;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  */
@@ -16,7 +18,7 @@ public class GDTnTanxADBean implements Serializable{
     private int isWhatAD; // 1:Tanx, 2:GDT
     private ArrayList<String> adimgs;
     private ArrayList<String> adprices;
-//    private List<MMPromoter> promoters;
+    private List<MMPromoter> promoters;
 
     public String getAdtitle() {
         return adtitle;
@@ -74,12 +76,12 @@ public class GDTnTanxADBean implements Serializable{
         this.adprices = adprices;
     }
 
-//    public List<MMPromoter> getPromoters() {
-//        return promoters;
-//    }
-//
-//    public void setPromoters(List<MMPromoter> promoters) {
-//        this.promoters = promoters;
-//    }
+    public List<MMPromoter> getPromoters() {
+        return promoters;
+    }
+
+    public void setPromoters(List<MMPromoter> promoters) {
+        this.promoters = promoters;
+    }
 }
 

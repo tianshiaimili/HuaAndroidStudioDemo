@@ -13,7 +13,6 @@ import com.hua.R;
 
 /**
  * 
- * @author 何小喜
  *用于操作广告动画效果
  */
 public class AnimationUtil {
