@@ -103,6 +103,12 @@
                 android:layout_height="wrap_content"
                 android:text= "emojico表情"/>
 
+            <Button
+                android:id="@+id/test16"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text= "JS和Activity交互"/>
+
 
         </LinearLayout>
     </ScrollView>

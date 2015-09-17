@@ -34,6 +34,7 @@ public class HTMLActivity extends Activity {
         webView.addJavascriptInterface(new MyObject(HTMLActivity.this,handler), "myObject");
         //加载assets目录下的文件
         String url = "file:///android_asset/index.html";
+//		String url = "file:///android_asset/duibashare.html";
         webView.loadUrl(url);
     }
     

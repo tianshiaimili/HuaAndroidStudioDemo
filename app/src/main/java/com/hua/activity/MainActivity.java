@@ -7,6 +7,7 @@ import android.text.Html;
 import android.widget.Button;
 
 import com.hua.R;
+import com.hua.activity.js.HTMLActivityDemo;
 import com.hua.activity.test.AT_Activity;
 import com.hua.activity.test.ActivityWithExtra_;
 import com.hua.activity.test.ChoiceInterest3_;
@@ -237,7 +238,14 @@ public class MainActivity extends Activity {
 	@Click
 	void test15(){
 		Intent intent = new Intent(this,TestEmojicoTextView_.class);
-		ActivityManager.getManager().goTo(MainActivity.this,intent);
+		ActivityManager.getManager().goTo(MainActivity.this, intent);
+
+	}
+
+	@Click
+	void test16(){
+		Intent intent = new Intent(this,HTMLActivityDemo.class);
+		ActivityManager.getManager().goTo(MainActivity.this, intent);
 
 	}
 

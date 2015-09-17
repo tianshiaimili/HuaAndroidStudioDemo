@@ -98,6 +98,8 @@
         <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.test.XuanFuActivity"/>
         <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.test.TestEmojicoEdit_"/>
         <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.test.TestEmojicoTextView_"/>
+        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.js.HTMLActivityDemo"/>
+
 
 
 
