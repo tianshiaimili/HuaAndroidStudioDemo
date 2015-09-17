@@ -582,15 +582,29 @@ $('.probability-rules header').on('click',function(){
 })
 </script>
 
+<script type="text/javascript">
+	//data数据类型为字符串，字符串里面是数组，每一个数组元素为一个json对象，例如"[{id:1,name:'张三',phone:'135656461'},{id:2,name:'李四',phone:'1896561'}]"
+	function setContactInfo(data) {
+		var tableObj = document.getElementById("contact");
+		 alert(data);
+		 javascript:duiba_app.shareInfo(data);
+	}
+</script>
+
 <!-- 安卓url拦截分享专用（开始） -->
 
 <script type="text/javascript">
+function getShareInfo(data){
+
 try{
+alert(data);
 	//触发安卓分享
-	var ua = navigator.userAgent.toLowerCase();
+	var ua = data
+	//navigator.userAgent.toLowerCase();
 	if($('#duiba-share-url') && ua.indexOf("Android") > 0 && ua.indexOf("Duiba/") > 0 ){
-	 alert("1");
+	 alert("2");
 		var clientVeriosn = ua.match(/DUIBA\/[\d.]+/gi)[0].split('/')[1];
+		 alert(clientVeriosn);
 		var shareEnable = false;
 		var cv0,cv1,cv2;
 		//根据是否含有.来区分之前的兼容版本问题。
@@ -601,18 +615,22 @@ try{
 			//版本大于1.0.5，可以使用url拦截的分享功能
 			if(cv0 >= 1 && cv1 >= 0 && cv2 > 5){
 				shareEnable = true;
+				 alert("3");
 			}
 		}else{
 			if(ua.substring(ua.length-3,ua.length) > 105){
 				shareEnable = true;
+				 alert("4");
 			}
 		}
 		if(shareEnable){
+		 alert("5");
 			window.location.href="/client/dbshare?content="+encodeURIComponent($('#duiba-share-url').attr('content'));
 		}
 	}
 }catch(error){
 	console.log(error);
+}
 }
 </script>
 

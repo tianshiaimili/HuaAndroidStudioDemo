@@ -31,6 +31,7 @@ import android.widget.TextView;
 
 import com.hua.R;
 import com.hua.utils.LogUtils;
+import com.hua.utils.ToastUtil;
 import com.hua.view.KitkatCompatWebview;
 
 import org.androidannotations.annotations.AfterInject;
@@ -347,7 +348,10 @@ public class CreditActivity extends Activity {
             //页面加载结束时获取页面分享信息，如含分享信息，则导航栏上显示分享按钮
             @Override
             public void onPageFinished(WebView view, String url) {
-                view.loadUrl("javascript:if(document.getElementById('duiba-share-url')){duiba_app.shareInfo(document.getElementById(\"duiba-share-url\").getAttribute(\"content\"));}");
+//                view.loadUrl("javascript:if(document.getElementById('duiba-share-url')){duiba_app.shareInfo(document.getElementById(\"duiba-share-url\").getAttribute(\"content\"));}");
+//                view.loadUrl("javascript:setContactInfo('"+"ABC"+"')");
+                view.loadUrl("javascript:getShareInfo('"+ua+"')");
+//                view.loadUrl("javascript:if(document.getElementById('duiba-share-url')){duiba_app.shareInfo(document.getElementById(\"duiba-share-url\").getAttribute(\"content\"));}");
                 super.onPageFinished(view, url);
             }
         });
@@ -363,6 +367,8 @@ public class CreditActivity extends Activity {
                     if (dd.length == 4) {
                         setShareInfo(dd[0], dd[1], dd[2], dd[3]);
 //                        mShare.setVisibility(View.VISIBLE);
+                        login_tv.setVisibility(View.VISIBLE);
+                        ToastUtil.showToast("123"+content);
                         LogUtils.d("MMM--");
                     }
                 }

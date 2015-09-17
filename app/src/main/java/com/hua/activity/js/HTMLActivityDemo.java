@@ -107,7 +107,6 @@ public class HTMLActivityDemo extends Activity {
 	/**
 	 * 保存从服务器获取的填充到html的数据
 	 * 
-	 * @param str
 	 */
 	private void saveHTMLData(String phon) {
 		try {
