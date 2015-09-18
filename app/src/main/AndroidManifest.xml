@@ -92,6 +92,7 @@
         <activity android:name="com.hua.activity.test.CreamDetail_"></activity>
         <activity android:name="com.hua.activity.test.PostsActvity_"/>
         <activity android:name="com.hua.activity.test.CreditActivity_"></activity>
+        <activity android:name="com.hua.activity.test.CreditActivity2"></activity>
         <activity android:name="com.hua.activity.test.HTMLActivity"></activity>
         <activity android:name="com.hua.activity.test.PersonFragmentNew_"></activity>
         <activity android:name="com.hua.activity.test.SpannableActivity"></activity>
@@ -99,6 +100,8 @@
         <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.test.TestEmojicoEdit_"/>
         <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.test.TestEmojicoTextView_"/>
         <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.js.HTMLActivityDemo"/>
+        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.duiba.CreditActivity"/>
+        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.duiba.DuiBaActivity"/>
 
 
 

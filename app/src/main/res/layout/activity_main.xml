@@ -109,6 +109,12 @@
                 android:layout_height="wrap_content"
                 android:text= "JS和Activity交互"/>
 
+            <Button
+                android:id="@+id/test17"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text= "兑吧源生"/>
+
 
         </LinearLayout>
     </ScrollView>

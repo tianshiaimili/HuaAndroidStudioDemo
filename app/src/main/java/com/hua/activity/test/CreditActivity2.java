@@ -34,14 +34,6 @@ import android.widget.TextView;
 import com.hua.R;
 import com.hua.utils.LogUtils;
 import com.hua.utils.ToastUtil;
-import com.hua.view.KitkatCompatWebview;
-
-import org.androidannotations.annotations.AfterInject;
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.Extra;
-import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,10 +77,10 @@ import java.util.Stack;
  * 根据api版本，4.4之后使用evaluateJavascript方法。
  */
 @SuppressLint("NewApi")
-@EActivity(R.layout.duiba)
-public class CreditActivity extends Activity {
+//@EActivity(R.layout.duiba)
+public class CreditActivity2 extends Activity {
 	private static String ua;
-	private static Stack<CreditActivity> activityStack;
+	private static Stack<CreditActivity2> activityStack;
 	public static final String MyVERSION ="1.0.5";
     public static CreditsListener creditsListener;
 
@@ -121,23 +113,15 @@ public class CreditActivity extends Activity {
     protected Long shareColor;
 //    private ActivityManager activityManager;
 
-    @ViewById
-    KitkatCompatWebview duiba_wv;
-    @ViewById
+    WebView duiba_wv;
     ImageView back_img;
-    @ViewById
     TextView duiba_title;
-    @ViewById
     TextView login_tv;
-    @ViewById
     ProgressBar progress_bar;
-    @ViewById
     LinearLayout dialogbody;
-    @Extra("firstIn")
     String firstIn;
     private boolean isFirst;
 
-    @ViewById
     ViewStub vs_error;
     private View errorView;
 //    private ErroeMessageUtil erroeMessageUtil;
@@ -153,27 +137,15 @@ public class CreditActivity extends Activity {
 
     private int RequestCode=100;
 
-    @AfterInject
-    void initVariable(){
 
-//        if (activityStack == null) {
-//            activityStack = new Stack<CreditActivity>();
-//        }
-//        activityStack.push(this);
-
-    }
-
-    @SuppressLint("JavascriptInterface")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
+        setContentView(R.layout.duiba);
 
-    @AfterViews
-    void init(){
-
+        initView();
         if (activityStack == null) {
-            activityStack = new Stack<CreditActivity>();
+            activityStack = new Stack<CreditActivity2>();
         }
         activityStack.push(this);
 
@@ -182,22 +154,37 @@ public class CreditActivity extends Activity {
             ua= duiba_wv.getSettings().getUserAgentString()+" Duiba/"+ MyVERSION;
 //            ua=mWebView.getSettings().getUserAgentString()+" Duiba/"+VERSION;
         }
-
-
         duiba_wv.getSettings().setUserAgentString(ua);
-            dialogbody.setVisibility(View.GONE);
+
+        //
+//        if(firstIn != null && firstIn.equals("0")){
+//            dialogbody.setVisibility(View.VISIBLE);
+////            requestUrl();
+//        }else {
+        dialogbody.setVisibility(View.GONE);
+//            urlPath = getIntent().getStringExtra("urlPath");
+//        }
+//        erroeMessageUtil = new ErroeMessageUtil(this);
+//        erroeMessageUtil.setOnClickListener(new ErroeMessageUtil.onClickListener() {
+//
+//            @Override
+//            public void Result() {
+//                errorView.setVisibility(View.GONE);
+//                requestUrl();
+//            }
+//        });
+        //初始化WebView配置
         initWebView(null);
 
     }
 
-    @Click
-    void back_img(){
-        onBackClick();
-    }
+    public void initView(){
 
-    @Click
-    void login_tv(){
-
+        duiba_wv = (WebView) findViewById(R.id.duiba_wv);
+        duiba_title = (TextView) findViewById(R.id.duiba_title);
+        login_tv = (TextView) findViewById(R.id.login_tv);
+        progress_bar = (ProgressBar) findViewById(R.id.progress_bar);
+        dialogbody = (LinearLayout) findViewById(R.id.dialogbody);
     }
 
 //    public void requestUrl(){
@@ -309,7 +296,7 @@ public class CreditActivity extends Activity {
 
             @Override
             public void onReceivedTitle(WebView view, String title) {
-                CreditActivity.this.onReceivedTitle(view, title);
+                CreditActivity2.this.onReceivedTitle(view, title);
             }
 
             @Override
@@ -353,16 +340,14 @@ public class CreditActivity extends Activity {
                     String[] dd = content.split("\\|");
                     if (dd.length == 4) {
                         setShareInfo(dd[0], dd[1], dd[2], dd[3]);
-//                        mShare.setVisibility(View.VISIBLE);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                login_tv.setVisibility(View.VISIBLE);
-                                ToastUtil.showToast("123" + content);
-                            }
-                        });
-
-                        LogUtils.d("MMM--");
+                              runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            login_tv.setVisibility(View.VISIBLE);
+                            ToastUtil.showToast("123" + content);
+                        }
+                    });
+                        LogUtils.d("MMMM--");
                     }
                 }
             }
@@ -391,7 +376,6 @@ public class CreditActivity extends Activity {
         String url = "file:///android_asset/duibashare2.html";
 //        duiba_wv.loadUrl(urlPath);
         duiba_wv.loadUrl(url);
-
     }
 
     protected void onReceivedTitle(WebView view,String title){
@@ -415,7 +399,7 @@ public class CreditActivity extends Activity {
         }
         if(url.contains("dbnewopen")){	//新开页面
             Intent intent = new Intent();
-            intent.setClass(CreditActivity.this, CreditActivity.this.getClass());
+            intent.setClass(CreditActivity2.this, CreditActivity2.this.getClass());
             url = url.replace("dbnewopen", "none");
             intent.putExtra("urlPath", url);
             startActivityForResult(intent, RequestCode);

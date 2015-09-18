@@ -13,6 +13,7 @@ import com.hua.activity.test.ActivityWithExtra_;
 import com.hua.activity.test.ChoiceInterest3_;
 import com.hua.activity.test.ChoiceInterest_;
 import com.hua.activity.test.CreamDetail_;
+import com.hua.activity.test.CreditActivity2;
 import com.hua.activity.test.CreditActivity_;
 import com.hua.activity.test.HTMLActivity;
 import com.hua.activity.test.MultipleItemsList;
@@ -245,6 +246,13 @@ public class MainActivity extends Activity {
 	@Click
 	void test16(){
 		Intent intent = new Intent(this,HTMLActivityDemo.class);
+		ActivityManager.getManager().goTo(MainActivity.this, intent);
+
+	}
+
+	@Click
+	void test17(){
+		Intent intent = new Intent(this,CreditActivity2.class);
 		ActivityManager.getManager().goTo(MainActivity.this, intent);
 
 	}

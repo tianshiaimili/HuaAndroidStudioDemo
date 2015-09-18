@@ -1,11 +1,13 @@
-package com.hua.activity.test;
+package com.hua.activity.duiba;
 
-import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
@@ -15,10 +17,10 @@ import android.telephony.cdma.CdmaCellLocation;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewStub;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
-import android.webkit.JsResult;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -28,25 +30,12 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.hua.R;
-import com.hua.utils.LogUtils;
-import com.hua.utils.ToastUtil;
-import com.hua.view.KitkatCompatWebview;
-
-import org.androidannotations.annotations.AfterInject;
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.Extra;
-import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
 
 /**
  * Version 1.0.1
@@ -77,15 +66,12 @@ import java.util.Stack;
  * 删除webview配置： settings.setLoadWithOverviewMode(true); 
  * 上面配置可能导致页面无法点击，页面适配等问题。
  */
-
 /**
  * Version 1.0.5
  * @author duiba fxt
  * 在onConsume方法中加入刷新积分的js请求。如果页面含有onDBNewOpenBack()方法,则调用该js方法(刷新积分)
  * 根据api版本，4.4之后使用evaluateJavascript方法。
  */
-@SuppressLint("NewApi")
-@EActivity(R.layout.duiba)
 public class CreditActivity extends Activity {
 	private static String ua;
 	private static Stack<CreditActivity> activityStack;
@@ -110,6 +96,8 @@ public class CreditActivity extends Activity {
         public void onLoginClick(WebView webView, String currentUrl);
     }
 
+    protected String url;
+    
     protected String shareUrl;			//分享的url
     protected String shareThumbnail;	//分享的缩略图
     protected String shareTitle;		//分享的标题
@@ -118,142 +106,131 @@ public class CreditActivity extends Activity {
     protected Boolean ifRefresh = false;
     protected Boolean delayRefresh = false;
 
+    protected String navColor;
+    protected String titleColor;
     protected Long shareColor;
-//    private ActivityManager activityManager;
-
-    @ViewById
-    KitkatCompatWebview duiba_wv;
-    @ViewById
-    ImageView back_img;
-    @ViewById
-    TextView duiba_title;
-    @ViewById
-    TextView login_tv;
-    @ViewById
-    ProgressBar progress_bar;
-    @ViewById
-    LinearLayout dialogbody;
-    @Extra("firstIn")
-    String firstIn;
-    private boolean isFirst;
-
-    @ViewById
-    ViewStub vs_error;
-    private View errorView;
-//    private ErroeMessageUtil erroeMessageUtil;
-    private boolean isSetWebSetting;
-
-//    @Extra("urlPath")
-    String urlPath ="http://www.duiba.com.cn/test/demoRedirectSAdfjosfdjdsa";
-//    protected LinearLayout mLinearLayout;
-//    protected RelativeLayout mNavigationBar;
-//    protected TextView mTitle;
-//    protected ImageView mBackView;
-//    protected TextView mShare;
+    
+    protected WebView mWebView;
+    protected LinearLayout mLinearLayout;
+    protected RelativeLayout mNavigationBar;
+    protected TextView mTitle;
+    protected ImageView mBackView;
+    protected TextView mShare;
 
     private int RequestCode=100;
 
-    @AfterInject
-    void initVariable(){
-
-//        if (activityStack == null) {
-//            activityStack = new Stack<CreditActivity>();
-//        }
-//        activityStack.push(this);
-
-    }
-
-    @SuppressLint("JavascriptInterface")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    @AfterViews
-    void init(){
+        
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);	//锁定竖屏显示
+        
+        url=getIntent().getStringExtra("url");
+        if(url==null){
+            throw new RuntimeException("url can't be blank");
+        }
 
         if (activityStack == null) {
             activityStack = new Stack<CreditActivity>();
         }
         activityStack.push(this);
-
-//        代理
-        if(ua==null){
-            ua= duiba_wv.getSettings().getUserAgentString()+" Duiba/"+ MyVERSION;
-//            ua=mWebView.getSettings().getUserAgentString()+" Duiba/"+VERSION;
+        
+        //配置导航条文本颜色
+        titleColor=getIntent().getStringExtra("titleColor");
+        String titleColorTemp="0xff"+titleColor.substring(1,titleColor.length());
+        Long titlel = Long.parseLong(titleColorTemp.substring(2), 16);
+        //配置分享文案颜色,同taitle
+        shareColor = titlel;
+        //配置导航栏背景颜色
+        navColor=getIntent().getStringExtra("navColor");
+        String navColorTemp="0xff"+navColor.substring(1,navColor.length());
+        Long navl = Long.parseLong(navColorTemp.substring(2), 16);
+        //初始化页面
+        initView();
+        setContentView(mLinearLayout);
+        //隐藏系统默认的ActionBar
+        ActionBar actionBar = getActionBar();
+        if(actionBar!=null){
+            actionBar.hide();
         }
+        
+        mTitle.setTextColor(titlel.intValue());
+        mNavigationBar.setBackgroundColor(navl.intValue());
+        //添加后退按钮监听事件
+        mBackView.setPadding(50, 50, 50, 50);
+        mBackView.setClickable(true);
+        mBackView.setOnClickListener(new OnClickListener() {
+            public void onClick(View view) {
+                onBackClick();
+            }
+        });
+        //添加分享按钮的监听事件
+        if(mShare!=null){
+        	 mShare.setOnClickListener(new OnClickListener() {
+                 public void onClick(View view) {
+                 	creditsListener.onShareClick(mWebView, shareUrl,shareThumbnail, shareTitle, shareSubtitle);
+                 }
+             });
+        }
+        
+        if(ua==null){
+            ua=mWebView.getSettings().getUserAgentString()+" Duiba/"+MyVERSION;
+        }
+        mWebView.getSettings().setUserAgentString(ua);
 
+        mWebView.setWebChromeClient(new WebChromeClient(){
+            @Override
+            public void onReceivedTitle(WebView view, String title) {
+                CreditActivity.this.onReceivedTitle(view, title);
+            }
 
-        duiba_wv.getSettings().setUserAgentString(ua);
-            dialogbody.setVisibility(View.GONE);
-        initWebView(null);
+        });
 
+        mWebView.setWebViewClient(new WebViewClient(){
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return shouldOverrideUrlByDuiba(view, url);
+            }
+            //页面加载结束时获取页面分享信息，如含分享信息，则导航栏上显示分享按钮
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                view.loadUrl("javascript:if(document.getElementById('duiba-share-url')){duiba_app.shareInfo(document.getElementById(\"duiba-share-url\").getAttribute(\"content\"));}");
+                super.onPageFinished(view, url);
+            }
+        });
+
+        //js调java代码接口。
+        mWebView.addJavascriptInterface(new Object(){
+        	
+        	//用于回传分享url和title。
+            @JavascriptInterface
+            public void shareInfo(String content) {
+                if(content!=null){
+                    String[] dd=content.split("\\|");
+                    if(dd.length==4){
+                        setShareInfo(dd[0],dd[1],dd[2],dd[3]);
+                        mShare.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+            
+            //用于跳转用户登录页面事件。
+            @JavascriptInterface
+            public void login(){
+            	if(creditsListener!=null){
+            		mWebView.post(new Runnable() {
+						@Override
+						public void run() {
+							creditsListener.onLoginClick(mWebView, mWebView.getUrl());
+						}
+					});
+            	}
+            }
+        },"duiba_app");
+        
+        mWebView.loadUrl(url);
     }
-
-    @Click
-    void back_img(){
-        onBackClick();
-    }
-
-    @Click
-    void login_tv(){
-
-    }
-
-//    public void requestUrl(){
-//            dialogbody.setVisibility(View.VISIBLE);
-//            HashMap<String, String> params = new HashMap<String, String>();
-//            params.put("uid", userInfoUtil.getUid());
-//            params.put("hash",userInfoUtil.getHash());
-//            String url = RequestHelper.buildCommonToken(UrlPath.DUI_BA_DELETE_THREAD, params);
-//            MmRequest request = new MmRequest(url, new ResponseListener<String>(
-//                   this) {
-//                @Override
-//                protected void onPtSucc(String url, String result) {
-//                    datacallback(result);
-//                    super.onPtSucc(url, result);
-//                }
-//
-//                @Override
-//                public void onNetworkComplete() {
-//                    dialogbody.setVisibility(View.GONE);
-////                    listview.refreshCompleted();
-////                    listview.loadMoreCompleted();
-//                    super.onNetworkComplete();
-//                }
-//
-//                @Override
-//                protected void onFail(int errorType, String errorDesc) {
-//                    showErrorMessage(ErroeMessageUtil.ERROR_NO_NETWORK);
-//                    // super.onFail(errorType, errorDesc);
-//                }
-//
-//                @Override
-//                protected void onPtError(String url, Result.ErrorMsg errorMsg) {
-//                    if(errorMsg.getErrno() == -30){
-////                        list.clear();
-//                    }
-////                    adapter.notifyDataSetChanged();
-//                    showErrorMessage(ErroeMessageUtil.ERROR_NO_MASTER_DATA);
-//                    //super.onPtError(urlPath, errorMsg);
-//                }
-//            });
-//            addQueue(request);
-//    }
-//
-//    public void  datacallback(String result){
-//        if(result != null){
-//            urlPath =  DataParser.getOneValueInData(result, "url");
-//            if(isSetWebSetting) {
-//                duiba_wv.loadUrl(urlPath);
-//
-//            }else {
-//                initWebView(urlPath);
-//            }
-//        }
-//
-//    };
-
+    
     //配置分享信息
     protected void setShareInfo(String shareUrl,String shareThumbnail,String shareTitle,String shareSubtitle){
     	this.shareUrl = shareUrl;
@@ -263,16 +240,80 @@ public class CreditActivity extends Activity {
     }
     
     protected void onBackClick(){
-//        Intent intent=new Intent();
-//        setResult(99, intent);
+        Intent intent=new Intent();
+        setResult(99,intent);
         finishActivity(this);
     }
 
+    //初始化页面
+    protected void initView(){
+        mLinearLayout=new LinearLayout(this);
+        mLinearLayout.setBackgroundColor(Color.GRAY);
+        mLinearLayout.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+        mLinearLayout.setOrientation(LinearLayout.VERTICAL);
+
+        int height50dp = dip2px(this,50);
+        //自定义导航栏
+        initNavigationBar();
+        
+        LinearLayout.LayoutParams mLayoutParams = new LinearLayout.LayoutParams(
+                LayoutParams.FILL_PARENT, height50dp);
+
+        mLinearLayout.addView(mNavigationBar,mLayoutParams);
+        //初始化WebView配置
+        initWebView();
+
+        mLinearLayout.addView(mWebView);
+
+    }
+    
+  //自定义导航栏，包含 后退按钮，页面标题，分享按钮（默认隐藏）
+    protected void initNavigationBar(){
+    	int dp200 = dip2px(this,200);
+    	int dp50 = dip2px(this,50);
+    	int dp20 = dip2px(this,20);
+    	int dp10 = dip2px(this,10);
+        
+        mNavigationBar=new RelativeLayout(this);
+        mNavigationBar.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,dp20));
+
+        mTitle=new TextView(this);
+        mTitle.setMaxWidth(dp200);
+        mTitle.setLines(1);
+        mTitle.setTextSize(20.0f);
+        mNavigationBar.addView(mTitle);
+        RelativeLayout.LayoutParams lp=(RelativeLayout.LayoutParams)mTitle.getLayoutParams();
+        lp.addRule(RelativeLayout.CENTER_IN_PARENT);
+        
+        mBackView = new ImageView(this);
+        mBackView.setBackgroundResource(android.R.drawable.ic_menu_revert);
+        RelativeLayout.LayoutParams mBackLayout=new RelativeLayout.LayoutParams(dp50, dp50);
+        mBackLayout.addRule(RelativeLayout.CENTER_VERTICAL, RelativeLayout.TRUE);
+        mBackLayout.addRule(RelativeLayout.ALIGN_PARENT_LEFT); 
+        mBackLayout.setMargins(dp10, 0, 0, 0);
+        mNavigationBar.addView(mBackView,mBackLayout);
+        
+        //在导航栏的右侧添加分享按钮（无分享信息的页面隐藏）
+        mShare=new TextView(this);
+        mShare.setLines(1);
+        mShare.setTextSize(20.0f);
+        mShare.setText("分享");
+        mShare.setPadding(0, 0, dp10, 0);
+        mShare.setTextColor(shareColor.intValue());
+        mNavigationBar.addView(mShare);
+        RelativeLayout.LayoutParams shareLp=(RelativeLayout.LayoutParams)mShare.getLayoutParams();
+        shareLp.addRule(RelativeLayout.CENTER_VERTICAL, RelativeLayout.TRUE);
+        shareLp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        //设置为默认不显示
+        mShare.setVisibility(View.INVISIBLE);
+    }
 
     //初始化WebView配置
-    protected void initWebView(String reposneUrl){
+    protected void initWebView(){
+        mWebView=new WebView(this);
+        mWebView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 
-        WebSettings settings = duiba_wv.getSettings();
+        WebSettings settings = mWebView.getSettings();
 
         // User settings
         settings.setJavaScriptEnabled(true);	//设置webview支持javascript
@@ -291,111 +332,18 @@ public class CreditActivity extends Activity {
 
         // Technical settings
         settings.setSupportMultipleWindows(true);
-        duiba_wv.setLongClickable(true);
-        duiba_wv.setScrollbarFadingEnabled(true);
-        duiba_wv.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        duiba_wv.setDrawingCacheEnabled(true);
+        mWebView.setLongClickable(true);
+        mWebView.setScrollbarFadingEnabled(true);
+        mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        mWebView.setDrawingCacheEnabled(true);
 
         settings.setAppCacheEnabled(true);
         settings.setDatabaseEnabled(true);
         settings.setDomStorageEnabled(true);
-
-
-        duiba_wv.setWebChromeClient(new WebChromeClient() {
-            @Override
-            public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
-                return super.onJsAlert(view, url, message, result);
-            }
-
-            @Override
-            public void onReceivedTitle(WebView view, String title) {
-                CreditActivity.this.onReceivedTitle(view, title);
-            }
-
-            @Override
-            public void onProgressChanged(WebView view, int newProgress) {
-                super.onProgressChanged(view, newProgress);
-                progress_bar.setVisibility(View.VISIBLE);
-                progress_bar.setProgress(newProgress);
-                if (newProgress == 100) {
-                    dialogbody.setVisibility(View.GONE);
-                    progress_bar.setVisibility(View.GONE);
-                }
-            }
-
-        });
-
-        duiba_wv.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return shouldOverrideUrlByDuiba(view, url);
-            }
-
-            //页面加载结束时获取页面分享信息，如含分享信息，则导航栏上显示分享按钮
-            @Override
-            public void onPageFinished(WebView view, String url) {
-//                view.loadUrl("javascript:if(document.getElementById('duiba-share-url')){duiba_app.shareInfo(document.getElementById(\"duiba-share-url\").getAttribute(\"content\"));}");
-//                view.loadUrl("javascript:setContactInfo('"+"ABC"+"')");
-//                view.loadUrl("javascript:getShareInfo('"+ua+"')");
-//                view.loadUrl("javascript:if(document.getElementById('duiba-share-url')){duiba_app.shareInfo(document.getElementById(\"duiba-share-url\").getAttribute(\"content\"));}");
-                view.loadUrl("javascript:if(document.getElementById('duiba-share-url')){duiba_app.shareInfo(document.getElementById(\"duiba-share-url\").getAttribute(\"content\"));}");
-                super.onPageFinished(view, url);
-            }
-        });
-
-        //js调java代码接口。
-        duiba_wv.addJavascriptInterface(new Object() {
-
-            //用于回传分享url和title。
-            @JavascriptInterface
-            public void shareInfo(final String content) {
-                if (content != null) {
-                    String[] dd = content.split("\\|");
-                    if (dd.length == 4) {
-                        setShareInfo(dd[0], dd[1], dd[2], dd[3]);
-//                        mShare.setVisibility(View.VISIBLE);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                login_tv.setVisibility(View.VISIBLE);
-                                ToastUtil.showToast("123" + content);
-                            }
-                        });
-
-                        LogUtils.d("MMM--");
-                    }
-                }
-            }
-
-            //用于跳转用户登录页面事件。
-            @JavascriptInterface
-            public void login() {
-                if (creditsListener != null) {
-                    duiba_wv.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            creditsListener.onLoginClick(duiba_wv, duiba_wv.getUrl());
-                        }
-                    });
-                }
-            }
-        }, "duiba_app");
-
-        isSetWebSetting = true;
-
-//        if(firstIn != null && firstIn.equals("0") || reposneUrl != null){
-//            duiba_wv.loadUrl(reposneUrl);
-//        }else {
-//            duiba_wv.loadUrl(urlPath);
-//        }
-        String url = "file:///android_asset/duibashare2.html";
-//        duiba_wv.loadUrl(urlPath);
-        duiba_wv.loadUrl(url);
-
     }
 
     protected void onReceivedTitle(WebView view,String title){
-        duiba_title.setText(title);
+        mTitle.setText(title);
     }
 
     /**
@@ -406,7 +354,7 @@ public class CreditActivity extends Activity {
      * @return
      */
     protected boolean shouldOverrideUrlByDuiba(WebView view,String url){
-        if(this.urlPath.equals(url)){
+        if(this.url.equals(url)){
             view.loadUrl(url);
             return true;
         }
@@ -416,13 +364,17 @@ public class CreditActivity extends Activity {
         if(url.contains("dbnewopen")){	//新开页面
             Intent intent = new Intent();
             intent.setClass(CreditActivity.this, CreditActivity.this.getClass());
+            intent.putExtra("navColor", navColor);
+            intent.putExtra("titleColor", titleColor);
             url = url.replace("dbnewopen", "none");
-            intent.putExtra("urlPath", url);
+            intent.putExtra("url", url);
             startActivityForResult(intent, RequestCode);
         }else if(url.contains("dbbackrefresh")){	//后退并刷新
             url = url.replace("dbbackrefresh", "none");
             Intent intent = new Intent();
-            intent.putExtra("urlPath", url);
+            intent.putExtra("url", url);
+            intent.putExtra("navColor", navColor);
+            intent.putExtra("titleColor", titleColor);
             setResult(RequestCode,intent);
             finishActivity(this);
         }else if (url.contains("dbbackrootrefresh")){	//回到积分商城首页并刷新
@@ -462,9 +414,9 @@ public class CreditActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if(resultCode==100){
-            if(intent.getStringExtra("urlPath")!=null){
-                this.urlPath =intent.getStringExtra("urlPath");
-                duiba_wv.loadUrl(this.urlPath);
+            if(intent.getStringExtra("url")!=null){
+                this.url=intent.getStringExtra("url");
+                mWebView.loadUrl(this.url);
                 ifRefresh = false;
             }
         }
@@ -474,23 +426,23 @@ public class CreditActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		if (ifRefresh) {
-//			this.urlPath = getIntent().getStringExtra("urlPath");
-			duiba_wv.loadUrl(this.urlPath);
+			this.url = getIntent().getStringExtra("url");
+			mWebView.loadUrl(this.url);
 			ifRefresh = false;
 		} else if (delayRefresh) {
-			duiba_wv.reload();
+			mWebView.reload();
 			delayRefresh = false;
 		} else {
 	    	// 返回页面时，如果页面含有onDBNewOpenBack()方法,则调用该js方法。
-			if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-				duiba_wv.evaluateJavascript("if(window.onDBNewOpenBack){onDBNewOpenBack()}", new ValueCallback<String>() {
-                    @Override
-                    public void onReceiveValue(String value) {
-                        Log.e("credits", "刷新积分ooooovalue="+value);
-                    }
-                });
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+				mWebView.evaluateJavascript("if(window.onDBNewOpenBack){onDBNewOpenBack()}", new ValueCallback<String>() {
+					@Override
+					public void onReceiveValue(String value) {
+						Log.e("credits", "刷新积分");
+					}
+				});
 			} else {
-				duiba_wv.loadUrl("javascript:if(window.onDBNewOpenBack){onDBNewOpenBack()}");
+				mWebView.loadUrl("javascript:if(window.onDBNewOpenBack){onDBNewOpenBack()}");
 			}
 		}
 	}
@@ -499,8 +451,7 @@ public class CreditActivity extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == KeyEvent.KEYCODE_BACK){
             onBackClick();
-            finish();
-            return  true;
+            return true;
         }else{
             return super.onKeyDown(keyCode, event);
         }
@@ -525,9 +476,6 @@ public class CreditActivity extends Activity {
         if (activity != null) {
             activityStack.remove(activity);
             activity.finish();
-            if(activityStack.size() == 0){
-                activityStack = null;
-            }
         }
     }
     
@@ -642,22 +590,4 @@ public class CreditActivity extends Activity {
 
         return null;
     }
-
-
-    private void showErrorMessage(int errorType) {
-//        if (!StringUtil.isListNoNull(list)) {
-//            if (vs_error != null && errorView == null) {
-//                errorView = vs_error.inflate();
-//            }
-//            if (errorView != null) {
-//                erroeMessageUtil.showErrorMessage(listView, dialogbody,
-//                        errorView, errorType);
-//            }
-//        } else {
-            if (errorView != null) {
-                errorView.setVisibility(View.GONE);
-//            }
-        }
-    }
-
 }
