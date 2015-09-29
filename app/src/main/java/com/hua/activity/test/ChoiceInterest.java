@@ -29,7 +29,7 @@ import java.util.Random;
  */
 @EActivity(R.layout.choice_interest)
 public class ChoiceInterest  extends Activity  {
-//测试下回滚
+
     @ViewById
     TextView title_tv;
     @ViewById
