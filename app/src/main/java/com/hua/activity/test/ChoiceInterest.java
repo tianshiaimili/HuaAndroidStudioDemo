@@ -27,7 +27,7 @@ import java.util.Random;
 /**
  * Created by sundh on 2015/7/27.
  */
-@EActivity(R.layout.choice_interest)   
+@EActivity(R.layout.choice_interest)
 public class ChoiceInterest  extends Activity  {
 
     @ViewById
