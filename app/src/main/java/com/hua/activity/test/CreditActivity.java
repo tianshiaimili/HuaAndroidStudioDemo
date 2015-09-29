@@ -390,7 +390,7 @@ public class CreditActivity extends Activity {
 //        }
         String url = "file:///android_asset/duibashare2.html";
 //        duiba_wv.loadUrl(urlPath);
-        duiba_wv.loadUrl(url);
+        duiba_wv.loadUrl(urlPath);
 
     }
 
