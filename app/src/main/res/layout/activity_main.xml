@@ -115,6 +115,11 @@
                 android:layout_height="wrap_content"
                 android:text= "兑吧源生"/>
 
+            <Button
+                android:id="@+id/test18"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text= "开源的悬浮"/>
 
         </LinearLayout>
     </ScrollView>

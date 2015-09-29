@@ -102,6 +102,8 @@
         <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.js.HTMLActivityDemo"/>
         <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.duiba.CreditActivity"/>
         <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.duiba.DuiBaActivity"/>
+        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.xuanfu.MainActivity"/>
+
 
 
 

@@ -251,8 +251,15 @@ public class MainActivity extends Activity {
 	}
 
 	@Click
-	void test17(){
+		 void test17(){
 		Intent intent = new Intent(this,DuiBaActivity.class);
+		ActivityManager.getManager().goTo(MainActivity.this, intent);
+
+	}
+
+	@Click
+	void test18(){
+		Intent intent = new Intent(this, com.hua.activity.xuanfu.MainActivity.class);
 		ActivityManager.getManager().goTo(MainActivity.this, intent);
 
 	}

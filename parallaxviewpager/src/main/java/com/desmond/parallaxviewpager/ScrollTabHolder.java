@@ -5,7 +5,6 @@ import android.widget.AbsListView;
 import android.widget.ScrollView;
 
 /**
- * Created by desmond on 10/4/15.
  */
 public interface ScrollTabHolder {
 

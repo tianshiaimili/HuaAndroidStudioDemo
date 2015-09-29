@@ -7,7 +7,6 @@ import android.widget.AbsListView;
 import android.widget.ScrollView;
 
 /**
- * Created by desmond on 12/4/15.
  */
 public class ScrollTabHolderFragment extends Fragment implements ScrollTabHolder {
 

@@ -3,9 +3,7 @@ package com.desmond.parallaxviewpager;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
-/**
- * Created by desmond on 1/6/15.
- */
+
 public class ListViewFragment extends ScrollTabHolderFragment {
     protected static final String ARG_POSITION = "position";
 

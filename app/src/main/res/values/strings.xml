@@ -94,4 +94,11 @@
         <item>@drawable/red_box_press</item>
     </string-array>
     <string name="network_no_connect">网络不给力,请检查您的网络设置</string>
+
+    <!--悬浮-->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="long_text">asdasdasdas sadasdasd asdasdad asdasdasd dasdasdasdasdasd dasdasdas dasdasdasdasd dasdasdasdasdas dasdasdasdasdad dadadasadasdasd asdasdadasd asdasdadasdasdedcergrfgbvtegb gqergregqrevggvefvrvqgbvewbv</string>
+    <string name="medium_text">asdasdasdas sadasdasd asdasdad asdasdasd dasdasdasdasdasd dasdasdas dasdasdasdasd dasdasdasdasdas dasdasdasdasdad dadadasadasdasd asdasdadasd asda</string>
+    <string name="short_text">adasd pqeriewpfnqpf eenvcjri eochrhfeivehgi dfbdcwehfei epfeh</string>
+
 </resources>

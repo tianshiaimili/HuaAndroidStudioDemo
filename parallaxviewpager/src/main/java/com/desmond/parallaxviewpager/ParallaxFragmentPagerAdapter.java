@@ -5,9 +5,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.util.SparseArrayCompat;
 import android.view.ViewGroup;
 
-/**
- * Created by desmond on 1/6/15.
- */
 public abstract class ParallaxFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private SparseArrayCompat<ScrollTabHolder> mScrollTabHolders;

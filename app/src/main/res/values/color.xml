@@ -149,7 +149,7 @@
 
     <color name="local_title_bac">#fafafa</color>
 
-
-
+<!--悬浮的-->
+    <color name="theme_color">#33BBFF</color>
 
 </resources>
