@@ -107,7 +107,7 @@ public class MainActivity extends ParallaxViewPagerBaseActivity {
                     break;
 
                 case 2:
-                    fragment = DemoListViewFragment.newInstance(2);
+                    fragment = AllCirclePostsFragment.newInstance(2);
                     break;
 
                 case 3:

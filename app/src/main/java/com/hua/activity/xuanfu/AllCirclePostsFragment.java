@@ -16,19 +16,19 @@ import com.hua.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DemoListViewFragment extends ListViewFragment {
+public class AllCirclePostsFragment extends ListViewFragment {
 
-    public static final String TAG = DemoListViewFragment.class.getSimpleName();
+    public static final String TAG = AllCirclePostsFragment.class.getSimpleName();
 
     public static Fragment newInstance(int position) {
-        DemoListViewFragment fragment = new DemoListViewFragment();
+        AllCirclePostsFragment fragment = new AllCirclePostsFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_POSITION, position);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public DemoListViewFragment() {}
+    public AllCirclePostsFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,7 +51,7 @@ public class DemoListViewFragment extends ListViewFragment {
     private void setAdapter() {
         if (getActivity() == null) return;
 
-        int size = 20;
+        int size = 7;
         String[] stringArray = new String[size];
         for (int i = 0; i < size; ++i) {
             stringArray[i] = ""+i;

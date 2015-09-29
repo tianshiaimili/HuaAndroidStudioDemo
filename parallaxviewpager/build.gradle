@@ -1,10 +1,10 @@
 apply plugin: 'com.android.library'
 
-version = "1.0.0"
-group = "com.github.boxme"
+//version = "1.0.0"
+//group = "com.github.boxme"
 
-def siteUrl = 'https://github.com/boxme/ParallaxHeaderViewPager'
-def gitUrl = 'https://github.com/boxme/ParallaxHeaderViewPager.git'
+//def siteUrl = 'https://github.com/boxme/ParallaxHeaderViewPager'
+//def gitUrl = 'https://github.com/boxme/ParallaxHeaderViewPager.git'
 
 android {
     compileSdkVersion 22
@@ -80,23 +80,23 @@ dependencies {
     compile 'com.android.support:cardview-v7:22.2.0'
     compile 'com.android.support:recyclerview-v7:22.2.0'
 }
+//
+//task sourcesJar(type: Jar) {
+//    from android.sourceSets.main.java.srcDirs
+//    classifier = 'sources'
+//}
+//
+//task javadoc(type: Javadoc) {
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//}
+//
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
 
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
+//artifacts {
+//    archives javadocJar
+//    archives sourcesJar
+//}
