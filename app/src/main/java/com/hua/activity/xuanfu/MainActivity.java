@@ -39,10 +39,10 @@ public class MainActivity extends ParallaxViewPagerBaseActivity {
 
     @Override
     protected void initValues() {
-        int tabHeight = getResources().getDimensionPixelSize(R.dimen.tab_height);
+//        int tabHeight = getResources().getDimensionPixelSize(R.dimen.tab_height);
         mMinHeaderHeight = getResources().getDimensionPixelSize(R.dimen.min_header_height);
         mHeaderHeight = getResources().getDimensionPixelSize(R.dimen.header_height);
-        mMinHeaderTranslation = -mMinHeaderHeight + tabHeight;
+        mMinHeaderTranslation = -mMinHeaderHeight ;
     }
 
     @Override

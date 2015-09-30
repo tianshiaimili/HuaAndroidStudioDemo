@@ -15,6 +15,7 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/header_height"
+        android:layout_marginTop="46dp"
         android:orientation="vertical">
 
         <ImageView
