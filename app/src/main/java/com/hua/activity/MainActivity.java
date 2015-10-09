@@ -264,4 +264,11 @@ public class MainActivity extends Activity {
 
 	}
 
+	@Click
+	void test19(){
+		Intent intent = new Intent(this, com.hua.activity.pay.PayDemoActivity.class);
+		ActivityManager.getManager().goTo(MainActivity.this, intent);
+
+	}
+
 }

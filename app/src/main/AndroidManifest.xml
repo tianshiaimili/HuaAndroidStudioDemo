@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hua" >
-                              
-							  
-							  
+<manifest package="com.hua"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+
     <uses-sdk
         android:minSdkVersion="16"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="19"/>
 
-    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
     <!-- 访问电话的权限 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <!-- 访问网络的权限 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
     <!-- 访问网络状态的权限 -->
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <!-- 访问WIFI网络状态的权限 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <!-- 改变WIFI网络状态的权限 -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <!-- 读写存储卡的权限 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.RIDE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RIDE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <!-- 相机权限 -->
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.autofocus" />
-    <uses-feature android:name="android.hardware.flash" />
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.autofocus"/>
+    <uses-feature android:name="android.hardware.flash"/>
     <!-- 闪光灯控制 -->
-    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
 
     <!-- Push service 运行需要的权限 -->
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <!-- for log. -->
-    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
-    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:name="com.hua.activity.MMApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-        <uses-library android:name="android.test.runner" />
+        android:theme="@style/AppTheme">
+        <uses-library android:name="android.test.runner"/>
+
         <activity
             android:name="com.hua.activity.MainActivity_"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
@@ -72,20 +72,20 @@
 
 
         <!--下面是test中的activity-->
-        <activity android:name="com.hua.activity.test.ActivityWithExtra_" >
+        <activity android:name="com.hua.activity.test.ActivityWithExtra_">
         </activity>
-        <activity android:name="com.hua.activity.test.ChoiceInterest3_" />
-        <activity android:name="com.hua.activity.test.ChoiceInterest_" >
+        <activity android:name="com.hua.activity.test.ChoiceInterest3_"/>
+        <activity android:name="com.hua.activity.test.ChoiceInterest_">
         </activity>
-        <activity android:name="com.hua.activity.test.ChoiceInterest2_" />
-        <activity android:name="com.hua.activity.test.InterestActivity_" />
-        <activity android:name="com.hua.activity.test.AT_Activity" />
+        <activity android:name="com.hua.activity.test.ChoiceInterest2_"/>
+        <activity android:name="com.hua.activity.test.InterestActivity_"/>
+        <activity android:name="com.hua.activity.test.AT_Activity"/>
         <activity
             android:name="com.hua.activity.test.WebViewPlayer_"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateUnspecified" >
+            android:windowSoftInputMode="stateUnspecified">
         </activity>
 
         <activity android:name="com.hua.activity.test.MultipleItemsList"></activity>
@@ -96,17 +96,49 @@
         <activity android:name="com.hua.activity.test.HTMLActivity"></activity>
         <activity android:name="com.hua.activity.test.PersonFragmentNew_"></activity>
         <activity android:name="com.hua.activity.test.SpannableActivity"></activity>
-        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.test.XuanFuActivity"/>
-        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.test.TestEmojicoEdit_"/>
-        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.test.TestEmojicoTextView_"/>
-        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.js.HTMLActivityDemo"/>
-        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.duiba.CreditActivity"/>
-        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.duiba.DuiBaActivity"/>
-        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.xuanfu.MainActivity"/>
+        <activity
+            android:name="com.hua.activity.test.XuanFuActivity"
+            android:theme="@style/AppTheme_Test"/>
+        <activity
+            android:name="com.hua.activity.test.TestEmojicoEdit_"
+            android:theme="@style/AppTheme_Test"/>
+        <activity
+            android:name="com.hua.activity.test.TestEmojicoTextView_"
+            android:theme="@style/AppTheme_Test"/>
+        <activity
+            android:name="com.hua.activity.js.HTMLActivityDemo"
+            android:theme="@style/AppTheme_Test"/>
+        <activity
+            android:name="com.hua.activity.duiba.CreditActivity"
+            android:theme="@style/AppTheme_Test"/>
+        <activity
+            android:name="com.hua.activity.duiba.DuiBaActivity"
+            android:theme="@style/AppTheme_Test"/>
+        <activity
+            android:name="com.hua.activity.xuanfu.MainActivity"
+            android:theme="@style/AppTheme_Test"/>
 
 
+        <!-- alipay sdk begin -->
+        <activity
+            android:name="com.hua.activity.pay.PayDemoActivity"
+            android:theme="@style/AppTheme_Test"/>
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden">
+        </activity>
 
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind">
+        </activity>
 
+        <!-- alipay sdk end -->
 
 
         <!--是test中的activity-->
@@ -116,7 +148,7 @@
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="com.hua" >
+        android:targetPackage="com.hua">
     </instrumentation>
 
 </manifest>

@@ -121,6 +121,12 @@
                 android:layout_height="wrap_content"
                 android:text= "开源的悬浮"/>
 
+            <Button
+                android:id="@+id/test19"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text= "支付宝demo"/>
+
         </LinearLayout>
     </ScrollView>
 
