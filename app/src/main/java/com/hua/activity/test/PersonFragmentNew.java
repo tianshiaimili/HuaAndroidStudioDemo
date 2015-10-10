@@ -1,6 +1,7 @@
 package com.hua.activity.test;
 
 import android.app.Activity;
+import android.widget.AbsListView;
 import android.widget.Gallery;
 
 import com.hua.R;
@@ -56,7 +57,35 @@ public class PersonFragmentNew extends Activity {
 		headerView = FreaturePostsCreamHeaderView_.build(this);
 		headerView.setGalleryAdapter(new PostsGalleryAdapter(this));
 		listView.addChild(headerView);
+		listView.setPreLoadMore(true);
 		listView.setAdapter(new CreamNewAdapter(this, list));
+		listView.setOnRefreshListener(new RefleshListView.OnRefreshListener() {
+
+			@Override
+			public void onRefresh() {
+			}
+		});
+		listView.setOnLoadMoreListener(new RefleshListView.OnLoadMoreListener() {
+
+			@Override
+			public void onLoadMore() {
+			}
+		});
+
+
+		listView.setListViewScrollListener(new RefleshListView.ListViewScrollListener() {
+
+			@Override
+			public void onListViewScrollStateChanged(AbsListView arg0, int arg1) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onListViewScroll(AbsListView view, int firstVisibleItem,
+										 int visibleItemCount, int totalItemCount) {
+			}
+		});
 //		listView.setDivider(getResources().getDrawable(R.drawable.posts_new_list_item_divider));
 
 	}

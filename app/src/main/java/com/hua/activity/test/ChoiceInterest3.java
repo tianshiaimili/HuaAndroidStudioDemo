@@ -134,12 +134,10 @@ public class ChoiceInterest3  extends Activity  {
         });
         listview.setAdapter(new TestAdapter());
 //        listview.
-        listview.setPreLoadMore(false);
-//        listview.setPullLoadMoreEnable(false);
-        listview.setVisibility(View.VISIBLE);
-//        listview.refreshCompleted();
+//        listview.setPreLoadMore(true);
+        listview.refreshCompleted();
 //        listview.loadMoreCompleted();
-        listview.setLoadMoreable(false);
+        listview.setLoadMoreable(true);
 //
 //        erroeMessageUtil = new ErroeMessageUtil(this);
 //        erroeMessageUtil.setOnClickListener(new ErroeMessageUtil.onClickListener() {
@@ -288,7 +286,7 @@ public class ChoiceInterest3  extends Activity  {
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			return 0;
+			return 10;
 		}
 
 		@Override

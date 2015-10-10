@@ -3,6 +3,7 @@ package com.desmond.parallaxviewpager;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ScrollView;
@@ -38,12 +39,19 @@ public abstract class ParallaxViewPagerBaseActivity extends FragmentActivity imp
 
         int firstVisiblePosition = view.getFirstVisiblePosition();
         int top = child.getTop();
-
+        Log.d("Test","top=="+top);
         int headerHeight = 0;
         if (firstVisiblePosition >= 1) {
             headerHeight = mHeaderHeight;
         }
+        Log.d("Test","mHeaderHeight=="+mHeaderHeight);
+        Log.d("Test","firstVisiblePosition=="+firstVisiblePosition);
+        Log.d("Test","firstVisiblePosition * child.getHeight()=="+firstVisiblePosition * child.getHeight()+"\n");
 
+
+        Log.d("Test","mMinHeaderTranslation=="+mMinHeaderTranslation);
+        Log.d("Test","headerHeight=="+headerHeight);
+        Log.d("Test","-top + firstVisiblePosition * child.getHeight=="+ (-top + firstVisiblePosition * child.getHeight() + headerHeight));
         return -top + firstVisiblePosition * child.getHeight() + headerHeight;
     }
 

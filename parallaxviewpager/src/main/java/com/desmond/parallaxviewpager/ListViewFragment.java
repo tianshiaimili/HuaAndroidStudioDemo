@@ -1,5 +1,7 @@
 package com.desmond.parallaxviewpager;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
@@ -10,6 +12,7 @@ public class ListViewFragment extends ScrollTabHolderFragment {
     protected ListView mListView;
     protected int mPosition;
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void adjustScroll(int scrollHeight, int headerHeight) {
         if (mListView == null) return;

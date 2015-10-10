@@ -96,6 +96,7 @@
         <activity android:name="com.hua.activity.test.HTMLActivity"></activity>
         <activity android:name="com.hua.activity.test.PersonFragmentNew_"></activity>
         <activity android:name="com.hua.activity.test.SpannableActivity"></activity>
+<<<<<<< Updated upstream
         <activity
             android:name="com.hua.activity.test.XuanFuActivity"
             android:theme="@style/AppTheme_Test"/>
@@ -117,6 +118,14 @@
         <activity
             android:name="com.hua.activity.xuanfu.MainActivity"
             android:theme="@style/AppTheme_Test"/>
+        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.test.XuanFuActivity"/>
+        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.test.TestEmojicoEdit_"/>
+        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.test.TestEmojicoTextView_"/>
+        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.js.HTMLActivityDemo"/>
+        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.duiba.CreditActivity"/>
+        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.duiba.DuiBaActivity"/>
+        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.xuanfu.MainActivity"/>
+        <activity android:theme="@style/AppTheme_Test" android:name="com.hua.activity.xuanfu.XuanFuActivity"/>
 
 
         <!-- alipay sdk begin -->

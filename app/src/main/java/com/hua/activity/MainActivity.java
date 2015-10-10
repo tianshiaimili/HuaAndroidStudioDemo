@@ -173,6 +173,7 @@ public class MainActivity extends Activity {
 	@Click
 	void test7(){
 
+		//兴趣
 		Intent intent = new Intent(this,ChoiceInterest3_.class);
 		startActivity(intent);
 
@@ -206,7 +207,7 @@ public class MainActivity extends Activity {
 
 	@Click
 	void test11(){
-
+	//精华
 		Intent intent = new Intent(this,PersonFragmentNew_.class);
 		startActivity(intent);
 

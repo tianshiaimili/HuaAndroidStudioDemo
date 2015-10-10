@@ -24,7 +24,6 @@ import com.hua.http.HttpConnManager;
 import java.lang.reflect.Constructor;
 import java.util.Date;
 
-
 public class RefleshListView extends ListView implements OnScrollListener {
 
 	private final static int RELEASE_TO_LOAD = 0x1000; // 松开刷新
@@ -101,21 +100,21 @@ public class RefleshListView extends ListView implements OnScrollListener {
 	public void setHiddentMore(boolean isHiddentMore) {
 		this.isHiddentMore = isHiddentMore;
 	}
-	
+
 	ListViewScrollListener listViewScrollListener;
-	
+
 	public interface ListViewScrollListener{
 		public void onListViewScrollStateChanged(AbsListView arg0, int arg1);
 		public void onListViewScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount);
 	}
-	
+
 	public void setListViewScrollListener(ListViewScrollListener listViewScrollListener){
 		this.listViewScrollListener = listViewScrollListener;
 	}
 
 	/**
 	 * {@link Constructor}
-	 * 
+	 *
 	 * @param context
 	 */
 	public RefleshListView(Context context) {
@@ -126,7 +125,7 @@ public class RefleshListView extends ListView implements OnScrollListener {
 
 	/**
 	 * {@link Constructor}
-	 * 
+	 *
 	 * @param context
 	 */
 	public RefleshListView(Context context, AttributeSet attrs) {
@@ -137,7 +136,7 @@ public class RefleshListView extends ListView implements OnScrollListener {
 
 	/**
 	 * {@link Constructor}
-	 * 
+	 *
 	 * @param context
 	 */
 	public RefleshListView(Context context, AttributeSet attrs, int defStyle) {
@@ -239,11 +238,11 @@ public class RefleshListView extends ListView implements OnScrollListener {
 	@Override
 	public void onScrollStateChanged(AbsListView view, int scrollState) {
 		switch (scrollState) {
-		case SCROLL_STATE_TOUCH_SCROLL:
-			if (mHiddentListener != null) {
-				mHiddentListener.onHiddent();
-			}
-			break;
+			case SCROLL_STATE_TOUCH_SCROLL:
+				if (mHiddentListener != null) {
+					mHiddentListener.onHiddent();
+				}
+				break;
 		}
 		if(listViewScrollListener != null) {
 			listViewScrollListener.onListViewScrollStateChanged(view, scrollState);
@@ -268,199 +267,199 @@ public class RefleshListView extends ListView implements OnScrollListener {
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		switch (event.getAction()) {
-		case MotionEvent.ACTION_DOWN:
-			if (mHiddentListener != null) {
-				mHiddentListener.onHiddent();
-			}
-			mStartY = locationY = (int) event.getY();
-			if (mIsFirstLoad) {
-				mIsRefresh = false;
-				mIsLoadMore = false;
-			} else {
-				if (mIsRefreshable && mFirstItemIndex == 0 && !mIsRecored) {
-					mIsRecored = true;
-					mIsRefresh = true;
-					mIsLoadMore = false;
+			case MotionEvent.ACTION_DOWN:
+				if (mHiddentListener != null) {
+					mHiddentListener.onHiddent();
 				}
+				mStartY = locationY = (int) event.getY();
+				if (mIsFirstLoad) {
+					mIsRefresh = false;
+					mIsLoadMore = false;
+				} else {
+					if (mIsRefreshable && mFirstItemIndex == 0 && !mIsRecored) {
+						mIsRecored = true;
+						mIsRefresh = true;
+						mIsLoadMore = false;
+					}
 				/*
 				 * if(getListViewHeightBasedOnChildren(this)<getHeight()){
 				 * mIsRecored = false; }
 				 */
-				if (mIsLoadMoreable && mLastItemIndex == mTotalItemCount && !mIsRecored) {
-					mIsRecored = true;
-					mIsRefresh = false;
-					mIsLoadMore = true;
-				}
-			}
-			break;
-		case MotionEvent.ACTION_UP:
-			if (mIsRefreshable) {
-				if (mIsRefresh) {
-					if (mState != LOADING) {
-						switch (mState) {
-						case DONE:
-							// 什么都不做
-							break;
-						case PULL_TO_LOAD:
-							// 下拉刷新
-							mState = DONE;
-							changeHeaderViewByState();
-							break;
-						case RELEASE_TO_LOAD:
-							// 松开刷新
-							mState = LOADING;
-							changeHeaderViewByState();
-							refresh();
-							break;
-						default:
-							break;
-						}
-					}
-				}
-				mIsRecored = false;
-				isBack = false;
-			}
-			if (mIsLoadMoreable) {
-				if (mIsLoadMore) {
-					if (mState != LOADING) {
-						switch (mState) {
-						case DONE:
-							// 什么都不做
-							break;
-						case PULL_TO_LOAD:
-							// 下拉刷新
-							mState = DONE;
-							changeFooterViewByState();
-							break;
-						case RELEASE_TO_LOAD:
-							// 松开刷新
-							mState = LOADING;
-							changeFooterViewByState();
-							loadMore();
-							break;
-						default:
-							break;
-						}
-					}
-				}
-				mIsRecored = false;
-				isBack = false;
-			} else {
-				mFootView.setPadding(0, 0, 0, -mFootViewHeight);
-			}
-			break;
-		case MotionEvent.ACTION_MOVE:
-			int tempY = (int) event.getY();
-			if (tempY - locationY > 160) {
-				if (mHiddentTopListener != null) {
-					mHiddentTopListener.onHiddent(1);
-				}
-			} else if (tempY - locationY < -160) {
-				if (mHiddentTopListener != null) {
-					mHiddentTopListener.onHiddent(2);
-				}
-			}
-			if (mIsRefreshable) {
-				if (mIsRefresh) {
-					if (!mIsRecored && mFirstItemIndex == 0) {
+					if (mIsLoadMoreable && mLastItemIndex == mTotalItemCount && !mIsRecored) {
 						mIsRecored = true;
-						mStartY = tempY;
+						mIsRefresh = false;
+						mIsLoadMore = true;
 					}
-					if (mState != LOADING && mIsRecored) {
-						// 保证在设置padding的过程中，当前的位置一直是在head，否则如果当列表超出屏幕的话，当在上推的时候，列表会同时进行滚动
-						switch (mState) {
-						case RELEASE_TO_LOAD: // 可以松手去刷新了
-							setSelection(0);
-							// 往上推了，推到了屏幕足够掩盖head的程度，但是还没有推到全部掩盖的地步
-							if (((tempY - mStartY) / RATIO < mHeadViewHeight) && (tempY - mStartY) > 0) {
-								mState = PULL_TO_LOAD;
-								changeHeaderViewByState();
+				}
+				break;
+			case MotionEvent.ACTION_UP:
+				if (mIsRefreshable) {
+					if (mIsRefresh) {
+						if (mState != LOADING) {
+							switch (mState) {
+								case DONE:
+									// 什么都不做
+									break;
+								case PULL_TO_LOAD:
+									// 下拉刷新
+									mState = DONE;
+									changeHeaderViewByState();
+									break;
+								case RELEASE_TO_LOAD:
+									// 松开刷新
+									mState = LOADING;
+									changeHeaderViewByState();
+									refresh();
+									break;
+								default:
+									break;
 							}
-							// 一下子推到顶了
-							else if (tempY - mStartY <= 0) {
-								mState = DONE;
-								changeHeaderViewByState();
+						}
+					}
+					mIsRecored = false;
+					isBack = false;
+				}
+				if (mIsLoadMoreable) {
+					if (mIsLoadMore) {
+						if (mState != LOADING) {
+							switch (mState) {
+								case DONE:
+									// 什么都不做
+									break;
+								case PULL_TO_LOAD:
+									// 下拉刷新
+									mState = DONE;
+									changeFooterViewByState();
+									break;
+								case RELEASE_TO_LOAD:
+									// 松开刷新
+									mState = LOADING;
+									changeFooterViewByState();
+									loadMore();
+									break;
+								default:
+									break;
 							}
-							mHeadView.setPadding(0, -1 * mHeadViewHeight + (tempY - mStartY) / RATIO, 0, 0);
-							break;
-						case PULL_TO_LOAD:
-							setSelection(0);
-							// 下拉到可以进入RELEASE_TO_REFRESH的状态
-							if ((tempY - mStartY) / RATIO >= mHeadViewHeight) {
-								mState = RELEASE_TO_LOAD;
-								isBack = true;
-								changeHeaderViewByState();
-							} else if (tempY - mStartY <= 0) {// 上推到顶了
-								mState = DONE;
-								changeHeaderViewByState();
-							} else {// 更新headView的paddingTop
-								mHeadView.setPadding(0, (tempY - mStartY) / RATIO - mHeadViewHeight, 0, 0);
+						}
+					}
+					mIsRecored = false;
+					isBack = false;
+				} else {
+					mFootView.setPadding(0, 0, 0, -mFootViewHeight);
+				}
+				break;
+			case MotionEvent.ACTION_MOVE:
+				int tempY = (int) event.getY();
+				if (tempY - locationY > 160) {
+					if (mHiddentTopListener != null) {
+						mHiddentTopListener.onHiddent(1);
+					}
+				} else if (tempY - locationY < -160) {
+					if (mHiddentTopListener != null) {
+						mHiddentTopListener.onHiddent(2);
+					}
+				}
+				if (mIsRefreshable) {
+					if (mIsRefresh) {
+						if (!mIsRecored && mFirstItemIndex == 0) {
+							mIsRecored = true;
+							mStartY = tempY;
+						}
+						if (mState != LOADING && mIsRecored) {
+							// 保证在设置padding的过程中，当前的位置一直是在head，否则如果当列表超出屏幕的话，当在上推的时候，列表会同时进行滚动
+							switch (mState) {
+								case RELEASE_TO_LOAD: // 可以松手去刷新了
+									setSelection(0);
+									// 往上推了，推到了屏幕足够掩盖head的程度，但是还没有推到全部掩盖的地步
+									if (((tempY - mStartY) / RATIO < mHeadViewHeight) && (tempY - mStartY) > 0) {
+										mState = PULL_TO_LOAD;
+										changeHeaderViewByState();
+									}
+									// 一下子推到顶了
+									else if (tempY - mStartY <= 0) {
+										mState = DONE;
+										changeHeaderViewByState();
+									}
+									mHeadView.setPadding(0, -1 * mHeadViewHeight + (tempY - mStartY) / RATIO, 0, 0);
+									break;
+								case PULL_TO_LOAD:
+									setSelection(0);
+									// 下拉到可以进入RELEASE_TO_REFRESH的状态
+									if ((tempY - mStartY) / RATIO >= mHeadViewHeight) {
+										mState = RELEASE_TO_LOAD;
+										isBack = true;
+										changeHeaderViewByState();
+									} else if (tempY - mStartY <= 0) {// 上推到顶了
+										mState = DONE;
+										changeHeaderViewByState();
+									} else {// 更新headView的paddingTop
+										mHeadView.setPadding(0, (tempY - mStartY) / RATIO - mHeadViewHeight, 0, 0);
+									}
+									break;
+								case DONE:
+									if (tempY - mStartY > 0) {
+										mState = PULL_TO_LOAD;
+									}
+									changeHeaderViewByState();
+									break;
+								default:
+									break;
 							}
-							break;
-						case DONE:
-							if (tempY - mStartY > 0) {
-								mState = PULL_TO_LOAD;
-							}
-							changeHeaderViewByState();
-							break;
-						default:
-							break;
 						}
 					}
 				}
-			}
-			if (mIsLoadMoreable) {
-				if (mIsLoadMore) {
-					if (!mIsRecored && mLastItemIndex == mTotalItemCount && !mIsRecored) {
-						mIsRecored = true;
-						mStartY = tempY;
-					}
-					if (mState != LOADING && mIsRecored) {
-						// 保证在设置padding的过程中，当前的位置一直是在head，否则如果当列表超出屏幕的话，当在上推的时候，列表会同时进行滚动
-						switch (mState) {
-						case RELEASE_TO_LOAD: // 可以松手去刷新了
-							setSelection(mTotalItemCount);
-							// 往上推了，推到了屏幕足够掩盖head的程度，但是还没有推到全部掩盖的地步
-							if (((mStartY - tempY) / RATIO < mFootViewHeight) && (mStartY - tempY) > 0) {
-								mState = PULL_TO_LOAD;
-								changeFooterViewByState();
-							} else if (mStartY - tempY <= 0) { // 底部没哟被拉出来
-								mState = DONE;
-								changeFooterViewByState();
-							}
-							// 更新headView的size
-							mFootView.setPadding(0, 0, 0, (mStartY - tempY) / RATIO - mFootViewHeight);
-							break;
-						case PULL_TO_LOAD:
-							setSelection(mTotalItemCount);
-							// 下拉到可以进入RELEASE_TO_REFRESH的状态
-							if ((mStartY - tempY) / RATIO >= mFootViewHeight) {
-								mState = RELEASE_TO_LOAD;
-								isBack = true;
-								changeFooterViewByState();
-							} else if (mStartY - tempY <= 0) {
-								mState = DONE;
-								changeFooterViewByState();
-							} else {// 更新headView的paddingTop
-								mFootView.setPadding(0, 0, 0, (mStartY - tempY) / RATIO - mFootViewHeight);
-							}
-							break;
-						case DONE:
-							if (mStartY - tempY > 0) {
-								mState = PULL_TO_LOAD;
-							}
-							changeFooterViewByState();
-							break;
+				if (mIsLoadMoreable) {
+					if (mIsLoadMore) {
+						if (!mIsRecored && mLastItemIndex == mTotalItemCount && !mIsRecored) {
+							mIsRecored = true;
+							mStartY = tempY;
+						}
+						if (mState != LOADING && mIsRecored) {
+							// 保证在设置padding的过程中，当前的位置一直是在head，否则如果当列表超出屏幕的话，当在上推的时候，列表会同时进行滚动
+							switch (mState) {
+								case RELEASE_TO_LOAD: // 可以松手去刷新了
+									setSelection(mTotalItemCount);
+									// 往上推了，推到了屏幕足够掩盖head的程度，但是还没有推到全部掩盖的地步
+									if (((mStartY - tempY) / RATIO < mFootViewHeight) && (mStartY - tempY) > 0) {
+										mState = PULL_TO_LOAD;
+										changeFooterViewByState();
+									} else if (mStartY - tempY <= 0) { // 底部没哟被拉出来
+										mState = DONE;
+										changeFooterViewByState();
+									}
+									// 更新headView的size
+									mFootView.setPadding(0, 0, 0, (mStartY - tempY) / RATIO - mFootViewHeight);
+									break;
+								case PULL_TO_LOAD:
+									setSelection(mTotalItemCount);
+									// 下拉到可以进入RELEASE_TO_REFRESH的状态
+									if ((mStartY - tempY) / RATIO >= mFootViewHeight) {
+										mState = RELEASE_TO_LOAD;
+										isBack = true;
+										changeFooterViewByState();
+									} else if (mStartY - tempY <= 0) {
+										mState = DONE;
+										changeFooterViewByState();
+									} else {// 更新headView的paddingTop
+										mFootView.setPadding(0, 0, 0, (mStartY - tempY) / RATIO - mFootViewHeight);
+									}
+									break;
+								case DONE:
+									if (mStartY - tempY > 0) {
+										mState = PULL_TO_LOAD;
+									}
+									changeFooterViewByState();
+									break;
 
-						default:
-							break;
+								default:
+									break;
+							}
 						}
 					}
 				}
-			}
-			break;
-		default:
-			break;
+				break;
+			default:
+				break;
 		}
 		return super.onTouchEvent(event);
 	}
@@ -468,49 +467,49 @@ public class RefleshListView extends ListView implements OnScrollListener {
 	// 当状态改变时候，调用该方法，以更新界面
 	private void changeHeaderViewByState() {
 		switch (mState) {
-		case RELEASE_TO_LOAD:
-			mHeadViewArrowImg.setVisibility(View.VISIBLE);
-			mHeadViewProgressBar.setVisibility(View.GONE);
-			mHeadViewTitleTv.setVisibility(View.VISIBLE);
-			mHeadViewLableTv.setVisibility(View.VISIBLE);
-			mHeadViewArrowImg.clearAnimation();
-			mHeadViewArrowImg.startAnimation(mDownToUpAnimation);
-			mHeadViewTitleTv.setText("松开刷新");
-			break;
-		case PULL_TO_LOAD:
-			mHeadViewProgressBar.setVisibility(View.GONE);
-			mHeadViewTitleTv.setVisibility(View.VISIBLE);
-			mHeadViewLableTv.setVisibility(View.VISIBLE);
-			mHeadViewArrowImg.clearAnimation();
-			mHeadViewArrowImg.setVisibility(View.VISIBLE);
-			// 是由RELEASE_To_REFRESH状态转变来的
-			if (isBack) {
-				isBack = false;
+			case RELEASE_TO_LOAD:
+				mHeadViewArrowImg.setVisibility(View.VISIBLE);
+				mHeadViewProgressBar.setVisibility(View.GONE);
+				mHeadViewTitleTv.setVisibility(View.VISIBLE);
+				mHeadViewLableTv.setVisibility(View.VISIBLE);
 				mHeadViewArrowImg.clearAnimation();
-				mHeadViewArrowImg.startAnimation(mUpToDownAnimation);
+				mHeadViewArrowImg.startAnimation(mDownToUpAnimation);
+				mHeadViewTitleTv.setText("松开刷新");
+				break;
+			case PULL_TO_LOAD:
+				mHeadViewProgressBar.setVisibility(View.GONE);
+				mHeadViewTitleTv.setVisibility(View.VISIBLE);
+				mHeadViewLableTv.setVisibility(View.VISIBLE);
+				mHeadViewArrowImg.clearAnimation();
+				mHeadViewArrowImg.setVisibility(View.VISIBLE);
+				// 是由RELEASE_To_REFRESH状态转变来的
+				if (isBack) {
+					isBack = false;
+					mHeadViewArrowImg.clearAnimation();
+					mHeadViewArrowImg.startAnimation(mUpToDownAnimation);
+					mHeadViewTitleTv.setText("下拉刷新");
+				} else {
+					mHeadViewTitleTv.setText("下拉刷新");
+				}
+				break;
+			case LOADING:
+				mHeadView.setPadding(0, 0, 0, 0);
+				mHeadViewProgressBar.setVisibility(View.VISIBLE);
+				mHeadViewArrowImg.clearAnimation();
+				mHeadViewArrowImg.setVisibility(View.GONE);
+				mHeadViewTitleTv.setText("正在刷新...");
+				mHeadViewLableTv.setVisibility(View.VISIBLE);
+				break;
+			case DONE:
+				mHeadView.setPadding(0, -1 * mHeadViewHeight, 0, 0);
+				mHeadViewProgressBar.setVisibility(View.GONE);
+				mHeadViewArrowImg.clearAnimation();
+				mHeadViewArrowImg.setImageResource(R.drawable.arrow_down);
 				mHeadViewTitleTv.setText("下拉刷新");
-			} else {
-				mHeadViewTitleTv.setText("下拉刷新");
-			}
-			break;
-		case LOADING:
-			mHeadView.setPadding(0, 0, 0, 0);
-			mHeadViewProgressBar.setVisibility(View.VISIBLE);
-			mHeadViewArrowImg.clearAnimation();
-			mHeadViewArrowImg.setVisibility(View.GONE);
-			mHeadViewTitleTv.setText("正在刷新...");
-			mHeadViewLableTv.setVisibility(View.VISIBLE);
-			break;
-		case DONE:
-			mHeadView.setPadding(0, -1 * mHeadViewHeight, 0, 0);
-			mHeadViewProgressBar.setVisibility(View.GONE);
-			mHeadViewArrowImg.clearAnimation();
-			mHeadViewArrowImg.setImageResource(R.drawable.arrow_down);
-			mHeadViewTitleTv.setText("下拉刷新");
-			mHeadViewLableTv.setVisibility(View.VISIBLE);
-			loadMoreTextUp = "上拉加载更多";
-			loadMoreTextDown = "松开加载更多";
-			break;
+				mHeadViewLableTv.setVisibility(View.VISIBLE);
+				loadMoreTextUp = "上拉加载更多";
+				loadMoreTextDown = "松开加载更多";
+				break;
 		}
 	}
 
@@ -523,49 +522,49 @@ public class RefleshListView extends ListView implements OnScrollListener {
 	// 当状态改变时候，调用该方法，以更新界面
 	private void changeFooterViewByState() {
 		switch (mState) {
-		case RELEASE_TO_LOAD:
-			mFootViewArrowImg.setVisibility(View.VISIBLE);
-			mFootViewProgressBar.setVisibility(View.GONE);
-			mFootViewTitleTv.setVisibility(View.VISIBLE);
-			// mFootViewLableTv.setVisibility(View.VISIBLE);
-			mFootViewArrowImg.clearAnimation();
-			mFootViewArrowImg.startAnimation(mDownToUpAnimation);
-			mFootViewTitleTv.setText(loadMoreTextDown);
-			break;
-		case PULL_TO_LOAD:
-			mFootViewProgressBar.setVisibility(View.GONE);
-			mFootViewTitleTv.setVisibility(View.VISIBLE);
-			// mFootViewLableTv.setVisibility(View.VISIBLE);
-			mFootViewArrowImg.clearAnimation();
-			mFootViewArrowImg.setVisibility(View.VISIBLE);
-			// 是由RELEASE_To_REFRESH状态转变来的
-			if (isBack) {
-				isBack = false;
+			case RELEASE_TO_LOAD:
+				mFootViewArrowImg.setVisibility(View.VISIBLE);
+				mFootViewProgressBar.setVisibility(View.GONE);
+				mFootViewTitleTv.setVisibility(View.VISIBLE);
+				// mFootViewLableTv.setVisibility(View.VISIBLE);
 				mFootViewArrowImg.clearAnimation();
-				mFootViewArrowImg.startAnimation(mUpToDownAnimation);
-				mFootViewTitleTv.setText(loadMoreTextUp);
-			} else {
-				mFootViewTitleTv.setText(loadMoreTextUp);
-			}
-			break;
-		case LOADING:
-			mFootView.setPadding(0, 0, 0, 0);
-			mFootViewProgressBar.setVisibility(View.VISIBLE);
-			mFootViewArrowImg.clearAnimation();
-			mFootViewArrowImg.setVisibility(View.GONE);
-			mFootViewTitleTv.setText("正在加载...");
-			// mFootViewLableTv.setVisibility(View.VISIBLE);
+				mFootViewArrowImg.startAnimation(mDownToUpAnimation);
+				mFootViewTitleTv.setText(loadMoreTextDown);
+				break;
+			case PULL_TO_LOAD:
+				mFootViewProgressBar.setVisibility(View.GONE);
+				mFootViewTitleTv.setVisibility(View.VISIBLE);
+				// mFootViewLableTv.setVisibility(View.VISIBLE);
+				mFootViewArrowImg.clearAnimation();
+				mFootViewArrowImg.setVisibility(View.VISIBLE);
+				// 是由RELEASE_To_REFRESH状态转变来的
+				if (isBack) {
+					isBack = false;
+					mFootViewArrowImg.clearAnimation();
+					mFootViewArrowImg.startAnimation(mUpToDownAnimation);
+					mFootViewTitleTv.setText(loadMoreTextUp);
+				} else {
+					mFootViewTitleTv.setText(loadMoreTextUp);
+				}
+				break;
+			case LOADING:
+				mFootView.setPadding(0, 0, 0, 0);
+				mFootViewProgressBar.setVisibility(View.VISIBLE);
+				mFootViewArrowImg.clearAnimation();
+				mFootViewArrowImg.setVisibility(View.GONE);
+				mFootViewTitleTv.setText("正在加载...");
+				// mFootViewLableTv.setVisibility(View.VISIBLE);
 
-			break;
-		case DONE:
-			mFootView.setPadding(0, 0, 0, -mFootViewHeight);
-			mFootViewProgressBar.setVisibility(View.GONE);
-			mFootViewArrowImg.setVisibility(View.VISIBLE);
-			mFootViewArrowImg.clearAnimation();
-			mFootViewArrowImg.setImageResource(R.drawable.arrow_up);
-			mFootViewTitleTv.setText(loadMoreTextUp);
-			// mFootViewLableTv.setVisibility(View.VISIBLE);
-			break;
+				break;
+			case DONE:
+				mFootView.setPadding(0, 0, 0, -mFootViewHeight);
+				mFootViewProgressBar.setVisibility(View.GONE);
+				mFootViewArrowImg.setVisibility(View.VISIBLE);
+				mFootViewArrowImg.clearAnimation();
+				mFootViewArrowImg.setImageResource(R.drawable.arrow_up);
+				mFootViewTitleTv.setText(loadMoreTextUp);
+				// mFootViewLableTv.setVisibility(View.VISIBLE);
+				break;
 		}
 	}
 
@@ -611,7 +610,7 @@ public class RefleshListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 底部加载更多的label是否可以见
-	 * 
+	 *
 	 * @param visibility
 	 */
 	public void setFootLabelVisibility(int visibility) {
@@ -620,7 +619,7 @@ public class RefleshListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 底部加载更多label的文字
-	 * 
+	 *
 	 * @param text
 	 */
 	public void setFootLabelText(CharSequence text) {
@@ -629,7 +628,7 @@ public class RefleshListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 是否正在刷新
-	 * 
+	 *
 	 * @return
 	 */
 	public boolean isRefresh() {
@@ -642,7 +641,7 @@ public class RefleshListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 是否正在加载更多
-	 * 
+	 *
 	 * @return
 	 */
 	public boolean isLoadMore() {
@@ -651,7 +650,7 @@ public class RefleshListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 设置是否可以加载更多
-	 * 
+	 *
 	 * @param isLoadMoreable
 	 */
 	public void setLoadMoreable(boolean isLoadMoreable) {
@@ -790,11 +789,11 @@ public class RefleshListView extends ListView implements OnScrollListener {
 	public void setOnScrollBottom(OnScrollBottom onScrollBottom) {
 		this.onScrollBottom = onScrollBottom;
 	}
-	
+
 	public void setPreLoadMore(boolean isPreLoadMore) {
 		this.isPreLoadMore = isPreLoadMore;
 	}
-	
+
 	public void noMoreData(){
 		loadMoreTextUp = "没有了哦";
 		loadMoreTextDown = "没有了哦";

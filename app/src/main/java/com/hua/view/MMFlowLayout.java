@@ -82,7 +82,7 @@ public class MMFlowLayout extends ViewGroup{
         int readHeight = modeHeight == MeasureSpec.EXACTLY ? sizeHeight : height;
         
 //        setMeasuredDimension(modeWidth,modeHeight );
-        setMeasuredDimension(measureWidth(widthMeasureSpec,width),measureHeight(heightMeasureSpec, (int)(height*0.7)) );
+        setMeasuredDimension(measureWidth(widthMeasureSpec,width),measureHeight(heightMeasureSpec, (int)(height*2)) );
 //        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
     
