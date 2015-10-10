@@ -35,7 +35,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':emoji')
     compile 'com.google.code.gson:gson:2.3.1'
     apt "org.androidannotations:androidannotations:$AAVersion"
@@ -52,6 +52,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:22.2.0'
     compile project(':parallaxviewpager')
     compile files('libs/alipaySDK-20150818.jar')
+    compile files('libs/androideventbus-1.0.5.jar')
 }
 
 

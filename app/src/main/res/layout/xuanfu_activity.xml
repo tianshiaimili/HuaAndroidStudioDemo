@@ -1,47 +1,10 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/parent_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        >
-
-    <LinearLayout
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/header_height"
-        android:layout_marginTop="45dp"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/imageview_height"
-            android:src="@drawable/scenery"
-            android:scaleType="centerCrop"/>
-
-        <com.hua.view.slidingTab.SlidingTabLayout
-            android:id="@+id/navig_tab"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/tab_height"
-            android:background="@android:color/white"
-            app:shouldExpand="true"
-            app:indicatorColor="@color/theme_color"
-            app:tabBackground="@layout/sliding_tab_view"
-            app:tabBackgroundTextViewId="@+id/tab_textview"/>
-
-    </LinearLayout>
-        <android.support.v4.view.ViewPager
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
-    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/top"
@@ -66,6 +29,124 @@
             android:layout_centerInParent="true"
             android:text="育儿教育" />
 
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/iv_write"
+            android:background="@drawable/arrow_down"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/iv_write"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/arrow_down"
+            android:gravity="center" />
     </RelativeLayout>
 
-</FrameLayout>
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top"
+        android:background="@drawable/top_bg">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/top"
+            android:orientation="vertical">
+
+            <!--        <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/imageview_height"
+                        android:src="@drawable/test"
+                        android:scaleType="centerCrop"/>-->
+
+            <LinearLayout
+                android:id="@+id/header_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical"
+                    android:textColor="#333"
+                    android:textSize="13sp"
+                    android:visibility="gone"
+                    android:background="#9ED79A"
+                    android:text="11111"
+                    tools:ignore="NewApi,RtlCompat" />
+
+                <TextView
+                    android:id="@+id/text2"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:textColor="#333"
+                    android:textSize="13sp"
+                    android:layout_gravity="center"
+                    android:background="#F2C280"
+                    android:text="MMMMMM"
+                    tools:ignore="NewApi,RtlCompat" />
+
+                <TextView
+                    android:id="@+id/text3"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical"
+                    android:textColor="#333"
+                    android:textSize="13sp"
+                    android:visibility="gone"
+                    android:background="#068B78"
+                    android:text="33333"
+                    tools:ignore="NewApi,RtlCompat" />
+
+
+            </LinearLayout>
+
+
+            <com.hua.view.slidingTab.SlidingTabLayout
+                android:id="@+id/navig_tab"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tab_height"
+                android:background="@android:color/white"
+                app:shouldExpand="true"
+                app:indicatorColor="@color/theme_color"
+                app:tabBackground="@layout/sliding_tab_view"
+                app:tabBackgroundTextViewId="@+id/tab_textview"/>
+
+            <include layout="@layout/sub_head" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+
+    <ImageView
+        android:id="@+id/iv_help"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/arrow_down"
+        android:visibility="gone"
+        />
+</RelativeLayout>

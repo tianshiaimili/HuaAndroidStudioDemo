@@ -260,7 +260,7 @@ public class MainActivity extends Activity {
 
 	@Click
 	void test18(){
-		Intent intent = new Intent(this, com.hua.activity.xuanfu.MainActivity.class);
+		Intent intent = new Intent(this, com.hua.activity.xuanfu.XuanFuActivity.class);
 		ActivityManager.getManager().goTo(MainActivity.this, intent);
 
 	}

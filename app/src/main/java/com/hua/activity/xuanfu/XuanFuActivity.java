@@ -4,18 +4,20 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import com.desmond.parallaxviewpager.ParallaxFragmentPagerAdapter;
-import com.desmond.parallaxviewpager.ParallaxViewPagerBaseActivity;
 import com.hua.R;
 import com.hua.view.slidingTab.SlidingTabLayout;
 
 
 public class XuanFuActivity extends ParallaxViewPagerBaseActivity {
 
-    private ImageView mTopImage;
     private SlidingTabLayout mNavigBar;
+    private TextView sub_head;
+    private LinearLayout header_content;
+    private TextView text1, text2_head,text3;
+    private int mNavigBarHeigh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +26,15 @@ public class XuanFuActivity extends ParallaxViewPagerBaseActivity {
 
         initValues();
 
-        mTopImage = (ImageView) findViewById(R.id.image);
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mNavigBar = (SlidingTabLayout) findViewById(R.id.navig_tab);
         mHeader = findViewById(R.id.header);
+        header_content = (LinearLayout) findViewById(R.id.header_content);
+        text1 = (TextView) findViewById(R.id.text1);
+        text2_head = (TextView) findViewById(R.id.text2);
+        text3 = (TextView) findViewById(R.id.text3);
 
         if (savedInstanceState != null) {
-            mTopImage.setTranslationY(savedInstanceState.getFloat(IMAGE_TRANSLATION_Y));
             mHeader.setTranslationY(savedInstanceState.getFloat(HEADER_TRANSLATION_Y));
         }
 
@@ -47,7 +51,7 @@ public class XuanFuActivity extends ParallaxViewPagerBaseActivity {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putFloat(IMAGE_TRANSLATION_Y, mTopImage.getTranslationY());
+//        outState.putFloat(IMAGE_TRANSLATION_Y, mTopImage.getTranslationY());
         outState.putFloat(HEADER_TRANSLATION_Y, mHeader.getTranslationY());
         super.onSaveInstanceState(outState);
     }
@@ -68,7 +72,7 @@ public class XuanFuActivity extends ParallaxViewPagerBaseActivity {
     protected void scrollHeader(int scrollY) {
         float translationY = Math.max(-scrollY, mMinHeaderTranslation);
         mHeader.setTranslationY(translationY);
-        mTopImage.setTranslationY(-translationY / 3);
+//        mTopImage.setTranslationY(-translationY / 3);
     }
 
 //    private int getActionBarHeight() {
@@ -99,11 +103,11 @@ public class XuanFuActivity extends ParallaxViewPagerBaseActivity {
             Fragment fragment;
             switch (position) {
                 case 0:
-                    fragment = FirstScrollViewFragment.newInstance(0);
+                    fragment = AllCirclePostsFragment.newInstance(0);
                     break;
 
                 case 1:
-                    fragment = SecondScrollViewFragment.newInstance(1);
+                    fragment = AllCirclePostsFragment.newInstance(1);
                     break;
 
                 case 2:
@@ -111,7 +115,7 @@ public class XuanFuActivity extends ParallaxViewPagerBaseActivity {
                     break;
 
                 case 3:
-                    fragment = DemoRecyclerViewFragment.newInstance(3);
+                    fragment = AllCirclePostsFragment.newInstance(3);
                     break;
 
                 default:
@@ -124,7 +128,7 @@ public class XuanFuActivity extends ParallaxViewPagerBaseActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "ScrollView7";
+                    return "ScrollView";
 
                 case 1:
                     return "ScrollView";
