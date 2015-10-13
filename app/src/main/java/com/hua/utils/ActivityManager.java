@@ -49,7 +49,7 @@ public class ActivityManager {
     public void goTo(Activity self, Intent it) {
 //		activities.add(target);
         self.startActivity(it);
-        self.overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
+//        self.overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
     }
 
     public void goFoResult(Activity self, Intent it) {

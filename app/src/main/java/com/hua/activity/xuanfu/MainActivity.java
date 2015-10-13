@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.widget.ImageView;
 
+import com.desmond.parallaxviewpager.LogUtil;
 import com.desmond.parallaxviewpager.ParallaxFragmentPagerAdapter;
 import com.desmond.parallaxviewpager.ParallaxViewPagerBaseActivity;
 import com.hua.R;
@@ -66,9 +67,13 @@ public class MainActivity extends ParallaxViewPagerBaseActivity {
 
     @Override
     protected void scrollHeader(int scrollY) {
+        LogUtil.d("Scroll","scrollY =  "+scrollY);
         float translationY = Math.max(-scrollY, mMinHeaderTranslation);
+        LogUtil.d("Scroll","translationY**-- =  "+translationY);
         mHeader.setTranslationY(translationY);
-        mTopImage.setTranslationY(-translationY / 3);
+//        mTopImage.setTranslationY(-translationY / 3);
+        LogUtil.d("Scroll", "-translationY / 3 **-- =  " + (-translationY / 3));
+
     }
 
 //    private int getActionBarHeight() {

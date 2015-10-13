@@ -40,6 +40,12 @@ public abstract class ParallaxViewPagerBaseActivity extends FragmentActivity imp
         int firstVisiblePosition = view.getFirstVisiblePosition();
         int top = child.getTop();
         Log.d("Test","top=="+top);
+
+        LogUtil.d("Scroll","firstVisiblePosition="+firstVisiblePosition);
+
+        LogUtil.d("Scroll","child.getHeight()="+child.getHeight());
+
+        LogUtil.d("Scroll","top )="+top);
         int headerHeight = 0;
         if (firstVisiblePosition >= 1) {
             headerHeight = mHeaderHeight;
@@ -52,6 +58,13 @@ public abstract class ParallaxViewPagerBaseActivity extends FragmentActivity imp
         Log.d("Test","mMinHeaderTranslation=="+mMinHeaderTranslation);
         Log.d("Test","headerHeight=="+headerHeight);
         Log.d("Test","-top + firstVisiblePosition * child.getHeight=="+ (-top + firstVisiblePosition * child.getHeight() + headerHeight));
+        LogUtil.d("Scroll","mHeaderHeight = = "+mHeaderHeight);
+        LogUtil.d("Scroll","headerHeight*** = = "+headerHeight);
+
+        LogUtil.d("Scroll","child.getHeight()*** = = "+child.getHeight());
+
+        LogUtil.d("Scroll","final = = "+(-top + (firstVisiblePosition * child.getHeight()) + headerHeight));
+
         return -top + firstVisiblePosition * child.getHeight() + headerHeight;
     }
 

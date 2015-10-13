@@ -50,7 +50,7 @@ public class AllCirclePostsFragment extends ListViewFragment {
     private void setAdapter() {
         if (getActivity() == null) return;
 
-        int size = 17;
+        int size = 57;
         String[] stringArray = new String[size];
         for (int i = 0; i < size; ++i) {
             stringArray[i] = ""+i;
