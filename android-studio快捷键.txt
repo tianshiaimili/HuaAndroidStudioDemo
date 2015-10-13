@@ -1,0 +1,40 @@
+ctrl + F2 快速打开类似eclipse的outline
+
+
+风格选择：
+setting-> keymap->keymaps-eclipse
+显示 行号 -setting--Editor-General--Appearance-show line numbers
+alt+左右键  ---返回上一步
+
+ctrl + F3 快速打开类似eclipse的outline
+
+ctrl + F 查找变量名或者替换
+
+alt+shift+s  --弹出的窗口可以选择Generate-> 然后选择对应的set或者get方法或者构造器等
+
+选中某个方法然后按 “F2”建会弹出方法的对应解析或者说是用法
+
+alt+F1  -------可以打开文件在本地的目录位置
+
+F2 ----选中某个方法或者类 再按住F2键就可以查看该类或者方法的api或者是说明，注意当弹出窗口后用鼠标点击他后在点击别的地方才会消失，不然只能点击面板上的箭头才消失
+
+android studio 设置自动导入import package 步骤：setting--->Editor---->auto import-->java-->选中
+Optimize imports on fly：这个其实和快捷键Ctrl+Shift+O/Ctrl+Alt+O是一样的，就是把不用的声明移除掉。
+Add unambiguous imports on the fly：这个就是自动导入功能了，当你输入类名后，声明就被自动导入了。
+
+http://blog.csdn.net/hyr83960944/article/details/38438355参考
+
+
+Debug模式-----------------------------------
+
+F5 是进入方法内
+
+F6 是跳过---
+
+F7 是跳出进入的方法
+
+F8 不顾断点直接执行完
+
+ctrl + shift +F8 查看现有的dubug设置的断点位置
+
+ctrl + shift +enter  查看bug的时候 某个方法的值
