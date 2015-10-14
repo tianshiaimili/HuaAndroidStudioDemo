@@ -1,6 +1,5 @@
 package com.hua.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -9,6 +8,7 @@ import android.widget.Button;
 import com.hua.R;
 import com.hua.activity.duiba.DuiBaActivity;
 import com.hua.activity.js.HTMLActivityDemo;
+import com.hua.activity.taiwanAd.BaseActivity;
 import com.hua.activity.test.AT_Activity;
 import com.hua.activity.test.ActivityWithExtra_;
 import com.hua.activity.test.ChoiceInterest3_;
@@ -37,7 +37,7 @@ import java.util.Date;
 
 /***test合拼*/
 @EActivity(R.layout.activity_main)
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 
 
 	public static final String MY_STRING_EXTRA = "myStringExtra";
@@ -268,6 +268,13 @@ public class MainActivity extends Activity {
 	@Click
 	void test19(){
 		Intent intent = new Intent(this, com.hua.activity.pay.PayDemoActivity.class);
+		ActivityManager.getManager().goTo(MainActivity.this, intent);
+
+	}
+
+	@Click
+	void test20(){
+		Intent intent = new Intent(this, com.hua.activity.taiwanAd.SingleDeferAdapterActivity.class);
 		ActivityManager.getManager().goTo(MainActivity.this, intent);
 
 	}

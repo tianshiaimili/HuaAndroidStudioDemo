@@ -112,6 +112,7 @@
     <orderEntry type="library" exported="" name="open_sdk" level="project" />
     <orderEntry type="library" exported="" name="androideventbus-1.0.5" level="project" />
     <orderEntry type="library" exported="" name="umeng-fb-v4.3.2" level="project" />
+    <orderEntry type="library" exported="" name="intowowsdk-cn.1.1.58" level="project" />
     <orderEntry type="library" exported="" name="wmqtt" level="project" />
     <orderEntry type="library" exported="" name="glide-3.6.1" level="project" />
     <orderEntry type="library" exported="" name="analytics-5.6.1" level="project" />

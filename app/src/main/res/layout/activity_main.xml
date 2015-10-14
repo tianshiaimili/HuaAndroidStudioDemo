@@ -127,6 +127,12 @@
                 android:layout_height="wrap_content"
                 android:text= "支付宝demo"/>
 
+            <Button
+                android:id="@+id/test20"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text= "太晚AD"/>
+
         </LinearLayout>
     </ScrollView>
 
