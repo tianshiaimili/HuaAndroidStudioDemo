@@ -8,6 +8,6 @@
 	android:paddingStart="?android:attr/listPreferredItemPaddingStart"
 	android:textColor="#333"
 	android:textSize="13sp"
-	android:visibility="gone"
-	android:text="MMMMMM"
+	android:background="@android:color/white"
+	android:text="MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
 	tools:ignore="NewApi,RtlCompat" />
