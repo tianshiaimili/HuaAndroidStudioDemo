@@ -7,8 +7,8 @@
     <View 
         android:id="@+id/title"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/stream_title"
+        android:layout_height="50dp"
+        android:background="#00796B"
         />
 
     <ListView

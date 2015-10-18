@@ -26,6 +26,8 @@ public class SingleDeferAdapterActivity extends BaseActivity {//TODO extends Bas
 	private final static int ITEM_SIZE = 200;
 	private ListView mListView = null;
 	private List<Object> mItems = new ArrayList<Object>(ITEM_SIZE);
+	float scale = 0;
+	private View title;
 	
 	//*******************************************
 	//	stream ad
@@ -50,8 +52,8 @@ public class SingleDeferAdapterActivity extends BaseActivity {//TODO extends Bas
 		setContentView(R.layout.activity_stream);
 
 		LayoutManager lm = LayoutManager.getInstance(this);
-		View title = findViewById(R.id.title);
-		title.getLayoutParams().height = lm.getMetric(LayoutManager.LayoutID.STREAM_TITLE_HEIGHT);
+		title = findViewById(R.id.title);
+//		title.getLayoutParams().height = lm.getMetric(LayoutManager.LayoutID.STREAM_TITLE_HEIGHT);
 		mListView = (ListView)findViewById(R.id.listView);
 		headView = LayoutInflater.from(getApplication()).inflate(R.layout.sub_head,null);
 		mListView.addHeaderView(headView);
@@ -91,20 +93,22 @@ public class SingleDeferAdapterActivity extends BaseActivity {//TODO extends Bas
 			@Override
 			public void onScroll(AbsListView absListView, int i, int i1, int i2) {
 
-				int height = headView.getHeight();
-				int scrollY = QuickReturnUtils.getScrollY(absListView);
+				float height = (float)headView.getHeight();
+				float scrollY = (float)QuickReturnUtils.getScrollY(absListView);
 				LogUtil.d("Color","color .height== "+height);
 				LogUtil.d("Color","color.scrollY== "+scrollY);
-				int tempY = Math.max(scrollY,height);
-				float scale = 0;
-				if(height != 0){
+				float tempY = (float)Math.min(scrollY, height);
+				LogUtil.d("Color","color.tempY== "+tempY);
+				if(height != 0 && tempY <= height){
 					float test = 2/4;
 					LogUtil.d("Color","color.test== "+test);
-					scale	= scrollY / height;
+					scale	= tempY / height;
 				}
 				LogUtil.d("Color","color.scale== "+scale);
 				ArgbEvaluator evaluator = new ArgbEvaluator();
-				int evaluate = (Integer) evaluator.evaluate(scale, 0XFF8080FF,0XFFFF8080);
+				int evaluate = (Integer) evaluator.evaluate(scale, 0XFF00796B,0XFFFFFFFF);
+				LogUtil.d("Color","color.evaluate== "+scale);
+				title.setBackgroundColor(evaluate);
 
 			}
 		});
