@@ -9,7 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.hua.R;
+import com.hua.constant.EventBusConstant;
 import com.hua.view.RefleshListView;
+
+import org.simple.eventbus.Subscriber;
 
 
 /**
@@ -50,7 +53,7 @@ public class AllCirclePostsFragment2 extends ListViewFragment {
     private void setAdapter() {
         if (getActivity() == null) return;
 
-        int size = 17;
+        int size = 27;
         String[] stringArray = new String[size];
         for (int i = 0; i < size; ++i) {
             stringArray[i] = ""+i;
@@ -60,5 +63,21 @@ public class AllCirclePostsFragment2 extends ListViewFragment {
                 new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, stringArray);
 
         mListView.setAdapter(adapter);
+    }
+
+    @Subscriber(tag = EventBusConstant.TEST)
+    void test(int test){
+
+        mListView.scrollTo(0,test);
+
+    }
+
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser){
+            mListView.scrollTo(0,200);
+        }
     }
 }

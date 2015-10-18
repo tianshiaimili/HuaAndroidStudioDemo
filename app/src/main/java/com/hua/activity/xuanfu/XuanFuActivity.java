@@ -8,7 +8,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hua.R;
+import com.hua.constant.EventBusConstant;
 import com.hua.view.slidingTab.SlidingTabLayout;
+
+import org.simple.eventbus.EventBus;
 
 
 public class XuanFuActivity extends ParallaxViewPagerBaseActivity {
@@ -18,11 +21,13 @@ public class XuanFuActivity extends ParallaxViewPagerBaseActivity {
     private LinearLayout header_content;
     private TextView text1, text2_head,text3;
     private int mNavigBarHeigh;
+    float translationY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.xuanfu_activity);
+        EventBus.getDefault().register(this);
 
         initValues();
 
@@ -64,13 +69,31 @@ public class XuanFuActivity extends ParallaxViewPagerBaseActivity {
 
         mViewPager.setAdapter(mAdapter);
         mViewPager.setOffscreenPageLimit(mNumFragments);
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+                EventBus.getDefault().post((int)translationY, EventBusConstant.TEST);
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         mNavigBar.setOnPageChangeListener(getViewPagerChangeListener());
         mNavigBar.setViewPager(mViewPager);
     }
 
     @Override
     protected void scrollHeader(int scrollY) {
-        float translationY = Math.max(-scrollY, mMinHeaderTranslation);
+        translationY = Math.max(-scrollY, mMinHeaderTranslation);
         mHeader.setTranslationY(translationY);
 //        mTopImage.setTranslationY(-translationY / 3);
     }
@@ -107,7 +130,7 @@ public class XuanFuActivity extends ParallaxViewPagerBaseActivity {
                     break;
 
                 case 1:
-                    fragment = AllCirclePostsFragment.newInstance(1);
+                    fragment = AllCirclePostsFragment2.newInstance(1);
                     break;
 
                 case 2:
@@ -144,4 +167,8 @@ public class XuanFuActivity extends ParallaxViewPagerBaseActivity {
             }
         }
     }
+
+//    class
+
+
 }

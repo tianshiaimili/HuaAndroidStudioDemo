@@ -39,6 +39,7 @@ public class AllCirclePostsFragment extends ListViewFragment {
         mListView = (RefleshListView) view.findViewById(R.id.listview);
         View placeHolderView = inflater.inflate(R.layout.header_placeholder, mListView, false);
         mListView.addHeaderView(placeHolderView);
+//        mListView.scrollListBy();
 
 
         setAdapter();
