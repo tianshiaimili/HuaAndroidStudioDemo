@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.desmond.parallaxviewpager.LogUtil;
 import com.hua.R;
@@ -23,7 +24,7 @@ public class SingleDeferAdapterActivity extends BaseActivity {//TODO extends Bas
 	//******************************************
 	//	common UI
 	//
-	private final static int ITEM_SIZE = 200;
+	private final static int ITEM_SIZE = 8;
 	private ListView mListView = null;
 	private List<Object> mItems = new ArrayList<Object>(ITEM_SIZE);
 	float scale = 0;
@@ -57,6 +58,10 @@ public class SingleDeferAdapterActivity extends BaseActivity {//TODO extends Bas
 		mListView = (ListView)findViewById(R.id.listView);
 		headView = LayoutInflater.from(getApplication()).inflate(R.layout.sub_head,null);
 		mListView.addHeaderView(headView);
+
+		TextView textView = (TextView) LayoutInflater.from(this).inflate(R.layout.sub_head,null);
+		mListView.addHeaderView(textView);
+
 		for(int i=0; i<ITEM_SIZE; i++) {
 			mItems.add(new Object());
 		}

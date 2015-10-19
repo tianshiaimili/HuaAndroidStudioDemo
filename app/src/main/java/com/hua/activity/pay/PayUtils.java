@@ -1,6 +1,7 @@
 package com.hua.activity.pay;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
@@ -26,17 +27,14 @@ public class PayUtils {
 
 
     // 商户PID
-    public static final String PARTNER = "";
+    public static final String PARTNER = "2088811035450481";
     // 商户收款账号
-    public static final String SELLER = "";
+    public static final String SELLER = "sc-smt@mama.cn";
     // 商户私钥，pkcs8格式
-//	public static final String RSA_PRIVATE = "MIICWwIBAAKBgQDfXa0j44+iAApRWIGTIZh84fNXLOqdsbZbbb5ynQfryyrpHnjH2alYDCzdv7V3fX/JpOBS66JZK6pgc3cIkoYovKSORLBE2HSeVbthOFJXFe4+Qt9OjlRBjAwK4VQ6V/H88fgAkLZqmnHiduNAFfQ552u4IPa8AtD0BGeyh6QW7wIDAQABAoGAZZNpCDgU+lvAVWvFSQ5vFON/0LX5X4sQXZWTlPV6Q61ZrzePP3rpOsQWpyTmNheZRC65YJwNcTWdPk1j5T8UyJopRG+Qcn5wHdNZMUsZw2jHmrinm4I1nxIbFJVB9yhvqQsHURcFbFexqJIwAp0EIgCZlUtykv9+7HjIDS1a+xECQQD1UhFgBXjiWgDOPY8u/VNMLlHAJVR2DG6dcvnwDVM39liNDpxHdK7Mr1qRCZn5tiNznvLFd0+GUEkvB0tftld3AkEA6RbwTD5GAV5TdLkGJduuK2OfcPf57LQlkVIVT8+Yq+CFLobmmSMOeGu6sLe4mpLyEYlto4PnXtwuxA4fSDmKSQJAfPEZTFA9Kvsv4dpUbFg07l3A4R2iEKVwSNxgEzSWJ7BdlSnVykbRKAo/FBNRym5LS/2uI4gKhpupSjxq1QpnLQJAPTSpyst7ZHaZYYgIRj6mQHx7bJWhCffP+ZXdRMTVaSSetDX2LXYYIaTgM/E6R1SYveQhZxOG2NDmctLmgfeiCQJAThCRbo9UzmGXfTJMfQ34WxjpV9fcgdH31fGvY195yTqMfmvDCfKSGS51cwitZmDBYuZAI3noXD+U6IknM6vRCQ==";
-    public static final String RSA_PRIVATE ="";
+    public static final String RSA_PRIVATE ="MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAL2wYQ2gaE5/dAlE1yqaoeBlumFI/5VgNZS6vv03ZB6aYOXzuJqPeSorgFHxfleoJyMC8N79DokH+As1CXUYVM4GjQkW716m+APaIh4vDmTjLIhJlkFsO7MoXCkQJ5AvBeLCeXShQhfJZvLzodjp/msesu5+N1f7gPk9JwPd48GHAgMBAAECgYEAjiPeBgz+PFwrQkrQhP9Mb88q432E75UhcWqidTKNlpUOKSIBYehC3gOs6zpv9xVtBkJM5ntv6eULzLIYfSMXX+LtlAFGCxezdnoxh4cNLdiSw3h0YMc/A4F5vZ30SR6FoEcVjytfRAUA/2RE56fMIfMKLFZx+WuSJ84nhJxwM8ECQQD0OvXpEuiuhS3NPqqvU/JTIqvJgB45xBx1b/ILLUU67yHO2Fzy2gDoyJqmN0tlmr1SHBwLIGCaaqAIcJmSwmghAkEAxtSMfTorzYMldyHnMN0tJNJerkivimY5zszL3A1BxPSJjkacaY7BroMZrF4W04mv+4PVsaiQKpQKL++UvgdUpwJAFYKL3fc4XwaDvivixIZUNVY8YwbRoqzPBNjTLIDUNBiTlbAgn5LruZTRago8rbovKmgnYCN93pu9dIDWRcKxgQJAaxIyxYz54aXqGwlq0mmI0fdnfTsvLLx4DOFENq/85u841CE6Qa3apvt6a9QPPsM6vZr1DMLVP9iQ09eUpfCUqQJBANesZz15pZ9Fztpxh1j412n/wPmTMIitarK/LZpwdUpBZfFxnqewUO3ZF3iGtSoIbFhpnGIu6lSd4J0AUvIV3xw=";
     // 支付宝公钥
     public static final String RSA_PUBLIC = "";
     private static final int SDK_PAY_FLAG = 1;
-
-    private static final int SDK_CHECK_FLAG = 2;
 
     private static final String ALGORITHM = "RSA";
 
@@ -44,6 +42,16 @@ public class PayUtils {
 
     private static final String DEFAULT_CHARSET = "UTF-8";
 
+    private static  PayUtils payUtils;
+    private  static Context mContext;
+
+    public static  PayUtils getInstance(Context context){
+        if(payUtils == null){
+            payUtils = new PayUtils();
+            mContext = context;
+        }
+        return payUtils;
+    }
 
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -58,27 +66,22 @@ public class PayUtils {
 
                     // 判断resultStatus 为“9000”则代表支付成功，具体状态码代表含义可参考接口文档
                     if (TextUtils.equals(resultStatus, "9000")) {
-//                        Toast.makeText(PayDemoActivity.this, "支付成功",
-//                                Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, "支付成功",
+                                Toast.LENGTH_SHORT).show();
                     } else {
                         // 判断resultStatus 为非“9000”则代表可能支付失败
                         // “8000”代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
                         if (TextUtils.equals(resultStatus, "8000")) {
-//                            Toast.makeText(PayDemoActivity.this, "支付结果确认中",
-//                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, "支付结果确认中",
+                                    Toast.LENGTH_SHORT).show();
 
                         } else {
                             // 其他值就可以判断为支付失败，包括用户主动取消支付，或者系统返回的错误
-//                            Toast.makeText(PayDemoActivity.this, "支付失败",
-//                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, "支付失败",
+                                    Toast.LENGTH_SHORT).show();
 
                         }
                     }
-                    break;
-                }
-                case SDK_CHECK_FLAG: {
-//                    Toast.makeText(PayDemoActivity.this, "检查结果为：" + msg.obj,
-//                            Toast.LENGTH_SHORT).show();
                     break;
                 }
                 default:
@@ -86,7 +89,6 @@ public class PayUtils {
             }
         };
     };
-
 
     public static String sign(String content, String privateKey) {
         try {
@@ -219,18 +221,8 @@ public class PayUtils {
     public void pay(View v, final Activity activity) {
         if (TextUtils.isEmpty(PARTNER) || TextUtils.isEmpty(RSA_PRIVATE)
                 || TextUtils.isEmpty(SELLER)) {
-//            new AlertDialog.Builder(this)
-//                    .setTitle("警告")
-//                    .setMessage("需要配置PARTNER | RSA_PRIVATE| SELLER")
-//                    .setPositiveButton("确定",
-//                            new DialogInterface.OnClickListener() {
-//                                public void onClick(
-//                                        DialogInterface dialoginterface, int i) {
-//                                    //
-//                                    finish();
-//                                }
-//                            }).show();
-//            return;
+            //TODO
+            return;
         }
         // 订单
         String orderInfo = getOrderInfo("测试的商品", "该测试商品的详细描述", "0.01");
@@ -268,5 +260,6 @@ public class PayUtils {
         Thread payThread = new Thread(payRunnable);
         payThread.start();
     }
+
 
 }

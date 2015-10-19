@@ -163,6 +163,10 @@
 
 
         <!-- alipay sdk begin -->
+
+        <activity
+            android:name="com.hua.activity.pay.PayTestActivity"
+            android:theme="@style/Default"/>
         <activity
             android:name="com.hua.activity.pay.PayDemoActivity"
             android:theme="@style/Default"/>

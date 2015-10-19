@@ -26,8 +26,8 @@ public final class DuiBaActivity extends Activity{
 				intent.setClass(DuiBaActivity.this, CreditActivity.class);
                 intent.putExtra("navColor", "#0acbc1");    //配置导航条的背景颜色，请用#ffffff长格式。
                 intent.putExtra("titleColor", "#ffffff");    //配置导航条标题的颜色，请用#ffffff长格式。
-//				String url = "file:///android_asset/duibashare2.html";
-				String url ="http://www.duiba.com.cn/test/demoRedirectSAdfjosfdjdsa";
+				String url = "file:///android_asset/duibashare2.html";
+//				String url ="http://www.duiba.com.cn/test/demoRedirectSAdfjosfdjdsa";
 //				String url = "http://www.duiba.com.cn/autoLogin/autologin?uid=7756384&credits=2937&appKey=44Cee4R6fBDoFATaSg8WnGo29ipw&sign=0f08615d4c4f25e06715663290997548&timestamp=1442999884000";
                 intent.putExtra("url", url);    //配置自动登陆地址，每次需服务端动态生成。
 				startActivity(intent);

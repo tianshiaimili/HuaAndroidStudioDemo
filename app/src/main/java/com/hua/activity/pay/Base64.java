@@ -1,5 +1,8 @@
 package com.hua.activity.pay;
 
+/**
+ * 支付宝 加密类
+ */
 public final class Base64 {
 
 	private static final int BASELENGTH = 128;

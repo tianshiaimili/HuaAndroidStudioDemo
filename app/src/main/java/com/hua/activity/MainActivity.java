@@ -198,7 +198,7 @@ public class MainActivity extends BaseActivity {
 
 	@Click
 	void test10(){
-
+		//webview和js
 		Intent intent = new Intent(this,HTMLActivity.class);
 		startActivity(intent);
 
@@ -265,9 +265,10 @@ public class MainActivity extends BaseActivity {
 
 	}
 
+	///支付demo
 	@Click
 	void test19(){
-		Intent intent = new Intent(this, com.hua.activity.pay.PayDemoActivity.class);
+		Intent intent = new Intent(this, com.hua.activity.pay.PayTestActivity.class);
 		ActivityManager.getManager().goTo(MainActivity.this, intent);
 
 	}
