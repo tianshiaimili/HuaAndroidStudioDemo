@@ -133,6 +133,18 @@
                 android:layout_height="wrap_content"
                 android:text= "太晚AD"/>
 
+            <Button
+                android:id="@+id/test21"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text= "测试位置固定"/>
+
+            <Button
+                android:id="@+id/test22"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text= "第三方QQ登录"/>
+
         </LinearLayout>
     </ScrollView>
 

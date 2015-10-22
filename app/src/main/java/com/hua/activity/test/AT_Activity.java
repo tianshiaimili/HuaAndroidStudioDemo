@@ -40,6 +40,9 @@ import com.hua.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 模仿@功能
+ */
 public class AT_Activity extends Activity {
 
 	private EditText mEditTextMsg;
@@ -86,7 +89,7 @@ public class AT_Activity extends Activity {
 			public void onClick(View v) {
 				if (mEditTextMsg.getText().toString() != null) {
 					LogUtils.e("???");
-//					list.add(0, mEditTextMsg.getText().toString());
+//					listData.add(0, mEditTextMsg.getText().toString());
 					User user = new User("新ID："+idIndex++,mEditTextMsg.getText().toString());
 					mList.add(0, user);
 //					adapter.notifyDataSetChanged();
@@ -110,12 +113,12 @@ public class AT_Activity extends Activity {
 		});
 		//
 		for (int i = 0; i < 10; i++) {
-//			list.add("value - " + i);
+//			listData.add("value - " + i);
 			User user = new User("id:"+i,"name is "+i);
 			mList.add(user);
 		}
 //		adapter = new ArrayAdapter<String>(getApplicationContext(),
-//				android.R.layout.simple_list_item_1, android.R.id.text1, list);
+//				android.R.layout.simple_list_item_1, android.R.id.text1, listData);
 		mAdapter = new MAdapter(mList);
 		listView.setAdapter(mAdapter);
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

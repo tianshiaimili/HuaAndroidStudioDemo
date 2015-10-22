@@ -226,15 +226,15 @@ public class ChoiceInterest3  extends Activity  {
 //        List<MasterListBean> lis = pd.getDatas(json);
 //        if (lis.size() != 0) {
 //            if (PAGENOW == 1) {
-//                list.clear();
+//                listData.clear();
 //            }
-//            list.addAll(lis);
+//            listData.addAll(lis);
 //            adapter.notifyDataSetChanged();
 //            PAGENOW++;
 //            listview.setLoadMoreable(true);
 //            showErrorMessage(ErroeMessageUtil.ERROR_NO_MASTER_DATA);
 //        } else {
-//            if (StringUtil.isListNoNull(list)) {
+//            if (StringUtil.isListNoNull(listData)) {
 //                ToastUtil.showToast(getActivity(), "没有更多数据");
 //            }
 //        }

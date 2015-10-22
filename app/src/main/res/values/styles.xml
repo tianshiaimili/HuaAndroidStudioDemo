@@ -198,4 +198,16 @@
         <item name="android:windowAnimationStyle">@style/ActivityTransitions</item>
     </style>
 
+<!--qq登录按钮的样式-->
+    <style name="DemoMainActivity_Button_Style">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:layout_marginTop">3dip</item>
+        <item name="android:layout_marginBottom">3dip</item>
+    </style>
+
+    <style name="DemoMainActivity_Button_Title_Style">
+        <item name="android:paddingLeft">20dip</item>
+        <item name="android:textColor">#FF505662</item>
+    </style>
 </resources>

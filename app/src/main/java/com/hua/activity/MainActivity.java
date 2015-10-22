@@ -8,6 +8,7 @@ import android.widget.Button;
 import com.hua.R;
 import com.hua.activity.duiba.DuiBaActivity;
 import com.hua.activity.js.HTMLActivityDemo;
+import com.hua.activity.qqlogin.TreePartLoginActivity;
 import com.hua.activity.taiwanAd.BaseActivity;
 import com.hua.activity.test.AT_Activity;
 import com.hua.activity.test.ActivityWithExtra_;
@@ -16,6 +17,7 @@ import com.hua.activity.test.ChoiceInterest_;
 import com.hua.activity.test.CreamDetail_;
 import com.hua.activity.test.CreditActivity_;
 import com.hua.activity.test.HTMLActivity;
+import com.hua.activity.test.ListPsoitionChange_;
 import com.hua.activity.test.MultipleItemsList;
 import com.hua.activity.test.PersonFragmentNew_;
 import com.hua.activity.test.PostsActvity_;
@@ -276,6 +278,21 @@ public class MainActivity extends BaseActivity {
 	@Click
 	void test20(){
 		Intent intent = new Intent(this, com.hua.activity.taiwanAd.SingleDeferAdapterActivity.class);
+		ActivityManager.getManager().goTo(MainActivity.this, intent);
+
+	}
+
+	@Click
+	void test21(){
+		Intent intent = new Intent(this, ListPsoitionChange_.class);
+		ActivityManager.getManager().goTo(MainActivity.this, intent);
+
+	}
+
+
+	@Click
+	void test22(){
+		Intent intent = new Intent(this, TreePartLoginActivity.class);
 		ActivityManager.getManager().goTo(MainActivity.this, intent);
 
 	}

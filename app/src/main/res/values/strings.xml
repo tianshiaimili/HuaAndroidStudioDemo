@@ -81,4 +81,23 @@
     <string name="medium_text">asdasdasdas sadasdasd asdasdad asdasdasd dasdasdasdasdasd dasdasdas dasdasdasdasd dasdasdasdasdas dasdasdasdasdad dadadasadasdasd asdasdadasd asda</string>
     <string name="short_text">adasd pqeriewpfnqpf eenvcjri eochrhfeivehgi dfbdcwehfei epfeh</string>
 
+<!--qq的登录-->
+    <string name="app_main_login">登陆</string>
+    <string name="app_main_api">API</string>
+    <string name="app_main_qq_share">QQ分享(无需登录)</string>
+    <string name="app_main_qzon_share">QZone(无需登录)</string>
+    <string name="app_main_social_api">社交API</string>
+    <string name="app_main_is_support_sso_login">是否支持SSO登陆</string>
+    <string name="app_main_get_user_info">获取用户资料</string>
+    <string name="app_main_add_friend_in_game">游戏内加好友</string>
+    <string name="app_main_set_avatar">设置头像</string>
+    <string name="app_main_visit_qzone_gallery">访问空间相册</string>
+    <string name="app_main_get_weibo_info">获取腾讯微博资料及权限</string>
+    <string name="app_main_wap">临时登陆(无需登陆)</string>
+    <string name="app_main_weiyun">微云</string>
+    <string name="app_main_others">其他</string>
+    <string name="app_main_appbar">应用吧</string>
+    <string name="app_main_qqgroupp_api">群API</string>
+
+
 </resources>

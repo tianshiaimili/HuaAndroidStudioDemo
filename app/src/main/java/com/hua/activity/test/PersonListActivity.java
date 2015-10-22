@@ -35,14 +35,14 @@ package com.hua.activity.test;//package com.example.annotationdemo;
 //    void bindAdapter() {
 //
 //        //
-//        List <Person>list = new ArrayList<Person>();
+//        List <Person>listData = new ArrayList<Person>();
 //        for(int i =0 ;i < 20;i++) {
 //
 //            Person person = new Person("firstName777" + i, "lastName" + i);
-//            list.add(person);
+//            listData.add(person);
 //        }
 //
-//        adapter.setData(list);
+//        adapter.setData(listData);
 //        personList.setAdapter(adapter);
 //
 //    }

@@ -132,6 +132,33 @@
             android:name="com.hua.activity.xuanfu.MainActivity"
             android:theme="@style/AppTheme_Test"/>
 
+        <!--QQ登录、、、、、、、、、、、、、、、、、、、-->
+        <activity
+            android:name="com.hua.activity.qqlogin.TreePartLoginActivity"
+            android:theme="@style/AppTheme_Test"/>
+
+        <!--这下面这个个 和下下面的那个是一定要加的-->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent222222" />
+                <!-- 100380359 100381104 222222 -->
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!--QQ登录、结束、、、、、、、、、、、、、、、、、、-->
+
         <!--台湾广告-->
 
         <activity
@@ -189,6 +216,10 @@
 
 
         <!--是test中的activity-->
+        <activity
+            android:name="com.hua.activity.test.ListPsoitionChange_"
+            android:theme="@style/AppTheme_Test"/>
+
 
 
     </application>

@@ -273,7 +273,8 @@ public class RefleshListView extends ListView implements OnScrollListener {
 				}
 				mStartY = locationY = (int) event.getY();
 				if (mIsFirstLoad) {
-					mIsRefresh = false;
+//					mIsRefresh = false;
+					mIsRefresh = true;
 					mIsLoadMore = false;
 				} else {
 					if (mIsRefreshable && mFirstItemIndex == 0 && !mIsRecored) {

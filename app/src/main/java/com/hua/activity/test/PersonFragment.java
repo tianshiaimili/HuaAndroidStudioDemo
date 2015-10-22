@@ -80,7 +80,7 @@ package com.hua.activity.test;//package com.example.annotationdemo;
 //	@Bean
 //	PersonListAdapter adapter;
 //
-//	private List<Person> list;
+//	private List<Person> listData;
 //
 //	@FragmentById(R.id.myFragment)
 //	MyFragment myFragment;
@@ -150,21 +150,21 @@ package com.hua.activity.test;//package com.example.annotationdemo;
 //	void bindAdapter() {
 //
 //		//
-//		list = new ArrayList<Person>();
+//		listData = new ArrayList<Person>();
 //		for (int i = 0; i < 20; i++) {
 //
 //			Person person = new Person("ID" + i, "Item - " + i, "Name - " + i);
 //			// if(isFirstItem(person.getId(), this)){
-//			// list.add(0, person);
+//			// listData.add(0, person);
 //			// }else {
 //			//
-//			// list.add(person);
+//			// listData.add(person);
 //			// }
 //
-//			list.add(person);
+//			listData.add(person);
 //		}
 //
-//		changeListOrder(list, this);
+//		changeListOrder(listData, this);
 //
 //		galleryAdapter = new GalleryAdapter(this);
 //		gallery.setAdapter(galleryAdapter);
@@ -175,7 +175,7 @@ package com.hua.activity.test;//package com.example.annotationdemo;
 //		gridView.setAdapter(gridViewAdapter);
 //		//
 //		personList.addFooterView(foodViewLayout);
-//		// adapter.setData(list);
+//		// adapter.setData(listData);
 //		personList.setAdapter(adapter);
 //		personList.setOnTouchListener(new OnTouchListener() {
 //			
@@ -399,7 +399,7 @@ package com.hua.activity.test;//package com.example.annotationdemo;
 //	@ItemLongClick
 //	void personListItemLongClicked(final int position) {
 //		LogUtils.i("------------------personal = "
-//				+ list.get(position).getFirstName());
+//				+ listData.get(position).getFirstName());
 //		String[] items = { "置顶", "退出" };
 //		new AlertDialog.Builder(this).setTitle("lalla")
 //				.setItems(items, new OnClickListener() {
@@ -410,16 +410,16 @@ package com.hua.activity.test;//package com.example.annotationdemo;
 //
 //						if (which == 0) {
 //
-//							Person person = list.get(position);
-//							list.remove(position);
-//							list.add(0, person);
+//							Person person = listData.get(position);
+//							listData.remove(position);
+//							listData.add(0, person);
 //							PreferenceUtils.setUserSharePref(
 //									PersonFragment.this, "firstItem",
 //									person.getId());
 //							adapter.notifyDataSetChanged();
 //						} else if (which == 1) {
 //
-//							list.remove(position);
+//							listData.remove(position);
 //							adapter.notifyDataSetChanged();
 //
 //						}
@@ -440,9 +440,9 @@ package com.hua.activity.test;//package com.example.annotationdemo;
 //		//
 //		// @Override
 //		// public void onClick(View v) {
-//		// Person person = list.get(position);
-//		// list.remove(position);
-//		// list.add(0, person);
+//		// Person person = listData.get(position);
+//		// listData.remove(position);
+//		// listData.add(0, person);
 //		// PreferenceUtils.setUserSharePref(PersonFragment.this, "firstItem",
 //		// person.getId());
 //		// adapter.notifyDataSetChanged();
@@ -454,7 +454,7 @@ package com.hua.activity.test;//package com.example.annotationdemo;
 //		//
 //		// @Override
 //		// public void onClick(View v) {
-//		// list.remove(position);
+//		// listData.remove(position);
 //		// adapter.notifyDataSetChanged();
 //		// }
 //		//
@@ -477,9 +477,9 @@ package com.hua.activity.test;//package com.example.annotationdemo;
 //		//
 //		// @Override
 //		// public void onClick(View v) {
-//		// Person person = list.get(position);
-//		// list.remove(position);
-//		// list.add(0, person);
+//		// Person person = listData.get(position);
+//		// listData.remove(position);
+//		// listData.add(0, person);
 //		// PreferenceUtils.setUserSharePref(PersonFragment.this,
 //		// "firstItem", person.getId());
 //		// // personList.setSelection(0);
@@ -494,7 +494,7 @@ package com.hua.activity.test;//package com.example.annotationdemo;
 //		//
 //		// @Override
 //		// public void onClick(View v) {
-//		// list.remove(position);
+//		// listData.remove(position);
 //		// adapter.notifyDataSetChanged();
 //		// dialog.dismiss();
 //		// }
@@ -533,11 +533,11 @@ package com.hua.activity.test;//package com.example.annotationdemo;
 //		transaction.commit();
 //	}
 //
-//	public void changePosition(List<Person> list, int position) {
-//		if (list.size() > 0) {
-//			Person person = list.get(position);
-//			list.remove(position);
-//			list.add(0, person);
+//	public void changePosition(List<Person> listData, int position) {
+//		if (listData.size() > 0) {
+//			Person person = listData.get(position);
+//			listData.remove(position);
+//			listData.add(0, person);
 //		}
 //
 //	}
@@ -548,19 +548,19 @@ package com.hua.activity.test;//package com.example.annotationdemo;
 //				.equals(PreferenceUtils.getUserSharePref(context, "firstItem"));
 //	}
 //
-//	public void changeListOrder(List<Person> list, Context context) {
-//		if (list.size() <= 0)
+//	public void changeListOrder(List<Person> listData, Context context) {
+//		if (listData.size() <= 0)
 //			return;
 //		int tempIndex;
 //		boolean isRemove = false;
 //		Person person = null;
-//		for (Iterator<Person> iterator = list.iterator(); iterator.hasNext();) {
+//		for (Iterator<Person> iterator = listData.iterator(); iterator.hasNext();) {
 //			// LogUtils.d("--"+person.getFirstName());
 //			person = iterator.next();
 //			if (person.getId().equals(
 //					PreferenceUtils.getUserSharePref(context, "firstItem"))) {
 //				LogUtils.d("--" + person.getFirstName());
-//				// list.remove(person);
+//				// listData.remove(person);
 //				iterator.remove();
 //				isRemove = true;
 //				break;
@@ -569,7 +569,7 @@ package com.hua.activity.test;//package com.example.annotationdemo;
 //		}
 //
 //		if (isRemove) {
-//			list.add(0, person);
+//			listData.add(0, person);
 //		}
 //
 //	}

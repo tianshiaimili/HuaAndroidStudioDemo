@@ -218,7 +218,7 @@ public class CreditActivity2 extends Activity {
 //                @Override
 //                protected void onPtError(String url, Result.ErrorMsg errorMsg) {
 //                    if(errorMsg.getErrno() == -30){
-////                        list.clear();
+////                        listData.clear();
 //                    }
 ////                    adapter.notifyDataSetChanged();
 //                    showErrorMessage(ErroeMessageUtil.ERROR_NO_MASTER_DATA);
@@ -629,7 +629,7 @@ public class CreditActivity2 extends Activity {
 
 
     private void showErrorMessage(int errorType) {
-//        if (!StringUtil.isListNoNull(list)) {
+//        if (!StringUtil.isListNoNull(listData)) {
 //            if (vs_error != null && errorView == null) {
 //                errorView = vs_error.inflate();
 //            }
