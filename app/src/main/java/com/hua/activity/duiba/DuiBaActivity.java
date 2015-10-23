@@ -63,7 +63,7 @@ public final class DuiBaActivity extends Activity{
 					 	.setMessage("跳转到登录页面？")
 					 	.setPositiveButton("是", null)
 					 	.setNegativeButton("否", null)
-					 	.show();
+					 	.show();     ////
 					}
 				};
 			}
