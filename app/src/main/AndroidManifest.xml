@@ -219,7 +219,40 @@
         <activity
             android:name="com.hua.activity.test.ListPsoitionChange_"
             android:theme="@style/AppTheme_Test"/>
+        <!--是动画的activity，从大事奏一过来-->
+        <activity
+            android:name="com.hua.activity.animator.WelcomePropertyAnimActivity"
+            android:theme="@style/AppTheme_Test"
+            />
 
+        <activity
+            android:name="com.hua.activity.animator.Xml4AnimActivity"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.hua.activity.animator.ObjectAnimActivity"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.hua.activity.animator.AnimatorSetActivity"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.hua.activity.animator.ViewAnimateActivity"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.hua.activity.animator.LayoutAnimaActivity"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.hua.activity.animator.ValueAnimatorActivity"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.hua.activity.animator.CategoryListActivity"
+            android:launchMode="singleTask" >
+        </activity>
 
 
     </application>

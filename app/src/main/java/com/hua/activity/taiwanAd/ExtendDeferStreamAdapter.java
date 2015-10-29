@@ -88,6 +88,12 @@ public class ExtendDeferStreamAdapter extends DeferStreamAdapter {//XXX#Stream-D
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+
+		int typeCount = getViewTypeCount();
+		LogUtil.d("ListView","ListView  typeCount == "+typeCount);
+		int type = getItemViewType(position);
+		LogUtil.d("ListView","ListView type == "+type);
+
 		//XXX@Stream-getView@#Stream-getView#
 		// Get ad view if possible
 		final View adView =  getAD(position);	

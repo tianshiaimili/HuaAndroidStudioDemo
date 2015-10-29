@@ -25,4 +25,11 @@
         <attr name="tabBackgroundTextViewId" format="reference"/>
     </declare-styleable>
 
+    <declare-styleable name="ViewPager">
+        <attr name="viewPage_orientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
 </resources>

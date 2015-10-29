@@ -6,6 +6,7 @@ import android.text.Html;
 import android.widget.Button;
 
 import com.hua.R;
+import com.hua.activity.animator.CategoryListActivity;
 import com.hua.activity.duiba.DuiBaActivity;
 import com.hua.activity.js.HTMLActivityDemo;
 import com.hua.activity.qqlogin.TreePartLoginActivity;
@@ -296,5 +297,13 @@ public class MainActivity extends BaseActivity {
 		ActivityManager.getManager().goTo(MainActivity.this, intent);
 
 	}
+
+	@Click
+	void test23(){
+		Intent intent = new Intent(this, CategoryListActivity.class);
+		ActivityManager.getManager().goTo(MainActivity.this, intent);
+
+	}
+
 
 }
