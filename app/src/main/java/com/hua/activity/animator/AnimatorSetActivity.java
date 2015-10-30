@@ -10,13 +10,15 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AnticipateOvershootInterpolator;
-import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hua.R;
 import com.hua.utils.DensityUtil;
 
 public class AnimatorSetActivity extends Activity {
-    private ImageView mBlueBall;
+//    private ImageView mBlueBall;
+    TextView mBlueBall;
     private float mScreenHeight;
     private float mScreenWidth;
     private DensityUtil densityUti;
@@ -29,7 +31,14 @@ public class AnimatorSetActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.anim_set);
 
-        mBlueBall = (ImageView) findViewById(R.id.id_ball);
+//        mBlueBall = (ImageView) findViewById(R.id.id_ball);
+        mBlueBall = (TextView) findViewById(R.id.test);
+        mBlueBall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(AnimatorSetActivity.this,"lala",300).show();
+            }
+        });
         densityUti = new DensityUtil(this);
         mScreenHeight = densityUti.getScreenHeight();
         mScreenWidth = densityUti.getScreenWidth();
