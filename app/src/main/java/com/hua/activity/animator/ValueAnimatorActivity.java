@@ -22,7 +22,7 @@ import com.hua.R;
 
 public class ValueAnimatorActivity extends Activity
 {
-	protected static final String TAG = "MainActivity";
+	protected static final String TAG = "MainActivity3";
 
 	private ImageView mBlueBall;
 
