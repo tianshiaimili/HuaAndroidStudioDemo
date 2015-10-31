@@ -1,11 +1,11 @@
 package com.hua.activity.taiwanAd;
 
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.multidex.MultiDexApplication;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -20,7 +20,7 @@ import com.umeng.analytics.AnalyticsConfig;
  * if your project has already used another Application class,
  * then you can copy these code to your Application class too
  */
-public class BaseApplication extends Application {
+public class BaseApplication extends MultiDexApplication {
     ///change foe the MMApplication
     private static BaseApplication mAppContext;
     private String platform_id;
