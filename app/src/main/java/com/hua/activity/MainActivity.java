@@ -23,6 +23,7 @@ import com.hua.activity.test.ChoiceInterest_;
 import com.hua.activity.test.CreamDetail_;
 import com.hua.activity.test.CreditActivity_;
 import com.hua.activity.test.HTMLActivity;
+import com.hua.activity.test.HTMLSchemeActivity;
 import com.hua.activity.test.ListPsoitionChange_;
 import com.hua.activity.test.MultipleItemsList;
 import com.hua.activity.test.PersonFragmentNew_;
@@ -61,7 +62,7 @@ public class MainActivity extends BaseActivity {
     RefleshListView listView;
     MAdapter adapter;
 
-    @StringArrayRes
+    @StringArrayRes(R.array.home_item)
     String[] home_item;
 
     @Extra(MY_INT_EXTRA)
@@ -103,6 +104,13 @@ public class MainActivity extends BaseActivity {
                         startActivity(intent);
                         break;
                     case 2:
+                        //测试scheme，这样可以打开另一个app
+                        intent = new Intent(MainActivity.this,HTMLSchemeActivity.class);
+                        startActivity(intent);
+//                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mama://crystalexpress")));
+//                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mama://crystalexpress?action=adpreview&adid=402")));
+// mama://crystalexpress?action=adpreview&adid=402
+
                         break;
                     case 3:
                         intent = new Intent(MainActivity.this,WebViewPlayer_.class);
@@ -171,6 +179,7 @@ public class MainActivity extends BaseActivity {
                         ActivityManager.getManager().goTo(MainActivity.this, intent);
                         break;
                     case 19:
+                        //台湾AD
                         intent = new Intent(MainActivity.this, com.hua.activity.taiwanAd.SingleDeferAdapterActivity.class);
                         ActivityManager.getManager().goTo(MainActivity.this, intent);
                         break;

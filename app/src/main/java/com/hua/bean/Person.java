@@ -5,12 +5,17 @@ package com.hua.bean;
  */
 public class Person {
 	private String id;
+	private int age;
 
 	public Person(String id, String firstName, String lastName) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
+	}
+
+	public Person(){
+
 	}
 
 	public String getId() {
@@ -37,4 +42,12 @@ public class Person {
 		return lastName;
 	}
 
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
 }

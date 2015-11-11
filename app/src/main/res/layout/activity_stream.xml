@@ -3,17 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#e7e7e7" >
-    
-    <View 
-        android:id="@+id/title"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="#00796B"
-        />
+
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <View
+            android:id="@+id/title"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="#00796B"
+            />
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="-30dp"
+            android:text="CLICKMe"/>
+    </LinearLayout>
+
+
 
     <ListView
         android:id="@+id/listView"
-        android:layout_below="@+id/title"
+        android:layout_below="@+id/top"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:cacheColorHint="#e7e7e7"

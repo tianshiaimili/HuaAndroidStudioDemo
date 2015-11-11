@@ -10,7 +10,10 @@ import android.widget.TextView;
 
 import com.desmond.parallaxviewpager.LogUtil;
 import com.hua.R;
+import com.hua.bean.Person;
+import com.hua.utils.BeanUtils;
 import com.hua.utils.QuickReturnUtils;
+import com.hua.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +45,9 @@ public class SingleDeferAdapterActivity extends BaseActivity {//TODO extends Bas
 	//end
 	private ExtendDeferStreamAdapter mAdapter = null;
 	private View headView;
+	private TextView title_tv;
+
+	private String scrollY;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +60,18 @@ public class SingleDeferAdapterActivity extends BaseActivity {//TODO extends Bas
 
 		LayoutManager lm = LayoutManager.getInstance(this);
 		title = findViewById(R.id.title);
+		title_tv = (TextView) findViewById(R.id.title_tv);
+		title_tv.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+//				mListView.scrollTo(0,SingleDeferAdapterActivity.this.getResources().getDisplayMetrics().heightPixels/2);
+//				mListView.setSelection(9);
+				Person person = new Person();
+				boolean value = BeanUtils.checkFieldValueNull(person);
+				ToastUtil.showToast("value== "+value);
+
+			}
+		});
 //		title.getLayoutParams().height = lm.getMetric(LayoutManager.LayoutID.STREAM_TITLE_HEIGHT);
 		mListView = (ListView)findViewById(R.id.listView);
 		headView = LayoutInflater.from(getApplication()).inflate(R.layout.sub_head,null);

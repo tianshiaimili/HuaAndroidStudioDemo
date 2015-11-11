@@ -1,1 +1,1 @@
-include ':app',':emoji',':parallaxviewpager'
+include ':app',':emoji',':parallaxviewpager', ':bundle2'

@@ -64,7 +64,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-            <!--<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -77,7 +77,7 @@
                     android:host="activate"
                     android:pathPattern=".*"
                     android:scheme="crystalexpress" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
 
         <activity android:name=".activity.at_demo.UserChiceActivity"></activity>
@@ -187,6 +187,11 @@
         <meta-data android:name="CRYSTAL_ID" android:value="crystalidforandroidtestdontuseit" />
 
         <!--台湾广告end-->
+
+        <!--用网页打开另外的app-->
+        <activity
+            android:name="com.hua.activity.test.HTMLSchemeActivity"
+            android:theme="@style/AppTheme_Test"/>
 
 
         <!-- alipay sdk begin -->

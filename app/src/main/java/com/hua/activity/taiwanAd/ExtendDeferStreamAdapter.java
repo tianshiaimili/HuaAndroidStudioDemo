@@ -2,14 +2,17 @@ package com.hua.activity.taiwanAd;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Color;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.desmond.parallaxviewpager.LogUtil;
 import com.hua.R;
@@ -117,7 +120,15 @@ public class ExtendDeferStreamAdapter extends DeferStreamAdapter {//XXX#Stream-D
 			return adView;
 		}
 		//end
-				
+
+		if(position== 4){
+			View view = new TextView(mContext);
+			view.setLayoutParams(new AbsListView.LayoutParams(1,1));
+//			textView.setText("123456");
+			view.setBackgroundColor(Color.parseColor("#CCC000"));
+			return  view;
+		}
+
 		Holder holder = null;
 		View view = convertView;
         if (view == null || view.getTag() == null) { 
