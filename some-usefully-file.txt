@@ -1,0 +1,18 @@
+美团分包posts
+http://tech.meituan.com/mt-android-auto-split-dex.html
+
+统计apk方法数
+http://blog.csdn.net/zhengdan66/article/details/46960131
+cmd中 ipconfig/all >>path\1.txt  上面这个方法是把显示的内容放到txt文件中
+
+一个不错的配色网站
+http://www.colorhunt.co/
+
+一个资源够多的android资源网
+http://www.androiddevtools.cn/
+
+https://github.com/
+账号 ： tianshiaimili
+
+android巴士论坛
+http://bbs.apkbus.com/explore/
