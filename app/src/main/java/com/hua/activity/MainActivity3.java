@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.widget.Button;
 
+import com.android.volley.toolbox.HurlStack;
 import com.hua.R;
 import com.hua.activity.animator.CategoryListActivity;
 import com.hua.activity.duiba.DuiBaActivity;
@@ -65,7 +66,7 @@ public class MainActivity3 extends BaseActivity {
 	@AfterInject
 	void afterInjectMethod(){
 		LogUtils.d("afterInjectMethod----");
-
+		HurlStack hurlStack;
 	}
 
 	@AfterViews

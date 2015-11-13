@@ -16,3 +16,11 @@ https://github.com/
 
 android巴士论坛
 http://bbs.apkbus.com/explore/
+
+android插件动态加载
+http://www.trinea.cn/android/android-plugin/
+
+http://blog.csdn.net/hkxxx/article/details/42194387
+
+一些插件
+http://www.zhihu.com/question/28026027

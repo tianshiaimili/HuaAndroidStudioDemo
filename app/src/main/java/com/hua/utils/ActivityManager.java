@@ -1,12 +1,19 @@
 package com.hua.utils;
 
 import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.os.IBinder;
 import android.support.v4.app.Fragment;
 
 import com.hua.R;
+import com.hua.activity.taiwanAd.BaseApplication;
 
 import java.util.Stack;
+
+import dalvik.system.DexClassLoader;
 
 
 /**
@@ -137,4 +144,38 @@ public class ActivityManager {
 //        }).setShowToast(false).setHaveToken(true);
 //        RequestManager.getInstance(activity).addToRequestQueue(request);
 //    }
+
+
+
+    public Activity newActivity(Class<?> clazz, Context context, IBinder token,
+                                Application application, Intent intent, ActivityInfo info,
+                                CharSequence title, Activity parent, String id, Object lastNonConfigurationInstance)
+            throws InstantiationException, IllegalAccessException {
+
+        String className = "";
+        Activity newActivity = null;
+        if (intent.getComponent() != null) {
+            className = intent.getComponent().getClassName();
+        }
+
+
+//        DexClassLoader dexClassLoader =
+
+//        boolean shouldInterrupted = !BaseApplication.isDexAvailable();
+//        if (BaseApplication.sIsDexAvailable.get() || mByPassActivityClassNameList.contains(className)) {
+//            shouldInterrupted = false;
+//        }
+//        if (shouldInterrupted) {
+//            intent = new Intent(mContext, WaitingActivity.class);
+//            newActivity = mBase.newActivity(clazz, context, token,
+//                    application, intent, info, title, parent, id,
+//                    lastNonConfigurationInstance);
+//        } else {
+//            newActivity = mBase.newActivity(clazz, context, token,
+//                    application, intent, info, title, parent, id,
+//                    lastNonConfigurationInstance);
+//        }
+        return newActivity;
+    }
+
 }
