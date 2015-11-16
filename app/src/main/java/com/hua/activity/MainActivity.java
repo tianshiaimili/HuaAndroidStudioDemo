@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.hua.R;
 import com.hua.activity.animator.CategoryListActivity;
+import com.hua.activity.html.upload.HtmlUpLoadActivity;
 import com.hua.activity.js.HTMLActivityDemo;
 import com.hua.activity.qqlogin.TreePartLoginActivity;
 import com.hua.activity.taiwanAd.BaseActivity;
@@ -196,6 +197,10 @@ public class MainActivity extends BaseActivity {
                         ActivityManager.getManager().goTo(MainActivity.this, intent);
                         break;
                     case 23:
+                        /**图片上传*/
+                        intent = new Intent(MainActivity.this, HtmlUpLoadActivity.class);
+                        ActivityManager.getManager().goTo(MainActivity.this, intent);
+
                         break;
                     case 24:
                         break;

@@ -258,6 +258,11 @@
             android:name="com.hua.activity.animator.CategoryListActivity"
             android:launchMode="singleTask" >
         </activity>
+        <activity
+            android:name="com.hua.activity.html.upload.HtmlUpLoadActivity"
+            android:launchMode="singleTask" >
+        </activity>
+
 
 
     </application>
