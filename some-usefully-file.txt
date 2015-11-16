@@ -27,3 +27,5 @@ http://www.zhihu.com/question/28026027
 
 gradle的文档说明
 https://docs.gradle.org/current/release-notes
+中文gradle文档
+http://avatarqing.github.io/Gradle-Plugin-User-Guide-Chinese-Verision/basic_project/general_tasks.html
