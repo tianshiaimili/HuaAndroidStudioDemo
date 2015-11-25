@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hua.R;
-import com.hua.activity.fanshe.TestRef;
 import com.hua.view.MMFlowLayout;
 
 import org.androidannotations.annotations.AfterInject;
@@ -23,7 +22,6 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.StringArrayRes;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Random;
 
 /**
@@ -66,13 +64,6 @@ public class ChoiceInterest  extends Activity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getApplicationContext();
-
-        try {
-            TestRef.test();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
     @AfterInject

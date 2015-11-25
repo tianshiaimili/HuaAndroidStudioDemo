@@ -12,7 +12,6 @@ import android.webkit.ValueCallback;
 import android.webkit.WebView;
 
 import com.hua.R;
-import com.hua.activity.fanshe.TestRef;
 
 import java.io.File;
 
@@ -35,13 +34,6 @@ public class HtmlUpLoadActivity extends Activity implements ReWebChomeClient.Ope
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_upload);
-
-        try {
-            TestRef.test();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         mWebView = (WebView) findViewById(R.id.webview);
         mWebView.setWebChromeClient(new ReWebChomeClient(this));
         mWebView.setWebViewClient(new ReWebViewClient());

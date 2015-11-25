@@ -14,7 +14,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.hua.R;
-import com.hua.activity.fanshe.TestRef;
+import com.hua.bean.MyObject;
 
 /**
  * 实现在webview中打开app
@@ -30,13 +30,7 @@ public class HTMLSchemeActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.webview);
-
-		try {
-			TestRef.test();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+        
         webView = (WebView)this.findViewById(R.id.webView);
         //设置字符集编码
         webView.getSettings().setDefaultTextEncodingName("UTF-8");

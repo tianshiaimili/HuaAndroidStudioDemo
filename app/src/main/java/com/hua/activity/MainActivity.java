@@ -2,7 +2,6 @@ package com.hua.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
@@ -25,6 +24,7 @@ import com.hua.activity.test.ChoiceInterest_;
 import com.hua.activity.test.CreamDetail_;
 import com.hua.activity.test.CreditActivity_;
 import com.hua.activity.test.HTMLActivity;
+import com.hua.activity.test.HTMLSchemeActivity;
 import com.hua.activity.test.ListPsoitionChange_;
 import com.hua.activity.test.MultipleItemsList;
 import com.hua.activity.test.PersonFragmentNew_;
@@ -106,10 +106,10 @@ public class MainActivity extends BaseActivity {
                         break;
                     case 2:
                         //测试scheme，这样可以打开另一个app
-//                        intent = new Intent(MainActivity.this,HTMLSchemeActivity.class);
-//                        startActivity(intent);
-//                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("i2w2mmq://crystalexpress")));
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("i2w2mmq://crystalexpress?action=adpreview&adid=402")));
+                        intent = new Intent(MainActivity.this,HTMLSchemeActivity.class);
+                        startActivity(intent);
+//                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mama://crystalexpress")));
+//                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mama://crystalexpress?action=adpreview&adid=402")));
 // mama://crystalexpress?action=adpreview&adid=402
 
                         break;
