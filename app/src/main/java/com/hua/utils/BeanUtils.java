@@ -6,6 +6,9 @@ import java.lang.reflect.Method;
 
 /**
  * Created by weiyang on 2015/2/10.
+ *
+ *
+ * 啦啦啦啦啦
  */
 public class BeanUtils {
     public static boolean checkFieldValueNull(Object bean) {
