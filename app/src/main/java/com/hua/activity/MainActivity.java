@@ -58,7 +58,6 @@ public class MainActivity extends BaseActivity {
     public static final String MY_DATE_EXTRA = "myDateExtra";
     public static final String MY_INT_EXTRA = "myIntExtra";
 
-
     @ViewById
     RefleshListView listView;
     MAdapter adapter;

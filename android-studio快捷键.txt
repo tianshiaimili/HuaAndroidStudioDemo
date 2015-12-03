@@ -24,6 +24,8 @@ Add unambiguous imports on the fly：这个就是自动导入功能了，当你�
 
 http://blog.csdn.net/hyr83960944/article/details/38438355参考
 
+动态加载文章
+http://www.tuicool.com/articles/zURzMrF
 
 Debug模式-----------------------------------
 
