@@ -33,6 +33,7 @@ import com.hua.activity.test.SpannableActivity;
 import com.hua.activity.test.TestEmojicoTextView_;
 import com.hua.activity.test.WebViewPlayer_;
 import com.hua.activity.test.XuanFuActivity;
+import com.hua.dynamicload.ProxyActivity;
 import com.hua.utils.ActivityManager;
 import com.hua.view.RefleshListView;
 
@@ -202,6 +203,11 @@ public class MainActivity extends BaseActivity {
 
                         break;
                     case 24:
+                        /**启动未安装的apk*/
+                        intent = new Intent(MainActivity.this, ProxyActivity.class);
+
+                        intent.putExtra(ProxyActivity.EXTRA_DEX_PATH, "/mnt/sdcard/DynamicLoadHost/plugin.apk");
+                        ActivityManager.getManager().goTo(MainActivity.this, intent);
                         break;
 
                 }

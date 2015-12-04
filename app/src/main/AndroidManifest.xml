@@ -262,8 +262,10 @@
             android:name="com.hua.activity.html.upload.HtmlUpLoadActivity"
             android:launchMode="singleTask" >
         </activity>
-
-
+        <activity
+            android:name="com.hua.dynamicload.ProxyActivity"
+            android:launchMode="singleTask" >
+        </activity>
 
     </application>
 
