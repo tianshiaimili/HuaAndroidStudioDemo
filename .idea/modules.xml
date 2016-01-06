@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/bundle2/bundle2.iml" filepath="$PROJECT_DIR$/bundle2/bundle2.iml" />
       <module fileurl="file://$PROJECT_DIR$/emoji/emoji.iml" filepath="$PROJECT_DIR$/emoji/emoji.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/dynamic-load-apk/main-plugin-a/main-plugin-a.iml" filepath="$PROJECT_DIR$/dynamic-load-apk/main-plugin-a/main-plugin-a.iml" />
       <module fileurl="file://$PROJECT_DIR$/parallaxviewpager/parallaxviewpager.iml" filepath="$PROJECT_DIR$/parallaxviewpager/parallaxviewpager.iml" />
     </modules>

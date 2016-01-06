@@ -26,7 +26,13 @@
 
         <activity
             android:name="com.ryg.dynamicloadhost.TestActivity"
-            android:theme="@android:style/Theme.Light" />
+            android:theme="@android:style/Theme.Light" >
+            <intent-filter>
+                <action android:name="com.ryg.dynamicloadhost.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
 
     </application>
 

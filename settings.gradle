@@ -1,2 +1,2 @@
-include ':app',':emoji',':parallaxviewpager', ':bundle2','main-plugin-a'
+include ':app',':emoji',':parallaxviewpager', ':bundle2','main-plugin-a','library'
 project(':main-plugin-a').projectDir = new File('dynamic-load-apk/main-plugin-a')

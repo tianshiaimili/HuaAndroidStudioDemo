@@ -1,5 +1,20 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+    </style>
+
+    <style name="ActionBar" parent="android:Widget.ActionBar">
+        <item name="android:background">@color/actionbar_color</item>
+        <item name="android:icon">@android:color/transparent</item>
+        <item name="android:titleTextStyle">@style/ActionBar.TitleText</item>
+    </style>
+
+    <style name="ActionBar.TitleText" parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <!--
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -12,12 +27,6 @@
             backward-compatibility can go here.
 
         -->
-    </style>
-
-    <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
-
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
 
@@ -210,4 +219,17 @@
         <item name="android:paddingLeft">20dip</item>
         <item name="android:textColor">#FF505662</item>
     </style>
+
+
+    <style name="my_btn">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#44000000</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:onClick">showNotify</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
 </resources>

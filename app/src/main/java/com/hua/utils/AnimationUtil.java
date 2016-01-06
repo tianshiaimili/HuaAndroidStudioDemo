@@ -1,5 +1,8 @@
 package com.hua.utils;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -86,4 +89,19 @@ public class AnimationUtil {
         animation.setDuration(300 / 2);
         return animation;
     }
+
+	public static  void translationY(View view,int startY,int endY){
+
+		ObjectAnimator anim3 = ObjectAnimator.ofFloat(view, "translationY", startY, endY);
+		anim3.setRepeatMode(ValueAnimator.REVERSE);
+//		anim3.setRepeatCount(ValueAnimator.INFINITE);
+
+		AnimatorSet animSet = new AnimatorSet();
+		animSet.setDuration(200);
+		animSet.setInterpolator(new LinearInterpolator());
+		animSet.play(anim3);
+		animSet.start();
+
+	}
+
 }

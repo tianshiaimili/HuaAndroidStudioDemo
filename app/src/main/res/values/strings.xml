@@ -36,6 +36,7 @@
         <item>开头动画</item>
         <item>图片上次</item>
         <item>动态加载</item>
+        <item>不错的Notification样式</item>
 
     </string-array>
     <string-array name="interest">
@@ -132,6 +133,24 @@
     <string-array name="options">
         <item>上传</item>
         <item>取消</item>
+    </string-array>
+
+    <string name="drawer_open">drawer_open</string>
+    <string name="drawer_close">drawer_close</string>
+
+    <string-array name="items">
+        <item>全部</item>
+        <item>Service</item>
+        <item>Animation</item>
+        <item>SelectorDemo</item>
+    </string-array>
+
+    <!--这个是activitys的名称-->
+    <string-array name="activity_name">
+        <item>com.hua.activity.MainActivity_</item>
+        <item>com.hua.activity.MainActivity_</item>
+        <item>com.hua.activity.MainActivity_</item>
+        <item>com.hua.activity.test.SelectorActivity</item>
     </string-array>
 
 </resources>

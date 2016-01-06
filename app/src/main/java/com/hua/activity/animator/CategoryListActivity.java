@@ -15,7 +15,7 @@ import java.util.List;
 public class CategoryListActivity extends ListActivity {
     private List<String> mData = new ArrayList<String>(Arrays.asList(
             "使用xml创建属性动画", "ObjectAnimator的方式创建动画", "AnimatorSet创建动画",
-            "View的anim方法", "Layout Anim", "ValueAnimator创建动画","大事奏引导动画"));
+            "View的anim方法", "Layout Anim", "ValueAnimator创建动画","大事奏引导动画","底部滑动动画"));
     private ListAdapter mAdapter;
 
     @Override
@@ -53,6 +53,10 @@ public class CategoryListActivity extends ListActivity {
 
             case 6:
                 intent = new Intent(this, WelcomePropertyAnimActivity.class);
+                break;
+
+            case 7:
+                intent = new Intent(this, QuickReutrnActvity_.class);
                 break;
 
         }

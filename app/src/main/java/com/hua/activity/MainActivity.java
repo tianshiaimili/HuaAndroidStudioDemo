@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Html;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.hua.R;
 import com.hua.activity.animator.CategoryListActivity;
 import com.hua.activity.html.upload.HtmlUpLoadActivity;
 import com.hua.activity.js.HTMLActivityDemo;
+import com.hua.activity.notification.NotificationMainActivity;
 import com.hua.activity.qqlogin.TreePartLoginActivity;
 import com.hua.activity.taiwanAd.BaseActivity;
 import com.hua.activity.test.AT_Activity;
@@ -35,6 +37,7 @@ import com.hua.activity.test.WebViewPlayer_;
 import com.hua.activity.test.XuanFuActivity;
 import com.hua.dynamicload.ProxyActivity;
 import com.hua.utils.ActivityManager;
+import com.hua.utils.StringUtil;
 import com.hua.view.RefleshListView;
 
 import org.androidannotations.annotations.AfterViews;
@@ -106,7 +109,7 @@ public class MainActivity extends BaseActivity {
                         break;
                     case 2:
                         //测试scheme，这样可以打开另一个app
-//                        intent = new Intent(MainActivity.this,HTMLSchemeActivity.class);
+//                        intent = new Intent(NotificationMainActivity.this,HTMLSchemeActivity.class);
 //                        startActivity(intent);
 //                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("i2w2mmq://crystalexpress")));
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("i2w2mmq://crystalexpress?action=adpreview&adid=402")));
@@ -210,6 +213,12 @@ public class MainActivity extends BaseActivity {
                         ActivityManager.getManager().goTo(MainActivity.this, intent);
                         break;
 
+                    case 25:
+                        /**另类的通知显示*/
+                        intent = new Intent(MainActivity.this, NotificationMainActivity.class);
+                        ActivityManager.getManager().goTo(MainActivity.this, intent);
+                        break;
+
                 }
 
             }
@@ -271,7 +280,14 @@ public class MainActivity extends BaseActivity {
             } else {
                 textView.setBackgroundColor(Color.parseColor("#F2676A"));
             }
-            textView.setText(listData.get(position));
+            if(position == 1){
+                textView.setText(Html.fromHtml("我是<font color=\"#CCCCCC\">妈妈圈</font>"),TextView.BufferType.SPANNABLE);
+                String text = "妈M国草哦擦啊[A]妈妈[/A]M9M[A]h啦啦啦啦a[/A]M妈妈啊苏打撒撒旦妈妈咪";
+                StringUtil.setSpecifiedTextsColor(textView,text,0xfffb798f,"[A]","\\[/A\\]");
+            }else{
+
+                textView.setText(listData.get(position));
+            }
 
             return textView;
         }

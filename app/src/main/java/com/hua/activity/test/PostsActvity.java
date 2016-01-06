@@ -30,11 +30,8 @@ public class PostsActvity extends Activity{
 	
 	@AfterViews
 	void initViews(){
-//		bottom_layout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.friend_recommend_foot, null);
 		adapter = new TestAdapter(this);
 		listView.setAdapter(adapter);
-//		listView.addfooterChild(bottom_layout);
-//		listView.addFooterView(bottom_layout);
 		int footerHeight = getResources().getDimensionPixelSize(R.dimen.footer_height);
 		listView.setOnScrollListener(new QuickReturnListViewOnScrollListener(QuickReturnType.FOOTER, null, 0, bottom_layout, footerHeight).setCanSlideInIdleScrollState(true));
 		listView.setLoadMoreable(true);

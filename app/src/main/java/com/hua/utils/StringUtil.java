@@ -1,7 +1,11 @@
 package com.hua.utils;
 
 import android.content.Context;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.widget.TextView;
 
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -575,8 +579,6 @@ public class StringUtil {
 
 	/**
 	 * 发帖内容转化为帖子内容一样的格式。包括图片
-	 * @param msg
-	 * @param photoBeanList
 	 * @return
 	 */
 //	public static String getDetailContent(String msg,List<PhotoBean> photoBeanList){
@@ -633,5 +635,65 @@ public class StringUtil {
 //		}
 //		return sb.toString();
 //	}
+
+	public static  void setSpecifiedTextsColor(TextView textView,String text, int color ,String reg_start,String reg_end)
+	{
+		if(isNull(text)) return;
+		SpannableStringBuilder styledText = new SpannableStringBuilder();
+		List<Location> locations = new ArrayList<>();
+
+		String [] contents = text.trim().split(reg_end);
+		if(contents.length == 0)return;
+		for(String ss : contents){
+			int startIndex = ss.indexOf(reg_start);
+			if(startIndex != -1){
+				Location location = new Location();
+				location.start = styledText.length()+startIndex;
+				location.end = styledText.length()+ss.length()- 1- reg_start.length();
+				locations.add(location);
+				ss = ss.replace(reg_start,"");
+				styledText.append(ss);
+			}else if(!ss.contains(reg_start) && !ss.contains(reg_end)){
+				styledText.append(ss);
+			}
+		}
+		for(Location location : locations)
+		{
+			styledText.setSpan(
+					new ForegroundColorSpan(color),
+					location.start,
+					location.end+1,
+					Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		}
+		textView.setText(styledText);
+	}
+
+	private static List<Location> getLocation(SpannableStringBuilder styledText,String text,String reg_start,String reg_end){
+		String text22 = "妈M[A]妈妈[/A]M9M[A]ha[/A]M";
+		List<Location> locations = new ArrayList<>();
+
+		String [] contents = text.trim().split(reg_end);
+		for(String ss : contents){
+//			String reg = "[A][\\s\\S]*[/A]";
+			int startIndex = ss.indexOf(reg_start);
+			int endIndex = ss.indexOf(reg_end);
+			if(startIndex != -1 && endIndex != -1){
+				Location location = new Location();
+				location.start = ss.length()+startIndex;
+				location.end = ss.length()+endIndex;
+				locations.add(location);
+				ss = ss.replace(reg_start,"").replace(reg_end,"");
+				styledText.append(ss);
+			}else{
+
+			}
+		}
+		return locations;
+	}
+
+	static class Location{
+		public int start;
+		public int end;
+	}
 
 }

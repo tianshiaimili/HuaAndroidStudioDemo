@@ -1,0 +1,9 @@
+diff a/app/src/main/java/com/hua/activity/MainActivity.java b/app/src/main/java/com/hua/activity/MainActivity.java	(rejected hunks)
+@@ -24,6 +24,7 @@
+ import com.hua.activity.test.CreamDetail_;
+ import com.hua.activity.test.CreditActivity_;
+ import com.hua.activity.test.HTMLActivity;
++import com.hua.activity.test.HTMLSchemeActivity;
+ import com.hua.activity.test.ListPsoitionChange_;
+ import com.hua.activity.test.MultipleItemsList;
+ import com.hua.activity.test.PersonFragmentNew_;

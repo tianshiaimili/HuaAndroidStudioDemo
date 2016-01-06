@@ -1,15 +1,20 @@
 package com.hua.utils;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.os.IBinder;
 import android.support.v4.app.Fragment;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.hua.R;
 import com.hua.activity.taiwanAd.BaseApplication;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.util.Stack;
 
@@ -17,7 +22,7 @@ import dalvik.system.DexClassLoader;
 
 
 /**
- * @author tangzc 跳转管理类
+ * Activity跳转
  */
 public class ActivityManager {
 
@@ -177,5 +182,39 @@ public class ActivityManager {
 //        }
         return newActivity;
     }
+
+
+    /**
+     * 设置状态栏背景状态
+     *
+     * 使用：
+     */
+    public void initSystemBar(Activity activity) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+
+            setTranslucentStatus(true,activity);
+
+        }
+        SystemBarTintManager tintManager = new SystemBarTintManager(activity);
+        tintManager.setStatusBarTintEnabled(true);
+        // 使用颜色资源
+        tintManager.setStatusBarTintResource(R.color.bar_color);
+
+    }
+
+    @TargetApi(19)
+    private void setTranslucentStatus(boolean on, Activity activity) {
+        Window win = activity.getWindow();
+        WindowManager.LayoutParams winParams = win.getAttributes();
+        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+        if (on) {
+            winParams.flags |= bits;
+        } else {
+            winParams.flags &= ~bits;
+        }
+        win.setAttributes(winParams);
+    }
+
 
 }

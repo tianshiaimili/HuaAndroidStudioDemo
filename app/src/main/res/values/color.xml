@@ -152,4 +152,14 @@
 <!--悬浮的-->
     <color name="theme_color">#33BBFF</color>
 
+    <color name="actionbar_color">#64D6C5</color>
+    <color name="drawer_arrow_second_color">#303f9f</color>
+
+    <color name="bar_color">#64D6C5</color>
+
+
+    <!--搜素中的颜色-->
+    <color name="search_select">#64D6C5</color>
+    <color name="gray12">#A7A09D</color>
+
 </resources>

@@ -86,4 +86,12 @@
     <dimen name="header_height">250dp</dimen>
     <dimen name="min_header_height">210dp</dimen>
 
+    <dimen name="navdrawer_width">260dp</dimen>
+
+    <!--搜索推荐关注中的-->
+    <dimen name="search_padding_top">50dp</dimen>
+    <dimen name="search_padding_left">50dp</dimen>
+    <dimen name="choiceInterest_radius">30dp</dimen>
+    <dimen name="strokeWidth">1dp</dimen>
+
 </resources>
