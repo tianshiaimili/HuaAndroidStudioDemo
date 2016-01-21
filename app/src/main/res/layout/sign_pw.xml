@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/contentView"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@android:drawable/screen_background_dark_transparent"
+    >
+
+
+    <ImageView
+        android:id="@+id/light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/sign_light"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:id="@+id/gold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="-20dp"
+        android:src="@drawable/sign_gold"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gold"
+        android:layout_centerHorizontal="true"
+        android:text="+5积分"
+        android:textColor="#FCE000"
+        android:textSize="24sp"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/prcent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/score"
+        android:layout_centerHorizontal="true"
+        android:text="超越50%的宝妈"
+        android:textColor="#FCE000"
+        android:textSize="24sp"
+        android:visibility="gone"
+        />
+
+
+</RelativeLayout>

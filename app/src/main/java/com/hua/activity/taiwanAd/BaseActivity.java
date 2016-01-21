@@ -3,6 +3,7 @@ package com.hua.activity.taiwanAd;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.hua.utils.ActivityManager;
 import com.intowow.sdk.I2WAPI;
 
 /**
@@ -54,7 +55,9 @@ public class BaseActivity extends Activity{//XXX#BaseActivity#
 				savedInstanceState.remove(KEY_HAS_SPLASH_AD);
 			}
 		}
-		
+
+		ActivityManager.getManager().initSystemBar(this);
+
 	}
 	
 	@Override 

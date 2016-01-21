@@ -1,14 +1,19 @@
 package com.hua.utils;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.BounceInterpolator;
 import android.view.animation.LinearInterpolator;
+import android.view.animation.OvershootInterpolator;
 import android.view.animation.RotateAnimation;
 
 import com.hua.R;
@@ -103,5 +108,103 @@ public class AnimationUtil {
 		animSet.start();
 
 	}
+
+	/**
+	 * 放大缩小回
+	 * @param view
+	 */
+	public static void scale(final View view)
+	{
+//	    PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat("alpha", 1f,
+//                0f, 1f);
+		PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat("scaleX", 1f,
+				1.5f, 1f);
+		PropertyValuesHolder pvhZ = PropertyValuesHolder.ofFloat("scaleY", 1f,
+				1.5f, 1f);
+		ObjectAnimator animator=  ObjectAnimator.ofPropertyValuesHolder(view,pvhY,pvhZ);
+		animator.setDuration(1000).setInterpolator(new OvershootInterpolator());
+		animator.start();
+	}
+
+
+	public static void signAnima(final Context context, final View light, final View ico, final View txt, final View desc)
+	{
+	    PropertyValuesHolder light_pvhX = PropertyValuesHolder.ofFloat("alpha",0f, 1f);
+		PropertyValuesHolder light_pvhY = PropertyValuesHolder.ofFloat("scaleX", 0.5f,
+				1.5f, 1f);
+		PropertyValuesHolder light_pvhZ = PropertyValuesHolder.ofFloat("scaleY", 0.5f,
+				1.5f, 1f);
+		ObjectAnimator animator_light=  ObjectAnimator.ofPropertyValuesHolder(light,light_pvhX,light_pvhY,light_pvhZ);
+
+		/***/
+		PropertyValuesHolder ico_pvhX = PropertyValuesHolder.ofFloat("alpha",0f, 1f);
+		PropertyValuesHolder ico_pvhY = PropertyValuesHolder.ofFloat("scaleX", 0.5f,
+				1.5f, 1f);
+		PropertyValuesHolder ico_pvhZ = PropertyValuesHolder.ofFloat("scaleY", 0.5f,
+				1.5f, 1f);
+		ObjectAnimator animator_ico=  ObjectAnimator.ofPropertyValuesHolder(ico,ico_pvhX,ico_pvhY,ico_pvhZ);
+
+		/***/
+		PropertyValuesHolder txt_pvhX = PropertyValuesHolder.ofFloat("alpha",0f, 1f);
+		PropertyValuesHolder txt_pvhY = PropertyValuesHolder.ofFloat("scaleX", 0.5f,
+				1.5f, 1f);
+		PropertyValuesHolder txt_pvhZ = PropertyValuesHolder.ofFloat("scaleY", 0.5f,
+				1.5f, 1f);
+		final ObjectAnimator animator_itxt=  ObjectAnimator.ofPropertyValuesHolder(txt,txt_pvhX,txt_pvhY,txt_pvhZ);
+
+
+		PropertyValuesHolder desc_pvhX = PropertyValuesHolder.ofFloat("alpha",0f, 1f);
+		PropertyValuesHolder desc_pvhY = PropertyValuesHolder.ofFloat("scaleX", 1f,
+				1.5f, 1f);
+		PropertyValuesHolder desc_pvhZ = PropertyValuesHolder.ofFloat("scaleY",1f,
+				1.5f, 1f);
+		final ObjectAnimator animator_desc=  ObjectAnimator.ofPropertyValuesHolder(desc,desc_pvhX,desc_pvhY,desc_pvhZ);
+
+		//
+		AnimatorSet animSet = new AnimatorSet();
+		animSet.setDuration(1000);
+		animSet.setInterpolator(new OvershootInterpolator());
+		animSet.play(animator_light).with(animator_ico);
+		animSet.addListener(new Animator.AnimatorListener() {
+			@Override
+			public void onAnimationStart(Animator animation) {
+				light.setVisibility(View.VISIBLE);
+				ico.setVisibility(View.VISIBLE);
+			}
+
+			@Override
+			public void onAnimationEnd(Animator animation) {
+
+				AnimatorSet animSet = new AnimatorSet();
+				animSet.setDuration(1000);
+				animSet.setInterpolator(new BounceInterpolator());
+				animSet.play(animator_itxt).with(animator_desc);
+				animSet.start();
+				txt.setVisibility(View.VISIBLE);
+				desc.setVisibility(View.VISIBLE);
+
+				AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(context,
+						R.animator.message_scalate2);
+				animatorSet.setTarget(light);
+				animatorSet.start();
+
+			}
+
+			@Override
+			public void onAnimationCancel(Animator animation) {
+
+			}
+
+			@Override
+			public void onAnimationRepeat(Animator animation) {
+
+			}
+		});
+
+		animSet.start();
+
+	}
+
+
 
 }

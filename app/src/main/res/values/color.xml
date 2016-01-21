@@ -161,5 +161,6 @@
     <!--搜素中的颜色-->
     <color name="search_select">#64D6C5</color>
     <color name="gray12">#A7A09D</color>
+    <color name="home_item_subtitles">#999999</color>
 
 </resources>

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.hua.R;
 import com.hua.activity.animator.CategoryListActivity;
 import com.hua.activity.html.upload.HtmlUpLoadActivity;
+import com.hua.activity.input.InputMethodActivity;
 import com.hua.activity.js.HTMLActivityDemo;
 import com.hua.activity.notification.NotificationMainActivity;
 import com.hua.activity.qqlogin.TreePartLoginActivity;
@@ -219,6 +220,13 @@ public class MainActivity extends BaseActivity {
                         ActivityManager.getManager().goTo(MainActivity.this, intent);
                         break;
 
+
+                    case 26:
+                        /**另类的通知显示*/
+                        intent = new Intent(MainActivity.this, InputMethodActivity.class);
+                        ActivityManager.getManager().goTo(MainActivity.this, intent);
+                        break;
+
                 }
 
             }
@@ -280,12 +288,21 @@ public class MainActivity extends BaseActivity {
             } else {
                 textView.setBackgroundColor(Color.parseColor("#F2676A"));
             }
-            if(position == 1){
-                textView.setText(Html.fromHtml("我是<font color=\"#CCCCCC\">妈妈圈</font>"),TextView.BufferType.SPANNABLE);
-                String text = "妈M国草哦擦啊[A]妈妈[/A]M9M[A]h啦啦啦啦a[/A]M妈妈啊苏打撒撒旦妈妈咪";
-                StringUtil.setSpecifiedTextsColor(textView,text,0xfffb798f,"[A]","\\[/A\\]");
-            }else{
 
+            if(position == 0){
+                textView.setText(Html.fromHtml("我是<font size=\"60\" color=\"#fb798f\">妈妈圈</font>"),TextView.BufferType.SPANNABLE);
+            }else if(position == 1){
+//                String text = "妈M国草哦擦啊[color]妈妈[/color]M9M[color]h啦啦啦啦a[/color]M妈妈啊苏打撒撒旦妈妈咪";
+//                StringUtil.setSpecifiedTextsColor(textView,text,0xfffb798f,"[color]","\\[/color\\]");
+//                String text = "妈M国草哦擦啊<font>妈妈</font>M9M<font>h啦啦啦啦a</font>M妈妈啊苏打撒撒旦妈妈咪";
+                String text = "妈M国草哦擦啊<font>妈妈</font>M妈妈啊苏打50%撒撒旦妈妈咪";
+                String start = "<font>";
+                String end = "</font>";
+//                StringUtil.setSpecifiedTextsColor(textView,text,0xfffb798f,start,end);
+//                StringUtil.setTextsColorAndSize(textView,text,getResources().getColor(R.color.gray12),start,end,1.5f);
+
+                StringUtil.setTextsColorByNum(textView,text,"50%",getResources().getColor(R.color.gray12),1.5f);
+            }else{
                 textView.setText(listData.get(position));
             }
 

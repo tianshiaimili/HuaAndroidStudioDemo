@@ -94,4 +94,7 @@
     <dimen name="choiceInterest_radius">30dp</dimen>
     <dimen name="strokeWidth">1dp</dimen>
 
+    <dimen name="select_date_textsize">18sp</dimen>
+
+
 </resources>

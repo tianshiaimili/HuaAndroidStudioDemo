@@ -130,7 +130,7 @@ public class ViewAnimateActivity extends Activity {
 		mBlueBall.setVisibility(View.VISIBLE);
 		AnimatorSet animationBottom =(AnimatorSet) AnimatorInflater.loadAnimator(this,
 				R.animator.message_tip_scale);
-		animationBottom.setTarget(mBlueBall);
+//		animationBottom.setTarget(mBlueBall);
 		animationBottom.start();
 
 	}

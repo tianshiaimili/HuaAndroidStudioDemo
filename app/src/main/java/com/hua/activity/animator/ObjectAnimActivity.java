@@ -7,6 +7,7 @@ import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
 
 import com.hua.R;
 
@@ -44,16 +45,23 @@ public class ObjectAnimActivity extends Activity
 	public void propertyValuesHolder(final View view)
 	{
 
-	    PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat("alpha", 1f,  
-                0f, 1f);  
-        PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat("scaleX", 1f,  
-                0.8f, 1f);  
-        PropertyValuesHolder pvhZ = PropertyValuesHolder.ofFloat("scaleY", 1f,  
-                0.8f, 1f); 
-        
-        ObjectAnimator.ofPropertyValuesHolder(view, pvhX, pvhY,pvhZ).setDuration(500).start();  
-        
-		
+	    PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat("alpha", 1f,
+                0f, 1f);
+        PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat("scaleX", 1f,
+                1.5f, 1f);
+        PropertyValuesHolder pvhZ = PropertyValuesHolder.ofFloat("scaleY", 1f,
+                1.5f, 1f);
+
+		ObjectAnimator animator=  ObjectAnimator.ofPropertyValuesHolder(view,pvhX,pvhY,pvhZ);
+		animator.setDuration(1000).setInterpolator(new OvershootInterpolator());
+		animator.start();
+
+//		 ObjectAnimator animX = ObjectAnimator.ofFloat(view, "scaleX", 1.0f, 1.25f, 1f).setDuration(500);
+//		animX.setInterpolator(new LinearInterpolator());
+//		ObjectAnimator animY = ObjectAnimator.ofFloat(view, "scaleY", 1.0f, 1.25f, 1f).setDuration(500);
+//		AnimatorSet animatorSet = new AnimatorSet();
+//		animatorSet.play(animX).with(animY);
+
 	}
 	
 	// ObjectAnimator anim = ObjectAnimator//
