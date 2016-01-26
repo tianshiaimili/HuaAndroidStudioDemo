@@ -22,6 +22,9 @@ import android.widget.TextView;
 import com.hua.R;
 import com.hua.utils.AnimationUtil;
 import com.hua.utils.LogUtils;
+import com.hua.utils.StringUtil;
+import com.hua.utils.secret.DES;
+import com.hua.utils.secret.DESSecret;
 import com.hua.view.OnWheelChangedListener;
 import com.hua.view.OnWheelScrollListener;
 import com.hua.view.WheelView;
@@ -49,6 +52,9 @@ public class ActivityWithExtra extends com.hua.activity.taiwanAd.BaseActivity {
 
     @ViewById
     WheelView passw_2;
+
+    @ViewById
+    TextView share_tv1;
 
     @Extra(MY_STRING_EXTRA)
     String myMessage;
@@ -93,6 +99,23 @@ public class ActivityWithExtra extends com.hua.activity.taiwanAd.BaseActivity {
         extraTextView.setText(spannable);
 
         initWheel();
+        share_tv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                passw_2.scroll(25, 2000);
+//                passw_1.scroll(-20, 2000);
+                passw_1.setCurrentItem(8,true);
+
+                DESSecret.testSecret();
+
+                DES.test();
+
+                StringUtil.setData("啦啦啦mm");
+
+            }
+        });
 
     }
 
@@ -121,14 +144,15 @@ public class ActivityWithExtra extends com.hua.activity.taiwanAd.BaseActivity {
         passw_1.setViewAdapter(new NumericWheelAdapter(this, 0, 9));
         passw_1.setCurrentItem((int)(Math.random() * 10));
 
+
         passw_1.addChangingListener(changedListener);
         passw_1.addScrollingListener(scrolledListener);
         passw_1.setCyclic(true);
         passw_1.setInterpolator(new AnticipateOvershootInterpolator());
 
         passw_2.setViewAdapter(new NumericWheelAdapter(this, 0, 9));
-        passw_2.setCurrentItem((int)(Math.random() * 10));
-
+//        passw_2.setCurrentItem((int)(Math.random() * 10));
+        passw_2.setCurrentItem(0);
         passw_2.addChangingListener(changedListener);
         passw_2.addScrollingListener(scrolledListener);
         passw_2.setCyclic(true);

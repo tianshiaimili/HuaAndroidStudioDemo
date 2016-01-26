@@ -763,4 +763,74 @@ public class StringUtil {
 		textView.setText(styledText);
     }
 
+
+    /**
+     *
+     * @param textView
+     * @param text
+     * @param color
+     */
+    public static void setKeysTextsColor(TextView textView, String text, int color) {
+        if (isNull(text)) return;
+        char [] stringArr = text.toCharArray();
+        SpannableStringBuilder styledText = new SpannableStringBuilder();
+//        List<Location> locations = new ArrayList<>();
+//
+//        if (contents.length == 0) return;
+//        for (String ss : contents) {
+//            int startIndex = ss.indexOf(reg_start);
+//            if (startIndex != -1) {
+//                Location location = new Location();
+//                location.start = styledText.length() + startIndex;
+//                location.end = styledText.length() + ss.length() - 1 - reg_start.length();
+//                locations.add(location);
+//                ss = ss.replace(reg_start, "");
+//                styledText.append(ss);
+//            } else if (!ss.contains(reg_start) && !ss.contains(reg_end)) {
+//                styledText.append(ss);
+//            }
+//        }
+//        for (Location location : locations) {
+//            styledText.setSpan(
+//                    new ForegroundColorSpan(color),
+//                    location.start,
+//                    location.end + 1,
+//                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        }
+//        textView.setText(styledText);
+    }
+
+    public static  void setData(String precent){
+        String temp = "";
+        int tens = 0;
+        int single = 0;
+        String point = ".";
+        int tens_point = 0;
+        int single_point = 0;
+        int lengh = 0;
+        try {
+
+            byte [] bytes = precent.getBytes();
+            char [] arrs = precent.toCharArray();
+            String tem = String.valueOf(arrs[0]);
+
+//            int _prcent = Integer.valueOf(precent);
+//            if(_prcent != -1){
+//                if(precent.length() > 5){
+//                    /**最多显示两位小数*/
+//                    precent = precent.substring(0,precent.length() - 1);
+//                }
+//                if(precent.contains(".")){
+//                    byte[] nums = precent.getBytes();
+//                }
+//
+//            }
+        }catch (NumberFormatException e){
+            return;
+        }
+
+
+    }
+
+
 }

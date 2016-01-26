@@ -298,7 +298,7 @@ public class MainActivity extends BaseActivity {
                 String text = "妈M国草哦擦啊<font>妈妈</font>M妈妈啊苏打50%撒撒旦妈妈咪";
                 String start = "<font>";
                 String end = "</font>";
-//                StringUtil.setSpecifiedTextsColor(textView,text,0xfffb798f,start,end);
+                StringUtil.setSpecifiedTextsColor(textView,text,0xfffb798f,start,end);
 //                StringUtil.setTextsColorAndSize(textView,text,getResources().getColor(R.color.gray12),start,end,1.5f);
 
                 StringUtil.setTextsColorByNum(textView,text,"50%",getResources().getColor(R.color.gray12),1.5f);
