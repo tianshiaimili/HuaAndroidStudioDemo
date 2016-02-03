@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 
 /**
@@ -215,7 +216,7 @@ public class StringUtil {
         String chinese = "[\u0391-\uFFE5]";
         /* 获取字段值的长度，如果含中文字符，则每个中文字符长度为2，否则为1 */
         for (int i = 0; i < value.length(); i++) {
-			/* 获取一个字符 */
+            /* 获取一个字符 */
             String temp = value.substring(i, i + 1);
 			/* 判断是否为中文字符 */
             if (temp.matches(chinese)) {
@@ -744,36 +745,36 @@ public class StringUtil {
      */
     public static void setTextsColorByNum(TextView textView, String text, String color_text, int color, float size) {
 
-		if(isNull(text)) return;
-		SpannableStringBuilder styledText = new SpannableStringBuilder(text);
+        if (isNull(text)) return;
+        SpannableStringBuilder styledText = new SpannableStringBuilder(text);
 
-		int index = text.lastIndexOf(color_text);
-		int end = index+color_text.length();
-		if(color != 0){
-			styledText.setSpan(new ForegroundColorSpan(color),index,end,Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-		}
-		if(size > 0){
+        int index = text.lastIndexOf(color_text);
+        int end = index + color_text.length();
+        if (color != 0) {
+            styledText.setSpan(new ForegroundColorSpan(color), index, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        if (size > 0) {
 
-			styledText.setSpan(
-					new RelativeSizeSpan(size),
-					index,
-					end,
-					Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-		}
-		textView.setText(styledText);
+            styledText.setSpan(
+                    new RelativeSizeSpan(size),
+                    index,
+                    end,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        textView.setText(styledText);
     }
 
 
     /**
-     *
      * @param textView
      * @param text
      * @param color
      */
     public static void setKeysTextsColor(TextView textView, String text, int color) {
         if (isNull(text)) return;
-        char [] stringArr = text.toCharArray();
+        char[] stringArr = text.toCharArray();
         SpannableStringBuilder styledText = new SpannableStringBuilder();
+
 //        List<Location> locations = new ArrayList<>();
 //
 //        if (contents.length == 0) return;
@@ -800,7 +801,7 @@ public class StringUtil {
 //        textView.setText(styledText);
     }
 
-    public static  void setData(String precent){
+    public static void setData(String precent) {
         String temp = "";
         int tens = 0;
         int single = 0;
@@ -810,8 +811,8 @@ public class StringUtil {
         int lengh = 0;
         try {
 
-            byte [] bytes = precent.getBytes();
-            char [] arrs = precent.toCharArray();
+            byte[] bytes = precent.getBytes();
+            char[] arrs = precent.toCharArray();
             String tem = String.valueOf(arrs[0]);
 
 //            int _prcent = Integer.valueOf(precent);
@@ -825,12 +826,51 @@ public class StringUtil {
 //                }
 //
 //            }
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             return;
         }
 
 
     }
 
+
+    public static void setKeysColor(TextView textView, String text, String key, int color) {
+
+        SpannableStringBuilder builder = new SpannableStringBuilder(text);
+
+        for (int i = 0; i < key.length(); i++) {
+
+            char tem = key.charAt(i);
+            String _skey = String.valueOf(tem);
+
+            for (int j = 0; j < text.length(); j++) {
+
+                char temp_content = text.charAt(j);
+                String _sContent = String.valueOf(temp_content);
+                if (_skey.equals(_sContent)) {
+                    builder.setSpan(new ForegroundColorSpan(color), j, j + _sContent.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    continue;
+                }
+
+            }
+
+        }
+        textView.setText(builder);
+
+    }
+
+
+    public static String stringFilter(String str) {
+        // 只允许字母、数字和汉字
+        try {
+            String regEx = "[^a-zA-Z0-9\u4E00-\u9FA5]";
+            Pattern p = Pattern.compile(regEx);
+            Matcher m = p.matcher(str);
+            return m.replaceAll("").trim();
+        }catch (PatternSyntaxException exception){
+
+        }
+        return "";
+    }
 
 }

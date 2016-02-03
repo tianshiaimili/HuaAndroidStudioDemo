@@ -97,4 +97,8 @@
     <dimen name="select_date_textsize">18sp</dimen>
 
 
+    <dimen name="square_bg_padding">10dp</dimen>
+    <dimen name="square_bg_radius">5dp</dimen>
+
+
 </resources>

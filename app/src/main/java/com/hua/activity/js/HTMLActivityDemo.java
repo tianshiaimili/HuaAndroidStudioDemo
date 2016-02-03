@@ -44,8 +44,7 @@ public class HTMLActivityDemo extends Activity {
 		// myWebView.loadUrl("file:///android_asset/ss.html");
 		String path = getFilesDir().getAbsolutePath() + HTMLNAME; // data/data目录
 		myWebView.loadUrl("file:///" + path);
-		myWebView
-				.addJavascriptInterface(new AndroidJavaScript(this), "Android");
+		myWebView.addJavascriptInterface(new AndroidJavaScript(this), "Android");
 
 		// myWebView.loadUrl("javascript:getStr('" + 122222 + "')");
 		myWebView.setWebViewClient(webviewcilnt);
