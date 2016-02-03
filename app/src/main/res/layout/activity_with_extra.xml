@@ -115,7 +115,7 @@
         android:gravity="center"
         android:text="微信大sa"
         android:textColor="@color/black2"
-        android:background="@drawable/tv_send_bg"
+        android:background="@drawable/layout_list_color_shape"
         android:textSize="20sp"/>
 
 
