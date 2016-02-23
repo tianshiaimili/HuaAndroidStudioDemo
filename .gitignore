@@ -5,3 +5,10 @@
 .DS_Store
 /build
 /captures
+/.idea
+/app/app.xml
+/parallaxviewpager/parallaxviewpager.iml
+/libary/libary.iml
+/emoji/emoji.iml
+/bundle2/bundle2.iml
+
