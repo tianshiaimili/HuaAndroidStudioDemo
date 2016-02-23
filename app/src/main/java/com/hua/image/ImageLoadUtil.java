@@ -24,6 +24,14 @@ public class ImageLoadUtil {
         loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new CircleTransform(context));
     }
 
+    public static void loadImageWithCover(Context context, ImageView imageView, String url,int type) {
+        if(type == 0){
+            loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new GlideCircleTransform(context));
+        }else if(type == 1){
+            loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new GlideRoundTransform(context));
+        }
+    }
+
 
     public static void loadImageWithDepic(Context context, ImageView imageView, String url) {
         loadImageWithUrl(context, imageView, url, R.drawable.de_pic, R.drawable.pic_error, false);
