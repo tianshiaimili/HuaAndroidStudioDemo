@@ -6,7 +6,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.DrawableTypeRequest;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
+import com.bumptech.glide.load.Transformation;
 import com.hua.R;
 import com.hua.utils.AnimationUtil;
 
@@ -29,6 +29,8 @@ public class ImageLoadUtil {
             loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new GlideCircleTransform(context));
         }else if(type == 1){
             loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new GlideRoundTransform(context));
+        }else if(type == 2){
+            loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new RoundedCornersTransformation(context,38,38));
         }
     }
 
@@ -54,7 +56,7 @@ public class ImageLoadUtil {
         loadImageWithUrl(context, imageView, url, drawableId, errorId, asBitmap, null);
     }
 
-    public static void loadImageWithUrl(Context context, ImageView imageView, String url, int drawableId, int errorId, boolean asBitmap, BitmapTransformation bitmapTransformation) {
+    public static void loadImageWithUrl(Context context, ImageView imageView, String url, int drawableId, int errorId, boolean asBitmap, Transformation bitmapTransformation) {
         try {
             DrawableTypeRequest request = Glide.with(context).load(url);
             if (asBitmap) {

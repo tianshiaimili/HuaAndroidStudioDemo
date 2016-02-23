@@ -37,7 +37,7 @@ public class SelectorActivity extends Activity{
 
 				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,iv1,url3);
 				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,iv2,url2,1);
-				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,iv3,url3,0);
+				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,iv3,url4,2);
 				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,roundImageView,url4,false);
 
 			}

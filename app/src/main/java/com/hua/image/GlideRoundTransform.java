@@ -19,7 +19,7 @@ public class GlideRoundTransform extends BitmapTransformation {
     private static float radius = 0f;
 
     public GlideRoundTransform(Context context) {
-        this(context, 8);
+        this(context, 18);
     }
 
     public GlideRoundTransform(Context context, int dp) {
@@ -41,7 +41,10 @@ public class GlideRoundTransform extends BitmapTransformation {
 
         Canvas canvas = new Canvas(result);
         Paint paint = new Paint();
-        paint.setShader(new BitmapShader(source, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP));
+        BitmapShader shader =
+                new BitmapShader(source, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP);
+
+        paint.setShader(shader);
         paint.setAntiAlias(true);
         RectF rectF = new RectF(0f, 0f, source.getWidth(), source.getHeight());
         canvas.drawRoundRect(rectF, radius, radius, paint);
