@@ -46,7 +46,7 @@ public class CircleTransform extends BitmapTransformation {
         final Paint paint = new Paint();
         final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
         final RectF rectF = new RectF(rect);
-        float mCornerRadius =12; // 圆角半径
+        float mCornerRadius =18; // 圆角半径
 //        float mCornerRadius = 8 * context.getResources()
 //                .getDisplayMetrics().density; // 圆角半径
 //        if(mCornerRadius<=0){

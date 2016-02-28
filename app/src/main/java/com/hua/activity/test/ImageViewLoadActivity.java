@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.hua.R;
 import com.hua.adapter.SquareGridViewAdapter;
-import com.hua.image.ImageLoadUtil;
+import com.hua.utils.ImgUtil;
 import com.hua.utils.SelectorUtil;
 import com.hua.view.CustomGridView;
 import com.hua.view.RoundImageView;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class SelectorActivity extends Activity{
+public class ImageViewLoadActivity extends Activity{
 
 	private TextView textView;
 	private ImageView iv1,iv2,iv3;
@@ -27,37 +27,34 @@ public class SelectorActivity extends Activity{
 	private CustomGridView gridView;
 	private SquareGridViewAdapter adapter;
 
-	private String url = "http://img1.gamersky.com/image2013/11/20131109hjf_2/gamersky_01origin_01_2013119953100.jpg";
+	private String url = "http://c.hiphotos.baidu.com/image/pic/item/ac6eddc451da81cb6b1233d05066d01609243132.jpg";
 	private String url2 = "http://h.hiphotos.baidu.com/image/pic/item/b3b7d0a20cf431adc4b317334936acaf2edd9852.jpg";
-	private String url3 = "http://img1.gamersky.com/image2013/03/20130330u_4/gamersky_37origin_73_20133301057E6F.jpg";
+	private String url3 = "http://a.hiphotos.baidu.com/image/pic/item/9358d109b3de9c82d94b518a6e81800a19d8438c.jpg";
 	private String url4 = "http://e.hiphotos.baidu.com/image/pic/item/50da81cb39dbb6fd06b854560a24ab18962b37da.jpg";
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.selector_layout);
+		setContentView(R.layout.image_load_layout);
 		textView = (TextView) findViewById(R.id.option);
 		textView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,roundImageView,url4,false);
-				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,iv1,url,0);
-				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,iv2,url,2);
-//				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,iv3,url2,1);
+//				ImageLoadUtil.loadImageWithCover(ImageViewLoadActivity.this,roundImageView,url4,false);
+//				ImageLoadUtil.loadImageWithCover(ImageViewLoadActivity.this,iv1,url2,0);
+//				ImageLoadUtil.loadImageWithCover(ImageViewLoadActivity.this,iv2,url2,1);
+//				ImageLoadUtil.loadImageWithCover(ImageViewLoadActivity.this,iv3,url2,2);
 				gridView.setAdapter(adapter);
 
 			}
 		});
-		iv1 = (ImageView) findViewById(R.id.iv1);
-		iv2 = (ImageView) findViewById(R.id.iv2);
-		iv3 = (ImageView) findViewById(R.id.iv3);
+//		iv1 = (ImageView) findViewById(R.id.iv1);
+//		iv2 = (ImageView) findViewById(R.id.iv2);
+//		iv3 = (ImageView) findViewById(R.id.iv3);
+		int width = ImgUtil.getWidthPixels((Activity) this, 15);
 		gridView = (CustomGridView) findViewById(R.id.gridView);
-
-		adapter = new SquareGridViewAdapter(this, 15,getList());
-
-		roundImageView = (RoundImageView) findViewById(R.id.iv0);
-		roundImageView.setType(RoundImageView.TYPE_ROUND);
+		adapter = new SquareGridViewAdapter(this, width,getList());
 
 		setTextViewSelector();
 	}

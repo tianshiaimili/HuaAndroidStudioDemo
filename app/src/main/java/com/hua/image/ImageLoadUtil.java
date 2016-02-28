@@ -1,6 +1,10 @@
 package com.hua.image;
 
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.util.DisplayMetrics;
 import android.widget.ImageView;
 
@@ -28,9 +32,9 @@ public class ImageLoadUtil {
         if(type == 0){
             loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new GlideCircleTransform(context));
         }else if(type == 1){
-            loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new GlideRoundTransform(context));
+            loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new GlideRoundTransform(context,30));
         }else if(type == 2){
-            loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new RoundedCornersTransformation(context,38,38));
+            loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new RoundedCornersTransformation(context,30,10, RoundedCornersTransformation.CornerType.LEFT));
         }
     }
 
@@ -128,5 +132,40 @@ public class ImageLoadUtil {
 //            .imageScaleType(ImageScaleType.EXACTLY)
 //            .build();
 //}
+
+    /**
+     * 将图片等比例缩放 setAdjustViewBounds setMaxWidth setMaxWidth必须同时设置才有效
+     *
+     * @param context
+     * @param image
+     *            图片控件
+     * @param source
+     *            图片资源
+     */
+    public static void setImageViewMathParent(Activity context,ImageView image, int source) {
+        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),
+                source);
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        context.getWindowManager().getDefaultDisplay()
+                .getMetrics(displayMetrics);
+        float scalew = (float) displayMetrics.widthPixels
+                / (float) bitmap.getWidth();
+        image.setScaleType(ImageView.ScaleType.MATRIX);
+        Matrix matrix = new Matrix();
+        image.setAdjustViewBounds(true);
+        if (displayMetrics.widthPixels < bitmap.getWidth()) {
+            matrix.postScale(scalew, scalew);
+        } else {
+            matrix.postScale(1 / scalew, 1 / scalew);
+        }
+        image.setMaxWidth(displayMetrics.widthPixels);
+        float ss = displayMetrics.heightPixels > bitmap.getHeight() ? displayMetrics.heightPixels
+                : bitmap.getHeight();
+        image.setMaxWidth((int) ss);
+        if (bitmap != null && bitmap.isRecycled()) {
+            bitmap.recycle();
+        }
+
+    }
 
 }

@@ -142,6 +142,10 @@
         <activity
             android:name="com.hua.activity.test.SelectorActivity"
             android:theme="@style/AppTheme_Test"/>
+        <activity
+            android:name="com.hua.activity.test.ImageViewLoadActivity"
+            android:theme="@style/AppTheme_Test"/>
+
 
         <activity
             android:name="com.hua.activity.input.InputMethodActivity"

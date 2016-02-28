@@ -144,6 +144,7 @@
         <item>Service</item>
         <item>Animation</item>
         <item>SelectorDemo</item>
+        <item>ImageViewLoadDemo</item>
     </string-array>
 
     <!--这个是activitys的名称-->
@@ -152,6 +153,7 @@
         <item>com.hua.activity.MainActivity_</item>
         <item>com.hua.activity.MainActivity_</item>
         <item>com.hua.activity.test.SelectorActivity</item>
+        <item>com.hua.activity.test.ImageViewLoadActivity</item>
     </string-array>
 
 </resources>
