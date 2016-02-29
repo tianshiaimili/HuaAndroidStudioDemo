@@ -8,8 +8,8 @@
         android:propertyName="scaleX"
         android:repeatCount="infinite"
         android:repeatMode="reverse"
-        android:valueFrom="1"
-        android:valueTo="1.5"
+        android:valueFrom="1.2"
+        android:valueTo="1.6"
         android:valueType="floatType" >
     </objectAnimator>
     <objectAnimator
@@ -18,8 +18,8 @@
         android:propertyName="scaleY"
         android:repeatCount="infinite"
         android:repeatMode="reverse"
-        android:valueFrom="1"
-        android:valueTo="1.5"
+        android:valueFrom="1.2"
+        android:valueTo="1.6"
         android:valueType="floatType" >
     </objectAnimator>
 

@@ -74,7 +74,7 @@ public class WelcomePropertyAnimActivity extends BaseActivity implements
 		preferences = getPreferences(MODE_PRIVATE);
 		isfirstInstall = preferences.getBoolean("isfirstInstall", false);
 		initYouMI();
-		if (!isfirstInstall) {
+		if (true) {
 			LogUtils2.d("***********************");
 //			setContentView(R.layout.first_install_page);
 			//
@@ -180,16 +180,6 @@ public class WelcomePropertyAnimActivity extends BaseActivity implements
 		SharedPreferences.Editor editor = preferences.edit();
 		editor.putBoolean("isfirstInstall", true);
 		editor.commit();
-		
-	} else {
-		
-		LogUtils2.d("+++++++++++++");
-//		Intent intent = new Intent(getBaseContext(), WelcomeActivity.class);
-//		Intent intent = new Intent(getBaseContext(), WelcomeActivity2.class);
-//		// Intent intent = new Intent(getBaseContext(),
-//		// WelcomeActivity.class);
-//		startActivity(intent);
-//		finish();
 		
 	}
 		

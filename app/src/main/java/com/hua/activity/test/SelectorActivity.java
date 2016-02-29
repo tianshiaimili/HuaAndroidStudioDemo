@@ -30,8 +30,6 @@ public class SelectorActivity extends Activity{
 	private String url = "http://img1.gamersky.com/image2013/11/20131109hjf_2/gamersky_01origin_01_2013119953100.jpg";
 	private String url2 = "http://h.hiphotos.baidu.com/image/pic/item/b3b7d0a20cf431adc4b317334936acaf2edd9852.jpg";
 	private String url3 = "http://img1.gamersky.com/image2013/03/20130330u_4/gamersky_37origin_73_20133301057E6F.jpg";
-	private String url4 = "http://e.hiphotos.baidu.com/image/pic/item/50da81cb39dbb6fd06b854560a24ab18962b37da.jpg";
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +39,7 @@ public class SelectorActivity extends Activity{
 		textView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,roundImageView,url4,false);
+				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,roundImageView,url2,false);
 				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,iv1,url,0);
 				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,iv2,url,2);
 //				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,iv3,url2,1);

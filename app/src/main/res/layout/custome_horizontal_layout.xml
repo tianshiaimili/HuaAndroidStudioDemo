@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll_circle_list_head"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/hr_ico_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:visibility="visible"
+        >
+
+        <ImageView
+            android:id="@+id/hongrenTtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/hr_ring"
+            />
+
+        <LinearLayout
+            android:id="@+id/hongren_ico_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/circle_hr_marginLeft"
+            android:layout_toRightOf="@+id/hongrenTtitle"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/iv_icon1"
+                android:layout_width="@dimen/circle_hr_height"
+                android:layout_height="@dimen/circle_hr_height"
+                android:layout_marginLeft="@dimen/circle_hr_marginLeft"
+                android:padding="@dimen/circle_hr_padding"
+                android:visibility="visible"
+                />
+
+            <ImageView
+                android:id="@+id/iv_icon2"
+                android:layout_width="@dimen/circle_hr_height"
+                android:layout_height="@dimen/circle_hr_height"
+                android:layout_marginLeft="@dimen/circle_hr_marginLeft"
+                android:padding="@dimen/circle_hr_padding"
+                android:visibility="visible"
+                />
+
+            <ImageView
+                android:id="@+id/iv_icon3"
+                android:layout_width="@dimen/circle_hr_height"
+                android:layout_height="@dimen/circle_hr_height"
+                android:layout_marginLeft="@dimen/circle_hr_marginLeft"
+                android:padding="@dimen/circle_hr_padding"
+                android:visibility="visible"
+                />
+
+            <ImageView
+                android:id="@+id/iv_icon4"
+                android:layout_width="@dimen/circle_hr_height"
+                android:layout_height="@dimen/circle_hr_height"
+                android:layout_marginLeft="@dimen/circle_hr_marginLeft"
+                android:padding="@dimen/circle_hr_padding"
+                android:visibility="visible"
+                />
+
+            <ImageView
+                android:id="@+id/iv_icon5"
+                android:layout_width="@dimen/circle_hr_height"
+                android:layout_height="@dimen/circle_hr_height"
+                android:layout_marginLeft="@dimen/circle_hr_marginLeft"
+                android:padding="@dimen/circle_hr_padding"
+                android:visibility="visible"
+                />
+
+            <ImageView
+                android:id="@+id/iv_icon6"
+                android:layout_width="@dimen/circle_hr_height"
+                android:layout_height="@dimen/circle_hr_height"
+                android:layout_marginLeft="@dimen/circle_hr_marginLeft"
+                android:padding="@dimen/circle_hr_padding"
+                android:visibility="visible"
+                />
+
+            <ImageView
+                android:id="@+id/iv_icon7"
+                android:layout_width="@dimen/circle_hr_height"
+                android:layout_height="@dimen/circle_hr_height"
+                android:layout_marginLeft="@dimen/circle_hr_marginLeft"
+                android:padding="@dimen/circle_hr_padding"
+                android:visibility="visible"
+                />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/more_hr"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:padding="5dp"
+            android:layout_marginRight="8dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/hr_all"/>
+
+
+    </RelativeLayout>
+</LinearLayout>

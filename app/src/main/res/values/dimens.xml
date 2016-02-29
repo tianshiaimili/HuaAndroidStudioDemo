@@ -100,5 +100,9 @@
     <dimen name="square_bg_padding">10dp</dimen>
     <dimen name="square_bg_radius">5dp</dimen>
 
+    <!--帖子列表红人管圆形ico的padding-->
+    <dimen name="circle_hr_padding">5dp</dimen>
+    <dimen name="circle_hr_marginLeft">5dp</dimen>
+    <dimen name="circle_hr_height">28dp</dimen>
 
 </resources>

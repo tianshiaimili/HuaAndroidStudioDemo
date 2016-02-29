@@ -185,13 +185,19 @@ public class ActivityWithExtra extends com.hua.activity.taiwanAd.BaseActivity {
         ImageView light = (ImageView) contentView.findViewById(R.id.light);
         ImageView gold = (ImageView) contentView.findViewById(R.id.gold);
         TextView score = (TextView) contentView.findViewById(R.id.score);
-        TextView prcent = (TextView) contentView.findViewById(R.id.prcent);
+        TextView prcent = (TextView) contentView.findViewById(R.id.test);
+        ImageView banner_desc = (ImageView) contentView.findViewById(R.id.banner_desc);
+        TextView add_oil_desc = (TextView) contentView.findViewById(R.id.add_oil_desc);
+
+
 
         popupWindow.setBackgroundDrawable(new BitmapDrawable());
         popupWindow.setFocusable(true);
         popupWindow.setOutsideTouchable(false);
         popupWindow.showAtLocation(extraTextView, Gravity.CENTER_VERTICAL, 0, 0);
         AnimationUtil.signAnima(this, light, gold, score, prcent);
+
+//        AnimationUtil.signAnima(this, banner_desc,light, gold, score, prcent,add_oil_desc);
 
     }
 

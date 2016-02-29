@@ -1,5 +1,6 @@
 package com.hua.activity.animator;
 
+import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -9,6 +10,7 @@ import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.BounceInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
@@ -19,7 +21,7 @@ import com.hua.R;
 public class ObjectAnimActivity extends Activity
 {
 
-	TextView click;
+	TextView click,click2;
 	ImageView test1,test2,test3;
 	AnimatorSet animation1;
 
@@ -29,6 +31,7 @@ public class ObjectAnimActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.object_animator);
 		click = (TextView) findViewById(R.id.click);
+
 		click.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -37,6 +40,9 @@ public class ObjectAnimActivity extends Activity
 				propertyValuesHolder3();
 			}
 		});
+
+		click2 = (TextView) findViewById(R.id.click2);
+		click2.setVisibility(View.GONE);
 		test1 = (ImageView) findViewById(R.id.test1);
 		test2 = (ImageView) findViewById(R.id.test2);
 		test3 = (ImageView) findViewById(R.id.test3);
@@ -100,16 +106,46 @@ public class ObjectAnimActivity extends Activity
 		PropertyValuesHolder pvhX3 = PropertyValuesHolder.ofFloat("rotation", 0.0f,359.0f);
 		ObjectAnimator objectAnimator3 = ObjectAnimator.ofPropertyValuesHolder(test1,pvhA3,pvhX3);
 		objectAnimator3.setDuration(3000).setInterpolator(new OvershootInterpolator());
+		objectAnimator3.addListener(new Animator.AnimatorListener() {
+			@Override
+			public void onAnimationStart(Animator animation) {
 
+			}
+
+			@Override
+			public void onAnimationEnd(Animator animation) {
+				click2.setVisibility(View.VISIBLE);
+			}
+
+			@Override
+			public void onAnimationCancel(Animator animation) {
+
+			}
+
+			@Override
+			public void onAnimationRepeat(Animator animation) {
+
+			}
+		});
+
+		PropertyValuesHolder pvhA4 = PropertyValuesHolder.ofFloat("alpha",0.0f, 1f);
+		PropertyValuesHolder pvhY4 = PropertyValuesHolder.ofFloat("translationY", -100,50);
+		ObjectAnimator objectAnimator4 = ObjectAnimator.ofPropertyValuesHolder(click2,pvhA4,pvhY4);
+		objectAnimator4.setDuration(500).setInterpolator(new BounceInterpolator());
+
+//		ObjectAnimator objectAnimator4 = (ObjectAnimator) AnimatorInflater.loadAnimator(ObjectAnimActivity.this,
+//				R.animator.tutorail_bottom);
 
 
 		AnimatorSet animatorSet = new AnimatorSet();
-		animatorSet.play(objectAnimator1).with(objectAnimator2);
-		animatorSet.play(objectAnimator3).after(objectAnimator2);
+		animatorSet.play(objectAnimator1).with(objectAnimator2).with(objectAnimator3);
+//		animatorSet.play(objectAnimator3).after(objectAnimator2);
+		animatorSet.play(objectAnimator4).after(objectAnimator3);
 		animatorSet.start();
 
 		test2.setVisibility(View.VISIBLE);
 		test3.setVisibility(View.VISIBLE);
+
 	}
 
 	public void propertyValuesHolder(final View view)
