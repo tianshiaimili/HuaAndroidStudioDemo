@@ -30,11 +30,11 @@ public class ImageLoadUtil {
 
     public static void loadImageWithCover(Context context, ImageView imageView, String url,int type) {
         if(type == 0){
-            loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new GlideCircleTransform(context));
+            loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new CircleTransform(context));
         }else if(type == 1){
             loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new GlideRoundTransform(context,30));
         }else if(type == 2){
-            loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new RoundedCornersTransformation(context,30,10, RoundedCornersTransformation.CornerType.LEFT));
+            loadImageWithUrl(context, imageView, url, R.drawable.cover, R.drawable.cover, false, new RoundedTransformation(context,8));
         }
     }
 

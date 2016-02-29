@@ -81,7 +81,7 @@ public class SquareGridViewAdapter extends BaseAdapter {
                 holde.img.setVisibility(View.GONE);
             } else {
 //                ImageLoadUtil.loadImageWithUrl(mContext, holde.img, imgurl.get(position), R.drawable.cover, R.drawable.cover, true);
-                ImageLoadUtil.loadImageWithCover(mContext, holde.img, imgurl.get(position), 1);
+                ImageLoadUtil.loadImageWithCover(mContext, holde.img, imgurl.get(position), 2);
 //                ImageLoadUtil.loadImageWithCover(mContext, holde.img, imgurl.get(position));
             }
         }

@@ -27,9 +27,9 @@ public class ImageViewLoadActivity extends Activity{
 	private CustomGridView gridView;
 	private SquareGridViewAdapter adapter;
 
-	private String url = "http://c.hiphotos.baidu.com/image/pic/item/ac6eddc451da81cb6b1233d05066d01609243132.jpg";
+	private String url = "http://ico.ooopic.com/ajax/iconpng/?id=53681.png";
 	private String url2 = "http://h.hiphotos.baidu.com/image/pic/item/b3b7d0a20cf431adc4b317334936acaf2edd9852.jpg";
-	private String url3 = "http://a.hiphotos.baidu.com/image/pic/item/9358d109b3de9c82d94b518a6e81800a19d8438c.jpg";
+	private String url3 = "http://h.hiphotos.baidu.com/image/pic/item/b3b7d0a20cf431adc4b317334936acaf2edd9852.jpg";
 	private String url4 = "http://e.hiphotos.baidu.com/image/pic/item/50da81cb39dbb6fd06b854560a24ab18962b37da.jpg";
 
 
@@ -76,7 +76,7 @@ public class ImageViewLoadActivity extends Activity{
 
 		List<String> list = new ArrayList<>();
 		for(int i = 0; i < 3; i++){
-			list.add(url2);
+			list.add(url3);
 		}
 
 		return list;
