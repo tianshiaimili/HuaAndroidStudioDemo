@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.hua.view.CircleImageView
+        android:id="@+id/iv_head"
+        android:layout_width="@dimen/circle_height"
+        android:layout_height="@dimen/circle_height"
+        android:padding="5dp"
+        android:src="@drawable/cover"/>
+
+
+<!--    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_head"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true"
+        android:maxEms="4"
+        android:textColor="@color/gray_menu_text"
+        android:textSize="13sp"
+        android:visibility="visible"
+        android:paddingBottom="5dp"
+        android:text=""
+        android:layout_marginTop="2dp" />-->
+
+</RelativeLayout>

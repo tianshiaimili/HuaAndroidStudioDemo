@@ -4,8 +4,11 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hua.R;
@@ -13,6 +16,7 @@ import com.hua.adapter.SquareGridViewAdapter;
 import com.hua.utils.ImgUtil;
 import com.hua.utils.SelectorUtil;
 import com.hua.view.CustomGridView;
+import com.hua.view.CustomsHorizontalScrollView;
 import com.hua.view.RoundImageView;
 
 import java.util.ArrayList;
@@ -26,6 +30,7 @@ public class ImageViewLoadActivity extends Activity{
 	private RoundImageView roundImageView;
 	private CustomGridView gridView;
 	private SquareGridViewAdapter adapter;
+	private CustomsHorizontalScrollView horizontalScrollView;
 
 	private String url = "http://ico.ooopic.com/ajax/iconpng/?id=53681.png";
 	private String url2 = "http://h.hiphotos.baidu.com/image/pic/item/b3b7d0a20cf431adc4b317334936acaf2edd9852.jpg";
@@ -46,6 +51,7 @@ public class ImageViewLoadActivity extends Activity{
 //				ImageLoadUtil.loadImageWithCover(ImageViewLoadActivity.this,iv2,url2,1);
 //				ImageLoadUtil.loadImageWithCover(ImageViewLoadActivity.this,iv3,url2,2);
 				gridView.setAdapter(adapter);
+				horizontalScrollView.setData(getList());
 
 			}
 		});
@@ -54,7 +60,13 @@ public class ImageViewLoadActivity extends Activity{
 //		iv3 = (ImageView) findViewById(R.id.iv3);
 		int width = ImgUtil.getWidthPixels((Activity) this, 15);
 		gridView = (CustomGridView) findViewById(R.id.gridView);
-		adapter = new SquareGridViewAdapter(this, width,getList());
+//		gridView.setVisibility(View.GONE);
+		List<String> list = getList();
+		adapter = new SquareGridViewAdapter(this, width,list);
+		setGridView();
+
+		horizontalScrollView = (CustomsHorizontalScrollView) findViewById(R.id.custom_gridView);
+//		horizontalScrollView.setVisibility(View.GONE);
 
 		setTextViewSelector();
 	}
@@ -75,13 +87,27 @@ public class ImageViewLoadActivity extends Activity{
 	private List<String> getList(){
 
 		List<String> list = new ArrayList<>();
-		for(int i = 0; i < 3; i++){
+		for(int i = 0; i < 6; i++){
 			list.add(url3);
 		}
-
 		return list;
 
 	}
-
+	/**设置GirdView参数，绑定数据*/
+	private void setGridView() {
+		int size = getList().size();
+		DisplayMetrics dm = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(dm);
+		float density = dm.density;
+		int allWidth = (int) (68 * size * density);
+		int itemWidth = (int) (65 * density);
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+				allWidth, LinearLayout.LayoutParams.FILL_PARENT);
+		gridView.setLayoutParams(params);
+		gridView.setColumnWidth(itemWidth);
+		gridView.setHorizontalSpacing(6);
+		gridView.setStretchMode(GridView.NO_STRETCH);
+		gridView.setNumColumns(size);
+	}
 
 }

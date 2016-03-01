@@ -1,12 +1,13 @@
 package com.hua.utils;
 
-
+import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
+import android.util.DisplayMetrics;
 
 import com.hua.http.HttpConnManager;
 
@@ -16,7 +17,8 @@ import java.util.Map;
 
 /**
  * 手机基本信息
- * 
+ *
+ * @author linyg
  *
  */
 public class PhoneInfoUtil {
@@ -24,7 +26,9 @@ public class PhoneInfoUtil {
 	private Context context;
 	static PhoneInfoUtil phoneinfo;
 	private Map<String, Object> infoMap;
-    public String deviceId ;
+	public String deviceId ;
+	public static int widthPixels; // 屏幕分辩率宽
+	public static int heightPixels;// 屏幕分辨率高
 
 	private PhoneInfoUtil(Context context) {
 		telephonyManager = (TelephonyManager) context
@@ -47,7 +51,7 @@ public class PhoneInfoUtil {
 
 	/**
 	 * 获取手机mac地址
-	 * 
+	 *
 	 * @return
 	 * @time 2011-8-12 下午03:45:01
 	 * @author:linyg
@@ -72,7 +76,7 @@ public class PhoneInfoUtil {
 
 	/**
 	 * 手机型号
-	 * 
+	 *
 	 * @return
 	 * @time 2011-6-1 下午03:20:14
 	 * @author:linyg
@@ -90,7 +94,7 @@ public class PhoneInfoUtil {
 
 	/**
 	 * 固件号
-	 * 
+	 *
 	 * @return
 	 * @time 2011-6-1 下午03:20:23
 	 * @author:linyg
@@ -108,7 +112,7 @@ public class PhoneInfoUtil {
 
 	/**
 	 * 手机号
-	 * 
+	 *
 	 * @return
 	 * @time 2011-6-1 下午03:20:35
 	 * @author:linyg
@@ -119,7 +123,7 @@ public class PhoneInfoUtil {
 
 	/**
 	 * 获取当前系统语言
-	 * 
+	 *
 	 * @return
 	 * @time 2011-8-8 上午11:57:15
 	 * @author:linyg
@@ -134,7 +138,7 @@ public class PhoneInfoUtil {
 
 	/**
 	 * 获取当前国家和地区
-	 * 
+	 *
 	 * @return
 	 * @time 2011-8-8 上午11:57:52
 	 * @author:linyg
@@ -145,7 +149,7 @@ public class PhoneInfoUtil {
 
 	/**
 	 * 获取当前网络类型
-	 * 
+	 *
 	 * @return
 	 */
 	public String getNetType() {
@@ -174,43 +178,112 @@ public class PhoneInfoUtil {
 	 * @return
 	 */
 	public String getDeviceId() {
-        if(!StringUtil.isNull(deviceId)){
-            return deviceId;
-        }
-        StringBuffer sbDeviceMeta = new StringBuffer();
-        String imei = getIMEI(context);
-        if (imei != null) {
-            sbDeviceMeta.append(imei.trim());
-        }
+		if(!StringUtil.isNull(deviceId)){
+			return deviceId;
+		}
+		StringBuffer sbDeviceMeta = new StringBuffer();
+		String imei = getIMEI(context);
+		if (imei != null) {
+			sbDeviceMeta.append(imei.trim());
+		}
 
-        String mac = HttpConnManager.getLocalMacAddress(context);
-        if (mac != null) {
-            sbDeviceMeta.append(mac.trim());
-        }
+		String mac = HttpConnManager.getLocalMacAddress(context);
+		if (mac != null) {
+			sbDeviceMeta.append(mac.trim());
+		}
 
 //		String bluetoothMac = getBluetoothMac(ctx);
 //		if (bluetoothMac != null) {
 //			sbDeviceMeta.append(bluetoothMac.trim());
 //		}
 
-        deviceId = MD5.Md5(sbDeviceMeta.toString());
-        byte[] bytes = deviceId.getBytes();
-        int sum1 = 0, sum2 = 0;
-        for (int i = 0; i < bytes.length; i++) {
-            if (i % 2 == 0) {
-                sum1 += bytes[i];
-            } else {
-                sum2 += bytes[i];
-            }
-        }
+		deviceId = MD5.Md5(sbDeviceMeta.toString());
+		byte[] bytes = deviceId.getBytes();
+		int sum1 = 0, sum2 = 0;
+		for (int i = 0; i < bytes.length; i++) {
+			if (i % 2 == 0) {
+				sum1 += bytes[i];
+			} else {
+				sum2 += bytes[i];
+			}
+		}
 
-        final char[] codes = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        int checkSum1 = sum1 % codes.length;
-        int checkSum2 = sum2 % codes.length;
-        deviceId = deviceId + codes[checkSum1] + codes[checkSum2];
+		final char[] codes = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+		int checkSum1 = sum1 % codes.length;
+		int checkSum2 = sum2 % codes.length;
+		deviceId = deviceId + codes[checkSum1] + codes[checkSum2];
 
-        return deviceId;
+		return deviceId;
 	}
+
+
+	/**
+	 * 获取需要的屏幕宽度
+	 *
+	 * @param ctx
+	 * @param cutDown 需要减少的距离
+	 * @return px
+	 */
+	public static int getWidthPixels(Activity ctx, int cutDown) {
+		DisplayMetrics dm = new DisplayMetrics();
+		ctx.getWindowManager().getDefaultDisplay().getMetrics(dm);
+		// 计算两边的距离
+		return dm.widthPixels - dip2px(ctx, cutDown);
+	}
+
+	/**
+	 * get device width
+	 *
+	 * @param appContext
+	 * @return context==null will return 0
+	 */
+	public static int getScreenWidth(Context appContext) {
+		if (appContext == null) {
+			return 0;
+		}
+		return appContext.getResources().getDisplayMetrics().widthPixels;
+	}
+
+	/**
+	 * 获取需要的屏幕高度
+	 *
+	 * @param ctx 需要减少的距离
+	 * @return px
+	 */
+	public static int getHegithPixels(Activity ctx) {
+		DisplayMetrics dm = new DisplayMetrics();
+		ctx.getWindowManager().getDefaultDisplay().getMetrics(dm);
+		// 计算两边的距离
+		return dm.heightPixels;
+	}
+
+
+	/**
+	 * dip to px
+	 *
+	 * @param context
+	 * @param dipValue
+	 * @return
+	 */
+	public static int dip2px(Context context, float dipValue) {
+		float scale = context.getResources().getDisplayMetrics().density;
+		return (int) (dipValue * scale + 0.5f);
+	}
+
+	/**
+	 * px to dip
+	 *
+	 * @param context
+	 * @param pxValue
+	 * @return
+	 */
+	public static int px2dip(Context context, float pxValue) {
+		final float scale = context.getResources().getDisplayMetrics().density;
+		return (int) (pxValue / scale + 0.5f);
+	}
+
+
+
 //
 //	/**
 //	 * 获取设备唯一码
@@ -281,7 +354,7 @@ public class PhoneInfoUtil {
 
 	/**
 	 * 生产厂商
-	 * 
+	 *
 	 * @param @return
 	 * @return String
 	 */
@@ -291,7 +364,7 @@ public class PhoneInfoUtil {
 
 	/**
 	 * 运营商名称
-	 * 
+	 *
 	 * @param @return
 	 * @return String
 	 */
@@ -301,7 +374,7 @@ public class PhoneInfoUtil {
 
 	/**
 	 * 运营商国家码
-	 * 
+	 *
 	 * @param @return
 	 * @return String
 	 */
@@ -311,7 +384,7 @@ public class PhoneInfoUtil {
 
 	/**
 	 * 手机国家码
-	 * 
+	 *
 	 * @param @return
 	 * @return String
 	 */
@@ -321,7 +394,7 @@ public class PhoneInfoUtil {
 
 	/**
 	 * 获取电信运营商
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getIMSI() {
@@ -347,7 +420,7 @@ public class PhoneInfoUtil {
 
 	/**
 	 * 是否为中国大陆
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public boolean isChinaCarrier() {
@@ -371,25 +444,24 @@ public class PhoneInfoUtil {
 
 	/**
 	 * imei号
-	 * 
+	 *
 	 * @return
 	 */
 	public String getIMEI() {
 		String deviceID = telephonyManager.getDeviceId();
 		return deviceID;
 	}
-    public  String getIMEI(Context context) {
-        String imei = "";
-        TelephonyManager manager = (TelephonyManager) context
-                .getSystemService(Context.TELEPHONY_SERVICE);
-        if (manager != null) {
-            imei = manager.getDeviceId();
-        }
+	public  String getIMEI(Context context) {
+		String imei = "";
+		TelephonyManager manager = (TelephonyManager) context
+				.getSystemService(Context.TELEPHONY_SERVICE);
+		if (manager != null) {
+			imei = manager.getDeviceId();
+		}
 
-        return imei;
-    }
+		return imei;
+	}
 
- 
-	
+
+
 }
-

@@ -1,85 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/ll_circle_list_head"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/white"
-    android:orientation="vertical">
+<RelativeLayout android:id="@+id/hr_ico_layout"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:background="@color/white"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:visibility="visible"
+    >
 
-    <RelativeLayout
-        android:id="@+id/hr_ico_layout"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/hongrenTtitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:paddingBottom="5dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="5dp"
-        android:visibility="visible"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/hr_ring"
+        />
+
+
+    <HorizontalScrollView
+        android:id="@+id/horizontal_scrollview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/circle_hr_marginLeft"
+        android:layout_toRightOf="@+id/hongrenTtitle"
+        android:layout_centerVertical="true"
+        android:scrollbars="none"
         >
 
-        <ImageView
-            android:id="@+id/hongrenTtitle"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/hr_ring"
-            />
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal"
+            >
+            <com.hua.view.CustomGridView
+                android:id="@+id/medal_gridview"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:horizontalSpacing="5dp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+     <ImageView
+         android:id="@+id/more_hr"
+         android:layout_width="40dp"
+         android:layout_height="40dp"
+         android:layout_alignParentRight="true"
+         android:layout_centerVertical="true"
+         android:scaleType="fitXY"
+         android:background="@color/white"
+         android:visibility="gone"
+         android:src="@drawable/hr_all"/>
+
+    <ImageView
+        android:id="@+id/more_hr_scroll"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/horizontal_scrollview"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="5dp"
+        android:visibility="gone"
+        android:src="@drawable/hr_all"/>
 
 
-
-            <HorizontalScrollView
-                android:id="@+id/horizontal_scrollview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:layout_marginLeft="@dimen/circle_hr_marginLeft"
-                android:layout_toRightOf="@+id/hongrenTtitle"
-                android:scrollbars="none"
-                android:visibility="visible">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:orientation="horizontal"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp">
-
-                    <GridView
-                        android:id="@+id/medal_gridview"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-            </HorizontalScrollView>
-
-        <ImageView
-            android:id="@+id/more_hr"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="8dp"
-            android:padding="5dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/hr_all"/>
-
-        <ImageView
-            android:id="@+id/more_hr_scroll"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_toRightOf="@+id/horizontal_scrollview"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="8dp"
-            android:padding="5dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/hr_all"/>
-
-
-    </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>
