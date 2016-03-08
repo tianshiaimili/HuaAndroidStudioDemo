@@ -6,11 +6,14 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Html;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hua.R;
@@ -38,6 +41,8 @@ import com.hua.activity.test.WebViewPlayer_;
 import com.hua.activity.test.XuanFuActivity;
 import com.hua.dynamicload.ProxyActivity;
 import com.hua.utils.ActivityManager;
+import com.hua.utils.PublicMethod;
+import com.hua.utils.QuickReturnUtils;
 import com.hua.utils.StringUtil;
 import com.hua.view.RefleshListView;
 
@@ -66,6 +71,9 @@ public class MainActivity extends BaseActivity {
     @ViewById
     RefleshListView listView;
     MAdapter adapter;
+
+    @ViewById
+    ImageView iv_top;
 
     @StringArrayRes(R.array.home_item)
     String[] home_item;
@@ -245,6 +253,31 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+                if(scrollState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL){
+                    Log.d("Disance","SCROLL_STATE_TOUCH_SCROLL == "+SCROLL_STATE_TOUCH_SCROLL);
+                    QuickReturnUtils.getInstance(MainActivity.this).computeStartPoint(view);
+                }
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+                if(QuickReturnUtils.getInstance(MainActivity.this).isShowbackIco(view,firstVisibleItem)){
+
+                    PublicMethod.showBackView(MainActivity.this,iv_top);
+                }else{
+                    PublicMethod.hideBackView(MainActivity.this,iv_top);
+                }
+
+            }
+        });
+
 
     }
 

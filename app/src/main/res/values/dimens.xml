@@ -106,5 +106,9 @@
     <dimen name="circle_hr_height">28dp</dimen>
     <dimen name="circle_height">32dp</dimen>
     <dimen name="circle_spacing">5dp</dimen>
+
+    <dimen name="wheel_width">24dp</dimen>
+    <dimen name="share_icon_size">48dp</dimen>
+
 </resources>
 

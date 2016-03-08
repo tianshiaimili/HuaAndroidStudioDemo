@@ -33,9 +33,8 @@
         >
 
         <LinearLayout
-            android:layout_width="80dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:orientation="horizontal"
             >
             <com.hua.view.CustomGridView
@@ -54,8 +53,7 @@
          android:layout_alignParentRight="true"
          android:layout_centerVertical="true"
          android:scaleType="fitXY"
-         android:background="@color/white"
-         android:visibility="gone"
+         android:background="@color/style_color"
          android:src="@drawable/hr_all"/>
 
     <ImageView

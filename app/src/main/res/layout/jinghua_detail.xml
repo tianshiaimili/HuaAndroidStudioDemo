@@ -25,6 +25,17 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="唐氏筛查" />
+
+        <ImageView
+            android:id="@+id/iv_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/gototop"
+            android:layout_marginRight="15dp"
+            android:visibility="gone" />
+
     </RelativeLayout>
 
     <com.hua.view.RefleshListView
@@ -36,5 +47,6 @@
         
          >
     </com.hua.view.RefleshListView>
+
 
 </LinearLayout>

@@ -3,9 +3,11 @@ package com.hua.activity.test;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,6 +16,8 @@ import android.widget.TextView;
 import com.hua.R;
 import com.hua.bean.PostsCreamBean;
 import com.hua.utils.LogUtils;
+import com.hua.utils.PublicMethod;
+import com.hua.utils.QuickReturnUtils;
 import com.hua.view.RefleshListView;
 import com.hua.view.ScaleImageView;
 
@@ -36,7 +40,10 @@ public class CreamDetail extends Activity {
 	   
 	@ViewById
 	RefleshListView listview;
-	
+
+	@ViewById
+	ImageView iv_top;
+
 	@org.androidannotations.annotations.res.StringRes(R.string.poststest1)
 	String poststest1;
 	
@@ -83,6 +90,25 @@ public class CreamDetail extends Activity {
 		
 		adapter = new CreamDetailAdapter(this,list);
 		listview.setAdapter(adapter);
+		listview.setOnScrollListener(new AbsListView.OnScrollListener() {
+			@Override
+			public void onScrollStateChanged(AbsListView view, int scrollState) {
+				if(scrollState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL){
+					Log.d("Disance","SCROLL_STATE_TOUCH_SCROLL == "+SCROLL_STATE_TOUCH_SCROLL);
+					QuickReturnUtils.getInstance(CreamDetail.this).computeStartPoint(view);
+				}
+			}
+
+			@Override
+			public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+				if(QuickReturnUtils.getInstance(CreamDetail.this).isShowbackIco(view,firstVisibleItem)){
+
+					PublicMethod.showBackView(CreamDetail.this,iv_top);
+				}else{
+					PublicMethod.hideBackView(CreamDetail.this,iv_top);
+				}
+			}
+		});
 		
 	}
 	

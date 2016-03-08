@@ -73,6 +73,7 @@ public class CustomsHorizontalScrollView extends LinearLayout {
         headIco = (ImageView) findViewById(R.id.hongrenTtitle);
         headIco.setImageResource(head_ico_src);
         RelativeLayout.LayoutParams headico_params = new RelativeLayout.LayoutParams(head_ico_size,head_ico_size);
+        headico_params.addRule(RelativeLayout.CENTER_VERTICAL);
         headIco.setLayoutParams(headico_params);
 
         horizontal_scrollview = (HorizontalScrollView) findViewById(R.id.horizontal_scrollview);
@@ -131,7 +132,7 @@ public class CustomsHorizontalScrollView extends LinearLayout {
         int size = datas.size();
         DisplayMetrics dm = mContext.getResources().getDisplayMetrics();
         float screenWidth = dm.widthPixels;
-        float width = mContext.getResources().getDimension(R.dimen.circle_height);
+        float width = ico_size;//mContext.getResources().getDimension(R.dimen.circle_height);
         float spacing = ico_default_spacing_size;//mContext.getResources().getDimension(R.dimen.circle_spacing);
 
         int allWidth = (int) (width * size + spacing * (size - 1));

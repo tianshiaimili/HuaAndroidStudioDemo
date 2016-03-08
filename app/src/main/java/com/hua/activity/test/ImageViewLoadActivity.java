@@ -87,7 +87,7 @@ public class ImageViewLoadActivity extends Activity{
 	private List<String> getList(){
 
 		List<String> list = new ArrayList<>();
-		for(int i = 0; i < 6; i++){
+		for(int i = 0; i < 16; i++){
 			list.add(url3);
 		}
 		return list;

@@ -2,6 +2,7 @@ package com.hua.utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.View;
@@ -9,8 +10,8 @@ import android.view.WindowManager;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by etiennelawlor on 6/28/14.
@@ -19,7 +20,18 @@ public class QuickReturnUtils {
 
     private static TypedValue sTypedValue = new TypedValue();
     private static int sActionBarHeight;
-    private static Dictionary<Integer, Integer> sListViewItemHeights = new Hashtable<Integer, Integer>();
+    private static Map<Integer, Integer> sListViewItemHeights = new HashMap<>();
+
+    private static long screenHeight ;
+    private static QuickReturnUtils returnUtils;
+    public static QuickReturnUtils getInstance(Context context){
+        if(returnUtils == null){
+            returnUtils = new QuickReturnUtils();
+            DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+            screenHeight = metrics.heightPixels;
+        }
+        return returnUtils;
+    }
 
     public static int dp2px(Context context, int dp) {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
@@ -39,6 +51,11 @@ public class QuickReturnUtils {
         display.getMetrics(displaymetrics);
 
         return (int) (px / displaymetrics.density + 0.5f);
+    }
+
+    public static void computeStartPoint(AbsListView lv){
+        oldY = getScrollY(lv);
+        Log.d("Disance","oldY == "+oldY);
     }
 
     public static int getScrollY(ListView lv) {
@@ -69,8 +86,10 @@ public class QuickReturnUtils {
 //        int scrollY = 0;
 
 
+        int height = c.getHeight();
 
-        sListViewItemHeights.put(lv.getFirstVisiblePosition(), c.getHeight());
+        LogUtils.d("height=="+(height));
+        sListViewItemHeights.put(lv.getFirstVisiblePosition(), height);
         LogUtils.e("the firstVisiblePosition=="+(firstVisiblePosition));
 //        if(scrollY>0)
 //            Log.d("QuickReturnUtils", "getScrollY() : -(c.getTop()) - "+ -(c.getTop()));
@@ -85,14 +104,46 @@ public class QuickReturnUtils {
 
 //            Log.d("QuickReturnUtils", "getScrollY() : sListViewItemHeights.get(i) - "+sListViewItemHeights.get(i));
 
-            if (sListViewItemHeights.get(i) != null) // (this is a sanity check)
-                scrollY += sListViewItemHeights.get(i); //add all heights of the views that are gone
+            if (sListViewItemHeights.get(i) != null) {
+                int temp = sListViewItemHeights.get(i);
+                LogUtils.i( "temp == "+temp);
+                scrollY += temp; //add all heights of the views that are gone
+            }
 
         }
 
         LogUtils.d( "getScrollY() : scrollY - "+scrollY);
 
         return scrollY;
+    }
+
+    /**
+     * @return
+     */
+    private static long oldY = 0;
+    private static int oldPosition;
+    public static boolean isShowbackIco(AbsListView lv,int position) {
+        if(position == 0)return false;
+        long scrollY = getScrollY(lv);
+        Log.d("disance","scrollY = "+ scrollY);
+        long disance = oldY - scrollY;
+        int  space = oldPosition - position;
+        Log.d("disance","disance = "+ disance);
+        Log.d("disance> screenHeight","screenHeight/10 = "+(screenHeight/10));
+        if(disance > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+    public static boolean screenPages(Context context, int pageIndex, AbsListView lv) {
+        long scrollY = getScrollY(lv);
+        if (pageIndex <= 0 || scrollY < 0) return false;
+        long percent = scrollY / screenHeight;
+        if (percent > pageIndex) return true;
+        return false;
     }
 
 

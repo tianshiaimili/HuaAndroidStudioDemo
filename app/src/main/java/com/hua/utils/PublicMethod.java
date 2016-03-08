@@ -3,7 +3,11 @@ package com.hua.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
+import com.hua.R;
 import com.umeng.socialize.bean.RequestType;
 import com.umeng.socialize.controller.UMServiceFactory;
 import com.umeng.socialize.controller.UMSocialService;
@@ -258,5 +262,35 @@ public class PublicMethod {
 //            }
 //        });
 //    }
+
+
+    /**
+     * 隐藏帖子列表或者详情页中的返回顶部ico
+     * @param context
+     * @param iv_top_back
+     */
+    public static void hideBackView(Context context,View iv_top_back){
+        if (iv_top_back.getVisibility() == View.VISIBLE) {
+            Animation ad_previous_out = AnimationUtils.loadAnimation(
+                    context, R.anim.ad_previous_out);
+            iv_top_back.setAnimation(ad_previous_out);
+            iv_top_back.setVisibility(View.GONE);
+        }
+    }
+
+    /**
+     * 隐藏帖子列表或者详情页中的返回顶部ico
+     * @param context
+     * @param iv_top_back
+     */
+    public static void showBackView(Context context,View iv_top_back){
+        if (iv_top_back.getVisibility() != View.VISIBLE) {
+            Animation ad_next_in = AnimationUtils.loadAnimation(
+                    context, R.anim.ad_next_in);
+            iv_top_back.setVisibility(View.VISIBLE);
+            iv_top_back.setAnimation(ad_next_in);
+        }
+    }
+
 
 }
