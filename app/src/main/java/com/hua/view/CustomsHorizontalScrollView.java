@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -30,8 +29,9 @@ public class CustomsHorizontalScrollView extends LinearLayout {
     private Context mContext;
     private ImageView headIco, rearIco, more_hr;
     private HorizontalScrollView horizontal_scrollview;
-    private CustomGridView medal_gridview;
+//    private CustomGridView medal_gridview;
     private MasterIconAdapter adapter;
+    private LinearLayout content_layout;
 
     private int head_ico_src;
     private int head_ico_size;
@@ -77,7 +77,8 @@ public class CustomsHorizontalScrollView extends LinearLayout {
         headIco.setLayoutParams(headico_params);
 
         horizontal_scrollview = (HorizontalScrollView) findViewById(R.id.horizontal_scrollview);
-        medal_gridview = (CustomGridView) findViewById(R.id.medal_gridview);
+        content_layout = (LinearLayout) findViewById(R.id.content_layout);
+//        medal_gridview = (CustomGridView) findViewById(R.id.medal_gridview);
 
         rearIco = (ImageView) findViewById(R.id.more_hr_scroll);
         rearIco.setImageResource(more_ico_src);
@@ -120,7 +121,38 @@ public class CustomsHorizontalScrollView extends LinearLayout {
         if (StringUtil.isListNoNull(datas)) {
             adapter = new MasterIconAdapter(mContext, datas, PhoneInfoUtil.getScreenWidth(mContext));
             setGridView(datas);
-            medal_gridview.setAdapter(adapter);
+//            medal_gridview.setAdapter(adapter);
+        }
+
+    }
+
+
+    private void setContentLayout(List<String> datas){
+        if(StringUtil.isListNoNull(datas)){
+
+            int size = datas.size();
+            DisplayMetrics dm = mContext.getResources().getDisplayMetrics();
+            float screenWidth = dm.widthPixels;
+            float width = ico_size;//mContext.getResources().getDimension(R.dimen.circle_height);
+            float spacing = ico_default_spacing_size;//mContext.getResources().getDimension(R.dimen.circle_spacing);
+
+            int allWidth = (int) (width * size + spacing * (size - 1));
+            int readWidth = (int) (allWidth + width + spacing);
+            if (readWidth > screenWidth) {
+                rearIco.setVisibility(View.GONE);
+                more_hr.setVisibility(View.VISIBLE);
+            } else {
+                rearIco.setVisibility(View.VISIBLE);
+                more_hr.setVisibility(View.GONE);
+            }
+            content_layout.removeAllViews();
+            for(int i = 0; i< datas.size(); i++){
+
+                CircleImageView circleImageView = new CircleImageView(mContext);
+                circleImageView.setBorderWidth(64);
+
+
+            }
         }
 
     }
@@ -144,13 +176,13 @@ public class CustomsHorizontalScrollView extends LinearLayout {
             rearIco.setVisibility(View.VISIBLE);
             more_hr.setVisibility(View.GONE);
         }
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                allWidth, LayoutParams.MATCH_PARENT);
-        medal_gridview.setLayoutParams(params);
-        medal_gridview.setColumnWidth((int) width);
-        medal_gridview.setHorizontalSpacing((int) spacing);
-        medal_gridview.setStretchMode(GridView.NO_STRETCH);
-        medal_gridview.setNumColumns(size);
+//        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+//                allWidth, LayoutParams.MATCH_PARENT);
+//        medal_gridview.setLayoutParams(params);
+//        medal_gridview.setColumnWidth((int) width);
+//        medal_gridview.setHorizontalSpacing((int) spacing);
+//        medal_gridview.setStretchMode(GridView.NO_STRETCH);
+//        medal_gridview.setNumColumns(size);
     }
 
 

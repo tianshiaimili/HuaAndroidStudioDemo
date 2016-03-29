@@ -160,6 +160,16 @@
         <activity
             android:name="com.hua.activity.js.HTMLActivityDemo"
             android:theme="@style/AppTheme_Test"/>
+
+        <activity
+            android:name="com.hua.activity.js.ImageWebActivity"
+            android:theme="@style/AppTheme_Test"/>
+
+        <activity
+            android:name="com.hua.activity.js.ShowWebImageActivity"
+            android:theme="@style/AppTheme_Test"/>
+
+
         <activity
             android:name="com.hua.activity.duiba.CreditActivity"
             android:theme="@style/AppTheme_Test"/>

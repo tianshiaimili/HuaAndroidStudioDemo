@@ -16,6 +16,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.hua.R;
 import com.hua.activity.animator.CategoryListActivity;
 import com.hua.activity.html.upload.HtmlUpLoadActivity;
@@ -263,10 +264,14 @@ public class MainActivity extends BaseActivity {
                     QuickReturnUtils.getInstance(MainActivity.this).computeStartPoint(view);
                 }
 
+                    if(scrollState == SCROLL_STATE_IDLE) Glide.with(MainActivity.this).resumeRequests();
+
             }
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+                Glide.with(MainActivity.this).pauseRequests();
 
                 if(QuickReturnUtils.getInstance(MainActivity.this).isShowbackIco(view,firstVisibleItem)){
 

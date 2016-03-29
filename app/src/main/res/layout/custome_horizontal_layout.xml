@@ -33,16 +33,17 @@
         >
 
         <LinearLayout
+            android:id="@+id/content_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             >
-            <com.hua.view.CustomGridView
+<!--            <com.hua.view.CustomGridView
                 android:id="@+id/medal_gridview"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:horizontalSpacing="5dp"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"/>-->
         </LinearLayout>
     </HorizontalScrollView>
 

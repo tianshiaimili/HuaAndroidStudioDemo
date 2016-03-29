@@ -145,6 +145,8 @@
         <item>Animation</item>
         <item>SelectorDemo</item>
         <item>ImageViewLoadDemo</item>
+        <item>弹窗的demo</item>
+        <item>webView加载图片的demo</item>
     </string-array>
 
     <!--这个是activitys的名称-->
@@ -154,6 +156,8 @@
         <item>com.hua.activity.MainActivity_</item>
         <item>com.hua.activity.test.SelectorActivity</item>
         <item>com.hua.activity.test.ImageViewLoadActivity</item>
+        <item>com.hua.activity.test.UIDemoActivity</item>
+        <item>com.hua.activity.js.ImageWebActivity</item>
     </string-array>
 
 </resources>
