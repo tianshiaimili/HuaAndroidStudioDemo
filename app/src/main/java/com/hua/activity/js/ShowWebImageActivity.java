@@ -1,7 +1,6 @@
 package com.hua.activity.js;
 
 import android.app.Activity;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,8 +10,6 @@ import com.hua.R;
 import com.hua.image.ImageLoadUtil;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 
 public class ShowWebImageActivity extends Activity {
 	private TextView imageTextView = null;
@@ -33,6 +30,9 @@ public class ShowWebImageActivity extends Activity {
 
 		ImageLoadUtil.loadImageWithCover(this,test,imagePath);
 		Toast.makeText(this,imagePath,Toast.LENGTH_LONG).show();
+
+
+
 //		new Runnable(){
 //			@Override
 //			public void run() {
@@ -47,11 +47,21 @@ public class ShowWebImageActivity extends Activity {
 
 	}
 
-	public static Drawable loadImageFromUrl(String url) throws IOException {
+	public void loadImageFromUrl(String url) throws IOException {
 
-		URL m = new URL(url);
-		InputStream i = (InputStream) m.getContent();
-		Drawable d = Drawable.createFromStream(i, "src");
-		return d;
+
+//		Glide.with(ShowWebImageActivity.this).load(url).listener(new RequestListener<String, GlideDrawable>() {
+//			@Override
+//			public boolean onException(Exception e, String s, Target<GlideDrawable> glideDrawableTarget, boolean b) {
+//				return false;
+//			}
+//
+//			@Override
+//			public boolean onResourceReady(GlideDrawable glideDrawable, String s, Target<GlideDrawable> glideDrawableTarget, boolean b, boolean b2) {
+//				return false;
+//			}
+//		}).error(R.drawable.cover)
+//				.override(PhoneInfoUtil.widthPixels, PhoneInfoUtil.heightPixels).into(imageView);
+
 	}
 }

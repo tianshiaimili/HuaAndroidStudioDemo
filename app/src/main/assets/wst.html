@@ -1,21 +1,71 @@
 <html>
-    <script language="javascript">
+<script type="text/javascript">
         /* This function is invoked by the activity */
         function wave() {
-            alert("1");
-            document.getElementById("droid").src="android_waving.png";
-            alert("2");
+            document.getElementById("droid").src="http://ico.ooopic.com/ajax/iconpng/?id=117602.png";
+            window.imagelistner.wave();
         }
-    </script>
-    <body>
-        <!-- Calls into the javascript interface for the activity -->
-        <a onClick="window.demo.clickOnAndroid()"><div style="width:80px;
+
+
+
+</script>
+
+<script type="text/javascript">
+               function getImage(){
+               document.getElementById("droid").src="http://ico.ooopic.com/ajax/iconpng/?id=134617.png";
+                var objs = document.getElementsByTagName("img");
+                var urls = makeArray(objs);
+                alert(urls.constructor);
+                for(var i=0;i<objs.length;i++){
+                alert(i);
+                objs[i].onclick=function(){
+
+                window.imagelistner.openImage(this.src);
+                }
+                }
+                };
+
+
+var makeArray = function(obj){
+    return Array.prototype.slice.call(obj,0);
+}
+try{
+    Array.prototype.slice.call(document.documentElement.childNodes, 0)[0].nodeType;
+}catch(e){
+    makeArray = function(obj){
+        var res = [];
+        for(var i=0,len=obj.length; i<len; i++){
+            res.push(obj[i]);
+        }
+        return res;
+    }
+}
+
+
+
+</script>
+
+<body>
+<!-- Calls into the javascript interface for the activity -->
+<a onClick="getImage()">
+    <div style="width:80px;
             margin:0px auto;
             padding:10px;
             text-align:center;
-            border:2px solid #202020;" >
-                <img id="droid" src="android_normal.png"/><br>
-                Click me!
-        </div></a>
-    </body>
+            border:2px solid #202020;">
+        <img id="droid" src="http://www.d9soft.com/upload/2009/2/17/2009021745671593.gif"/><br>
+        Click me!
+    </div>
+</a>
+
+<br style="text-align: left;"/>
+</p><p style="text-align:center"><img data-s="300,640" data-type="jpeg" data-src="http://mmbiz.qpic.cn/mmbiz/ZQR8PiaHxPjaTCqMSBiawJ8ejPcHkcQGFwoEicHvggQ9XuJ8JUtLDmRbz4IyKDsEgxm37csaibzxYuiaic8R89q2EStw/0?wx_fmt=jpeg" src="http://7xpmja.com2.z0.glb.qiniucdn.com/14591637711.png" data-ratio="0.5827338129496403" data-w="" style="z-index: -1; cursor: pointer; line-height: 32px;"/></p>
+<br style="text-align: left;"/>
+</p><p style="text-align:center"><img data-s="300,640" data-type="jpeg" data-src="http://mmbiz.qpic.cn/mmbiz/ZQR8PiaHxPjaTCqMSBiawJ8ejPcHkcQGFwoEicHvggQ9XuJ8JUtLDmRbz4IyKDsEgxm37csaibzxYuiaic8R89q2EStw/0?wx_fmt=jpeg" src="http://7xpmja.com2.z0.glb.qiniucdn.com/14591637711.png" data-ratio="0.5827338129496403" data-w="" style="z-index: -1; cursor: pointer; line-height: 32px;"/></p>
+<br style="text-align: left;"/>
+</p><p style="text-align:center"><img data-s="300,640" data-type="jpeg" data-src="http://mmbiz.qpic.cn/mmbiz/ZQR8PiaHxPjaTCqMSBiawJ8ejPcHkcQGFwoEicHvggQ9XuJ8JUtLDmRbz4IyKDsEgxm37csaibzxYuiaic8R89q2EStw/0?wx_fmt=jpeg" src="http://7xpmja.com2.z0.glb.qiniucdn.com/14591637711.png" data-ratio="0.5827338129496403" data-w="" style="z-index: -1; cursor: pointer; line-height: 32px;"/></p>
+<br style="text-align: left;"/>
+</p><p style="text-align:center"><img data-s="300,640" data-type="jpeg" data-src="http://mmbiz.qpic.cn/mmbiz/ZQR8PiaHxPjaTCqMSBiawJ8ejPcHkcQGFwoEicHvggQ9XuJ8JUtLDmRbz4IyKDsEgxm37csaibzxYuiaic8R89q2EStw/0?wx_fmt=jpeg" src="http://7xpmja.com2.z0.glb.qiniucdn.com/14591637711.png" data-ratio="0.5827338129496403" data-w="" style="z-index: -1; cursor: pointer; line-height: 32px;"/></p>
+
+</body>
 </html>

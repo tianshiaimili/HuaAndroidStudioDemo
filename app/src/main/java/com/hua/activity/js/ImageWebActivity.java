@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.hua.R;
 
@@ -26,7 +27,8 @@ public class ImageWebActivity extends Activity {
         // 启用javascript
         contentWebView.getSettings().setJavaScriptEnabled(true);
         // 随便找了个带图片的网站
-        contentWebView.loadUrl("http://rapi.mama.cn/Wap/Article/index/id/5082/uid/44047841");
+//        contentWebView.loadUrl("http://rapi.mama.cn/Wap/Article/index/id/5082/uid/44047841");
+        contentWebView.loadUrl("file:///android_asset/wst.html");
         // 添加js交互接口类，并起别名 imagelistner
         contentWebView.addJavascriptInterface(new JavascriptInterface(this), "imagelistner");
         contentWebView.setWebViewClient(new MyWebViewClient());
@@ -36,15 +38,18 @@ public class ImageWebActivity extends Activity {
     // 注入js函数监听
     private void addImageClickListner() {
         // 这段js函数的功能就是，遍历所有的img几点，并添加onclick函数，在还是执行的时候调用本地接口传递url过去
-        contentWebView.loadUrl("javascript:(" +
-                "function(){" +
-                "var objs = document.getElementsByTagName(\"img\"); " +
-                "for(var i=0;i<objs.length;i++){" +
-                "objs[i].onclick=function(){" +
-                "window.imagelistner.openImage(this.src);" +
-                "}" +
-                "}" +
-                "})()");
+//        contentWebView.loadUrl("javascript:(" +
+//                "function(){" +
+//                "var objs = document.getElementsByTagName(\"img\"); " +
+//                "for(var i=0;i<objs.length;i++){" +
+//                "objs[i].onclick=function(){" +
+//                "window.imagelistner.openImage(this.src);" +
+//                "}" +
+//                "}" +
+//                "})()");
+
+        contentWebView.loadUrl("javascript:getImage()");
+
     }
 
     // js通信接口
@@ -59,6 +64,7 @@ public class ImageWebActivity extends Activity {
         @android.webkit.JavascriptInterface
         public void openImage(String img) {
             System.out.println(img);
+            Toast.makeText(context,"img",Toast.LENGTH_LONG).show();
             //
             Intent intent = new Intent();
             intent.putExtra("image", img);
@@ -66,6 +72,15 @@ public class ImageWebActivity extends Activity {
             context.startActivity(intent);
             System.out.println(img);
         }
+
+        @android.webkit.JavascriptInterface
+        public void wave(){
+
+            Toast.makeText(context,"Test",Toast.LENGTH_LONG).show();
+
+        }
+
+
     }
 
     // 监听
