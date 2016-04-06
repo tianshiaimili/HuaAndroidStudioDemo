@@ -241,7 +241,7 @@ public class RoundProgressBar extends View {
 			progress = 0;
 		spinHandler.sendEmptyMessage(0);
 	}
-	private Handler spinHandler = new Handler() {
+	private  Handler spinHandler = new Handler() {
 		/**
 		 * This is the code that will increment the progress variable
 		 * and so spin the wheel

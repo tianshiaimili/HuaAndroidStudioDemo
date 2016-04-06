@@ -3,6 +3,7 @@ package com.hua.activity.listview;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.LayoutInflater;
 
 import com.hua.R;
 
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 
 public class CustomListViewActivity extends Activity implements CustomerListView.IRefreshListener,CustomerListView.ILoadListener {
 	ArrayList<ApkEntity> apk_list;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,6 +28,7 @@ public class CustomListViewActivity extends Activity implements CustomerListView
 			listview = (CustomerListView) findViewById(R.id.listview);
 			listview.setIRefreshInterface(this);
 			listview.setILoadInterface(this);
+			listview.addHeaderView(LayoutInflater.from(CustomListViewActivity.this).inflate(R.layout.custom_listview_head,null));
 			adapter = new MyAdapter(this, apk_list);
 			listview.setAdapter(adapter);
 		} else {
