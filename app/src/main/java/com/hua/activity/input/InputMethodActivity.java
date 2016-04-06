@@ -88,7 +88,7 @@ public class InputMethodActivity extends Activity {
 			隐藏软键盘
 			InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 			if(inputMethodManager.isActive()){
-				inputMethodManager.hideSoftInputFromWindow(MainActivity.this.getCurrentFocus().getWindowToken(), 0);
+				inputMethodManager.hideSoftInputFromWindow(CustomListViewActivity.this.getCurrentFocus().getWindowToken(), 0);
 			}
 			
 			edittext.setText("success");

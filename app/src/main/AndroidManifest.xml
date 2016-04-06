@@ -142,6 +142,14 @@
         <activity
             android:name="com.hua.activity.test.SelectorActivity"
             android:theme="@style/AppTheme_Test"/>
+
+
+        <activity
+            android:name="com.hua.activity.test.CirclesSearchActivity"
+            android:theme="@style/translucent"/>
+
+
+
         <activity
             android:name="com.hua.activity.test.ImageViewLoadActivity"
             android:theme="@style/AppTheme_Test"/>
@@ -169,6 +177,9 @@
             android:name="com.hua.activity.js.ShowWebImageActivity"
             android:theme="@style/AppTheme_Test"/>
 
+        <activity
+            android:name="com.hua.activity.listview.CustomListViewActivity"
+            android:theme="@style/AppTheme_Test"/>
 
         <activity
             android:name="com.hua.activity.duiba.CreditActivity"

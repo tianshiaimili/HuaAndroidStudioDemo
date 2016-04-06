@@ -15,11 +15,18 @@
                document.getElementById("droid").src="http://ico.ooopic.com/ajax/iconpng/?id=134617.png";
                 var objs = document.getElementsByTagName("img");
                 var urls = makeArray(objs);
-                alert(urls.constructor);
+                var arrayObj = new Array([urls.length]);　//创建一个数组
+                for(var k = 0; k< urls.length;k++){
+				arrayObj.push([urls[k].src]);
+				}
+                alert(arrayObj);
+
                 for(var i=0;i<objs.length;i++){
                 alert(i);
+                objs[i].value = i;
+                alert("value = "+objs[i].value);
                 objs[i].onclick=function(){
-
+                alert(urls);
                 window.imagelistner.openImage(this.src);
                 }
                 }

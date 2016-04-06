@@ -30,7 +30,6 @@
     </style>
 
 
-
     <style name="AppTheme_Test" parent="TransparentTheme"></style>
 
     <style name="TransparentTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
@@ -57,8 +56,17 @@
     </style>
 
 
+    <style name="translucent" parent="AppTheme_Test">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 
-
+    <style name="SwipeBlankTheme">
+        　　
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
 
 
     <style name="CustomCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
@@ -131,23 +139,23 @@
         <item name="android:textColor">#57a424</item>
         <item name="android:textStyle">bold</item>
     </style>
-    
-        <style name="adapter_title_sub_style">
+
+    <style name="adapter_title_sub_style">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">#666666</item>
-        
+
     </style>
-    
-        
-            <!-- listview作者、浏览字体 -->
+
+
+    <!-- listview作者、浏览字体 -->
     <style name="title2Font">
         <item name="android:textColor">@color/gray10</item>
         <item name="android:textSize">12sp</item>
         <item name="android:singleLine">true</item>
     </style>
 
-    
-        <!-- listview标题字体 -->
+
+    <!-- listview标题字体 -->
     <style name="titleFont1">
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">18sp</item>
@@ -207,7 +215,7 @@
         <item name="android:windowAnimationStyle">@style/ActivityTransitions</item>
     </style>
 
-<!--qq登录按钮的样式-->
+    <!--qq登录按钮的样式-->
     <style name="DemoMainActivity_Button_Style">
         <item name="android:gravity">center</item>
         <item name="android:textSize">17sp</item>

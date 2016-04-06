@@ -2,6 +2,7 @@ package com.hua.activity.test;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -42,7 +43,12 @@ public class SelectorActivity extends Activity{
 				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,roundImageView,url2,false);
 				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,iv1,url2,0);
 				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,iv2,url2,1);
-				ImageLoadUtil.loadImageWithCover(SelectorActivity.this,iv3,url2,2);
+				ImageLoadUtil.loadImageWithCover(SelectorActivity.this, iv3, url2, 2);
+
+				Intent intent = new Intent();
+				intent.setClass(SelectorActivity.this, CirclesSearchActivity.class);
+				SelectorActivity.this.startActivity(intent);
+				SelectorActivity.this.overridePendingTransition(R.anim.activity_alpha_in, R.anim.activity_alpha_out);
 
 			}
 		});
